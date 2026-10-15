@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>WMEW P1 A2</title>
+  <link rel="preload" href="assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/p1.css">
+  <style>
+    /* A2 neu (07.10.): P1 C ohne Kopfzeile, Satz oben statt ab halber Höhe; der ganze Satz samt Aufzählung passt auf den ersten Bildschirm */
+    /* Schriftgröße --fs wird per Skript eingepasst, ohne Skript gilt der Wert aus p1.css */
+    .stage{height:100vh;height:100svh;padding-block:var(--pad);overflow:hidden}
+    @media (min-width:900px){.stage{padding-block:calc(28*var(--u))}}
+    .stage .sent.b1{padding:0 var(--pad) calc(.55*var(--fs))}
+    /* kleinere Abstände um die Aufzählung und schmälere Randnotizspalte, damit die Schrift größer werden kann */
+    .stage .b3{padding-top:calc(.55*var(--fs))}
+    /* engerer Zeilenabstand als P1 C (1.44), dadurch wird die eingepasste Schrift größer */
+    .stage .sent{line-height:1.18}
+    /* Laufweite eine Spur weiter als P1 C (-.022em) */
+    .stage .sent,.stage .it .n,.stage .it .t{letter-spacing:-.008em}
+    /* Handy: „call to consolidate / what worked“ bricht nur an dieser Stelle */
+    .stage .nw{white-space:nowrap}
+    .stage .it{grid-template-columns:.78em minmax(0,1fr)}
+    /* Computer: jeder Punkt der Aufzählung bleibt auf einer Zeile */
+    @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(170*var(--u))}.stage .it .t{white-space:nowrap}}
+    /* Farbkonzept F1 d2 (11.10.): Satz und Schlusssatz größer als die Aufzählung, ME/CFS in WWTF-Dunkelblau, Resources-Knopf in WWTF-Koralle unten rechts */
+    :root{--navy:#005b94;--coral:#ec6a61}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--navy:#80cee6}}
+    :root[data-theme="dark"]{--navy:#80cee6}
+    .stage{--sr:1.48}
+    @media (min-width:900px){.stage{--sr:1.52}}
+    .stage .sent{font-size:calc(var(--sr)*var(--fs));line-height:1.06}
+    .stage .sent.b1{padding-bottom:calc(.4*var(--fs))}
+    .stage .kw.me{color:var(--navy)}
+    @media (max-width:899px){.stage .it .a{font-size:max(10px,calc(10*var(--u)))}}
+    .stage .b3{display:flex;flex-direction:column;align-items:stretch;gap:calc(.5*var(--fs));padding-top:calc(.6*var(--fs))}
+    .stage .b3 .rb{align-self:flex-end}
+    .stage .b3 .sent{min-width:0}
+    @media (min-width:900px){.stage .b3{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:calc(24*var(--u))}}
+    .rb{flex:none;display:inline-block;background:var(--coral);color:#181715;border-radius:99px;padding:.45em 1.25em .4em;font-size:calc(.66*var(--fs));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+    .rb:hover,.rb:focus-visible{background:#005b94;color:#fff}
+    @media (prefers-reduced-motion:reduce){.rb{transition:none}}
+    /* Fußzeile: WWTF-Logo als Knopf (Variante B aus „WMEW WWTF-Knopf“): Original-Logo inline, damit sich die Fläche färben lässt; Ecken rund wie die Resources-Pille; Hover WWTF-Dunkelblau wie beim Resources-Knopf */
+    .foot{font-size:max(11.5px,calc(11.5*var(--u)))}
+    @media (min-width:900px){.foot{font-size:max(13px,calc(13.5*var(--u)))}}
+    .foot .fb{line-height:1.9}
+    .foot .fb .nw{white-space:nowrap}
+    .logo-btn{display:inline-block;vertical-align:middle;margin:0 .1em 0 .3em;line-height:0;border-radius:99px;overflow:hidden}
+    .logo-btn svg{display:block;height:2.2em;width:auto;aspect-ratio:170.1/63.8}
+    .logo-btn .lg-bg{fill:#008FD4;transition:fill 160ms cubic-bezier(.4,0,.2,1)}
+    .logo-btn .lg-fg{fill:#fff}
+    .logo-btn:hover .lg-bg,.logo-btn:focus-visible .lg-bg{fill:#005b94}
+    .logo-btn:focus-visible{outline:2px solid #005b94;outline-offset:3px}
+    @media (prefers-reduced-motion:reduce){.logo-btn .lg-bg{transition:none}}
+    /* WE&ME-Knopf (Variante E aus „WMEW WWTF-Knopf“): Website-Logo von weandmecfs.org, nur die Zeile „WE & ME“ ohne „Foundation“; gleiche Höhe wie der WWTF-Knopf, Buchstaben gleich hoch wie bei WWTF; weiße Pille, Hover Dunkelblau mit weißem Schriftzug */
+    .wm-btn{display:inline-flex;align-items:center;height:2.2em;padding:0 1.24em;background:#fff;box-shadow:inset 0 0 0 1px #cfcfce;transition:background-color 160ms cubic-bezier(.4,0,.2,1),box-shadow 160ms cubic-bezier(.4,0,.2,1)}
+    .wm-btn svg{height:.825em;aspect-ratio:132/32.2}
+    .wm-btn .wm-k{fill:#000}
+    .wm-btn .wm-b{fill:#2F74DC}
+    .wm-btn .wm-k,.wm-btn .wm-b{transition:fill 160ms cubic-bezier(.4,0,.2,1)}
+    .wm-btn:hover,.wm-btn:focus-visible{background:#005b94;box-shadow:inset 0 0 0 1px #005b94}
+    .wm-btn:hover .wm-k,.wm-btn:hover .wm-b,.wm-btn:focus-visible .wm-k,.wm-btn:focus-visible .wm-b{fill:#fff}
+    @media (prefers-reduced-motion:reduce){.wm-btn,.wm-btn .wm-k,.wm-btn .wm-b{transition:none}}
+    /* Vorspann beim Laden: Ladezeichen C (feine Linie) und ein Hinweis, danach erscheint der Satz */
+    .intro{display:none}
+    .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
+    .js .intro.out{opacity:0;pointer-events:none}
+    .intro .hint{margin:0;width:100%;max-width:22em;font-size:max(15px,calc(18*var(--u)));line-height:1.35;text-transform:uppercase;letter-spacing:.03em}
+    .intro .hint .tch{display:none}
+    @media (hover:none){.intro .hint .tch{display:inline}.intro .hint .ptr{display:none}}
+    .intro .ld{display:flex;flex-direction:column;align-items:center;gap:20px}
+    .intro .ld span{font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
+    .intro svg{--track:#e7e7e6;--lead:#005b94}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .intro svg{--track:#353533;--lead:#80cee6}}
+    /* Ladezeichen C füllt sich einmal von links nach rechts und bleibt voll stehen */
+    @keyframes wm-fill{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}
+    .intro .seg{animation:wm-fill 2s cubic-bezier(.4,0,.2,1) 1 forwards}
+    @media (prefers-reduced-motion:reduce){.intro .seg{animation:none;stroke-dashoffset:0}.js .intro{transition:none}}
+  </style>
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <div class="intro" role="status">
+    <p class="hint"><span class="ptr">Click</span><span class="tch">Tap</span> any part of the sentence for more details.</p>
+    <div class="ld">
+      <svg width="164" height="8" viewBox="0 0 164 8" fill="none" stroke-linecap="round" aria-hidden="true">
+        <path d="M2 4h160" stroke="var(--track)" stroke-width="1.35"/>
+        <path class="seg" d="M2 4h160" stroke="var(--lead)" stroke-width="1.35" stroke-dasharray="160 160" stroke-dashoffset="160"/>
+      </svg>
+      <span>Loading</span>
+    </div>
+  </div>
+  <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
+  <main>
+    <div class="stage">
+      <h1 class="sent b1"><a class="kw" href="money/">€3.1 million</a> has gone into<br class="d"> <a class="kw me" href="mecfs/">ME<span class="sl">/</span>CFS</a> <a class="kw" href="vienna/">research in Vienna</a><br> <a class="kw" href="2024/">starting in 2024</a>:</h1>
+
+    <ol class="list" aria-label="What the money goes to">
+      <li class="it"><span class="n">7</span><span class="t"><a class="kw" href="projects/">exploratory projects</a></span><span class="a">Call&nbsp;2024 · €695,445 · since&nbsp;01/2025</span></li>
+      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="biobank/">biobank</a></span><span class="a">€200,000 · first&nbsp;phase&nbsp;until&nbsp;2027</span></li>
+      <li class="it"><span class="n">6</span><span class="t"><a class="kw" href="fellowships/">fellowships</a></span><span class="a">€233,000 · since&nbsp;05/2026</span></li>
+      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="call/"><span class="nw">call to consolidate</span> <span class="nw">what worked</span></a></span><span class="a">€2&nbsp;million · decision&nbsp;10/2026</span></li>
+    </ol>
+
+    <div class="b3">
+      <p class="sent"><span class="g"><a class="kw" href="patients/"><span class="u">reviewed together </span><span class="g"><span class="u">with patients.</span></span></a></span> <span class="g"><a class="kw" href="beginning/">It is a beginning.</a></span></p>
+      <a class="rb" href="resources/">Resources</a>
+    </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="links"><span class="fb">Funded by <a class="logo-btn" href="https://www.wwtf.at" target="_blank" rel="noopener"><svg viewBox="0 0 170.1 63.8" role="img" aria-label="WWTF – Vienna Science and Technology Fund, website"><rect class="lg-bg" width="170.1" height="63.8"/> <polygon class="lg-fg" points="27.7,23 31,23 35.7,34.3 39.9,23.4 40.6,23.4 45,34.3 49.6,23 52.7,23 45.3,40.8 44.5,40.8 40.2,29.7 35.9,40.8 35.2,40.8 "/> <polygon class="lg-fg" points="62.8,23 66.1,23 70.7,34.3 75,23.4 75.7,23.4 80,34.3 84.7,23 87.8,23 80.4,40.8 79.6,40.8 75.3,29.7 71,40.8 70.2,40.8 "/> <polygon class="lg-fg" points="99.2,26 99.2,23.1 114.5,23.1 114.5,26 108.4,26 108.4,40.7 105.2,40.7 105.2,26 "/> <polygon class="lg-fg" points="128.2,23.1 140,23.1 140,26 131.3,26 131.3,31.1 138.6,31.1 138.6,33.8 131.3,33.8 131.3,40.7 128.2,40.7 "/> <rect x="57.3" y="15.9" class="lg-fg" width="1.1" height="31.9"/> <rect x="92.3" y="15.9" class="lg-fg" width="1.1" height="31.9"/> <rect x="120.3" y="15.9" class="lg-fg" width="1.1" height="31.9"/></svg></a>, co-funded by <a class="logo-btn wm-btn" href="https://www.weandmecfs.org" target="_blank" rel="noopener"><svg viewBox="0 0 132 32.2" role="img" aria-label="WE&amp;ME Foundation, website"><path class="wm-k" d="M0 4.26188H2.89004L8.28044 24.4119L14.1255 4.58741H17.0155L22.8605 24.3468L28.2185 4.26188H31.1085L24.6465 28.188H21.3668L15.5867 8.62392L9.77417 28.188H6.49446L0 4.26188Z"/><path class="wm-k" d="M33.8686 4.26188H49.5528V6.73588H36.5963V14.7764H48.6111V17.2504H36.5963V25.714H49.6177V28.188H33.8686V4.26188Z"/><path class="wm-b" d="M72.9653 4.26188L72.186 6.73588H61.7624L72.121 21.3194C72.9004 19.5941 73.4849 17.4457 73.8096 14.7764L76.31 16.1436C75.8229 19.2686 75.0111 21.8077 73.8421 23.7283L76.9919 28.188H73.7771L72.1535 25.8768C70.2376 27.7648 67.7373 28.6763 64.7173 28.6763C60.2686 28.6763 56.6642 25.5838 56.6642 21.059C56.6642 17.1527 59.1646 14.6136 62.834 12.8232L58.4827 6.73588V4.26188H72.9653ZM64.8472 26.0721C67.2177 26.0721 69.1336 25.2908 70.5624 23.6958L64.3277 14.9391C61.3402 16.2412 59.5218 18.2269 59.5218 21.059C59.5218 23.8911 61.7624 26.0721 64.8472 26.0721Z"/><path class="wm-k" d="M85.9867 4.26188H89.9483L98.0339 25.1606L106.152 4.26188H110.081V28.188H107.386V7.81011L99.5601 27.9601H96.4753L88.6819 7.745V28.188H85.9867V4.26188Z"/><path class="wm-k" d="M116.251 4.26188H131.935V6.73588H118.979V14.7764H130.993V17.2504H118.979V25.714H132V28.188H116.251V4.26188Z"/><path class="wm-k" d="M65.9363 3.35041C66.8592 3.35041 67.6074 2.60039 67.6074 1.6752C67.6074 0.750015 66.8592 0 65.9363 0C65.0134 0 64.2652 0.750015 64.2652 1.6752C64.2652 2.60039 65.0134 3.35041 65.9363 3.35041Z"/><path class="wm-k" d="M73.1901 31.9766L79.3748 31.9541L74.1168 29.1095L73.1901 31.9766Z"/><path class="wm-k" d="M57.5584 31.9766L63.7432 31.9541L58.4852 29.1095L57.5584 31.9766Z"/></svg></a></span></div>
+  </footer>
+  <script>
+    // Größte Schrift, bei der Satz und Aufzählung in Breite und Höhe in den ersten Bildschirm passen
+    (function(){
+      var st=document.querySelector('.stage');
+      var ts=st.querySelectorAll('.it .t');
+      // Satzglieder und Resources-Knopf dürfen nicht in den rechten Rand ragen
+      var ins=st.querySelectorAll('.sent .kw,.rb'), ls=st.querySelector('.list');
+      function edge(){var r=ls.getBoundingClientRect();return r.right-parseFloat(getComputedStyle(ls).paddingRight);}
+      function fits(){if(st.scrollHeight>st.clientHeight+.5||st.scrollWidth>st.clientWidth+.5)return false;for(var i=0;i<ts.length;i++)if(ts[i].scrollWidth>ts[i].clientWidth+.5)return false;var e=edge();for(var j=0;j<ins.length;j++){var rs=ins[j].getClientRects();for(var k=0;k<rs.length;k++)if(rs[k].right>e+.5)return false;}return true;}
+      function fit(){var lo=8,hi=200;for(var i=0;i<16;i++){var m=(lo+hi)/2;st.style.setProperty('--fs',m+'px');if(fits())lo=m;else hi=m;}st.style.setProperty('--fs',Math.floor(lo*10)/10+'px');}
+      fit();
+      if(document.fonts)document.fonts.ready.then(fit);
+      var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,60);});
+    })();
+  </script>
+  <script>
+    // Vorspann: bis die Linie voll ist (2 s) und noch kurz Zeit zum Lesen, dann ausblenden; Klick oder Taste überspringt
+    (function(){
+      var el=document.querySelector('.intro'), done=false;
+      function hide(){if(done)return;done=true;el.classList.add('out');setTimeout(function(){el.remove();},500);}
+      var minWait=new Promise(function(r){setTimeout(r,2600);});
+      var fonts=document.fonts?document.fonts.ready:Promise.resolve();
+      Promise.all([minWait,fonts]).then(hide);
+      setTimeout(hide,6000);
+      el.addEventListener('click',hide);
+      addEventListener('keydown',hide,{once:true});
+    })();
+  </script>
+  <script src="assets/kw-snap.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+/* Kapitel 9 „reviewed together with patients“ nach Wireframe QcVdvYdf3MWEJwhB1VrQRE. Baut auf p1.css, money.css und projects.css auf; hier nur, was dazukommt. Schwarzweiß, nur Inter Tight Regular */
+
+/* Juryplätze: drei Sitzungen als Spalten, je sechs Plätze; der Platz der Betroffenen ist gefüllt und durch eine Linie verbunden */
+.seats{--rh:22px;--g:10px;--sq:9px;position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0 var(--g);margin:0}
+.seats .col{display:flex;flex-direction:column;min-width:0}
+.seats .jh{display:flex;flex-direction:column;gap:2px;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--ink)}
+.seats .jh b{font-weight:400;font-size:max(15px,calc(15*var(--u)));letter-spacing:-.008em}
+.seats .jh span{font-size:max(9px,calc(9*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+.seats ul{list-style:none;margin:0;padding:0}
+.seats li{height:var(--rh);display:flex;align-items:center;gap:7px;font-size:max(10px,calc(10*var(--u)));color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seats li::before{content:"";flex:none;width:var(--sq);height:var(--sq);border:1px solid var(--mute);box-sizing:border-box}
+.seats li.ex{position:relative;z-index:1;color:var(--ink)}
+.seats li.ex::before{background:var(--ink);border-color:var(--ink)}
+.seats li.ex span{background:var(--paper);padding-right:4px}
+.seats::after{content:"";position:absolute;left:calc(var(--sq)/2);bottom:calc(var(--rh)/2);width:calc((100% - 2*var(--g))/3*2 + 2*var(--g));border-top:1.5px solid var(--ink)}
+.seat-cap{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3;margin-top:8px}
+@media (min-width:900px){
+  .seats{--rh:calc(30*var(--u));--g:calc(24*var(--u));--sq:max(9px,calc(11*var(--u)))}
+  .seats .jh b{font-size:max(17px,calc(22*var(--u)))}
+  .seats .jh span,.seat-cap{font-size:max(10.5px,calc(11*var(--u)))}
+  .seats li{font-size:max(12px,calc(14*var(--u)));gap:10px}
+}
+
+/* Steckbrief einspaltig, großes Zitat aus dem Netzwerktreffen */
+.meta.one{grid-template-columns:1fr}
+@media (min-width:900px){.meta.one>div{grid-template-columns:7em 1fr;gap:10px}}
+.quote{margin:0;display:flex;flex-direction:column;gap:6px}
+.quote p{margin:0;padding-top:10px;border-top:1px solid var(--ink);font-size:max(20px,calc(20*var(--u)));line-height:1.2;letter-spacing:-.008em}
+.quote .src{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+@media (min-width:900px){.quote p{font-size:max(22px,calc(30*var(--u)));max-width:calc(700*var(--u))}.quote .src{font-size:max(10.5px,calc(11*var(--u)))}}
+.tbc{color:var(--mute)}
+.side .bk{display:block}

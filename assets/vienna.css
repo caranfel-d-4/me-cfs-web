@@ -1,0 +1,63 @@
+/* Kapitel „research in Vienna“ nach Wireframe 8VN3r6zNausaugSSYdjKxy. Baut auf p1.css, money.css und projects.css auf.
+   Einzige Farben der Website außerhalb des Hovers: im Wienplan Koralle (Standorte) und Dunkelblau (Donau), nach ihrem Moodboard 10.08. */
+:root{--coral:#ec6a61;--navy:#005b94;--light:#B4B4B0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--coral:#f08a83;--navy:#80cee6;--light:#5A5A57}}
+:root[data-theme="dark"]{--coral:#f08a83;--navy:#80cee6;--light:#5A5A57}
+
+/* Wienplan */
+.vmap{margin:0 var(--pad);display:flex;flex-direction:column;gap:8px}
+.map{display:block;width:100%;height:auto;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--wire-soft)}
+.map.dk{display:none}
+@media (min-width:900px){.map.ph{display:none}.map.dk{display:block}}
+.map text{font-family:inherit}
+.map .bd{fill:none;stroke:var(--light);stroke-width:1;stroke-dasharray:3 4}
+.map .rd{fill:none;stroke:var(--light);stroke-width:2.4}
+.map .wa{fill:none;stroke:var(--navy);stroke-linecap:round;stroke-linejoin:round}
+.map .rn{fill:var(--mute);font-size:7.5px;letter-spacing:.03em;text-transform:uppercase}
+.map .fund{stroke:var(--light);stroke-width:.8}
+.map .col{stroke:var(--ink);stroke-linecap:round}
+.map .site{fill:var(--coral);stroke:var(--paper);stroke-width:1.5}
+.map .fun{fill:var(--ink);stroke:var(--paper);stroke-width:1.5}
+.map .lead{stroke:var(--ink);stroke-width:.8}
+.map .box{fill:var(--paper);stroke:var(--ink);stroke-width:1}
+.map .bt{fill:var(--ink);font-size:9px;letter-spacing:.03em}
+.map .bs{fill:var(--mute);font-size:8.5px}
+.map .num{fill:var(--ink)}
+.map .nt{fill:var(--paper);font-size:8.5px;text-anchor:middle}
+.map .out{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.map.dk .rn{font-size:9px}.map.dk .bt{font-size:11px}.map.dk .bs{font-size:10px}.map.dk .nt{font-size:10px}
+.vmap figcaption{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+@media (min-width:900px){.vmap figcaption{font-size:max(10.5px,calc(11*var(--u)))}}
+.vmap figcaption i{display:inline-block;width:.85em;height:.85em;border-radius:50%;vertical-align:-.08em;margin-right:.4em}
+.vmap .i-site{background:var(--coral)}
+.vmap .i-fun{border-radius:0;background:var(--ink)}
+.vmap .i-fl{border-radius:0;height:1px;width:1.6em;vertical-align:.25em;background:var(--light)}
+.vmap .i-col{border-radius:0;height:1.5px;width:1.6em;vertical-align:.25em;background:var(--ink)}
+.vmap .i-wa{border-radius:0;height:.3em;width:1.6em;vertical-align:.15em;background:var(--navy)}
+.vmap+.cols{margin-top:calc(40*var(--u))}
+@media (min-width:900px){.vmap+.cols{margin-top:calc(64*var(--u))}}
+
+/* Standorte: Liste mit Strichen, Nummern wie im Plan */
+.sites{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.sites li{display:grid;grid-template-columns:1.6em 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--wire-soft);font-size:max(13.5px,calc(13.5*var(--u)));line-height:1.4}
+.sites .n{display:inline-block;width:1.45em;height:1.45em;border-radius:50%;background:var(--ink);color:var(--paper);font-size:.8em;text-align:center;line-height:1.45em}
+.sites .nm{display:block;text-transform:uppercase;letter-spacing:-.008em;font-size:1.2em;line-height:1.1}
+.sites .ds{color:var(--mute)}
+@media (min-width:900px){.sites li{font-size:max(15px,calc(17*var(--u)));padding:calc(12*var(--u)) 0}}
+
+/* Fünf Wünsche */
+.wish{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);counter-reset:w}
+.wish li{display:grid;grid-template-columns:2.2em 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--wire-soft);font-size:max(13.5px,calc(13.5*var(--u)));line-height:1.4;counter-increment:w}
+.wish li::before{content:counter(w);font-size:1.6em;line-height:1;letter-spacing:-.008em}
+@media (min-width:900px){.wish li{font-size:max(15px,calc(17*var(--u)));padding:calc(12*var(--u)) 0}}
+.body>.src{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+@media (min-width:900px){.body>.src{font-size:max(10.5px,calc(11*var(--u)))}}
+
+/* Wer dazukam */
+.who{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;border-top:1px solid var(--ink);padding-top:10px}
+@media (min-width:900px){.who{grid-template-columns:calc(150*var(--u)) 1fr;gap:calc(24*var(--u))}}
+.who .photo{aspect-ratio:4/5;background:var(--wire-soft)}
+.who p{margin:0 0 8px;font-size:max(13.5px,calc(13.5*var(--u)));line-height:1.42}
+@media (min-width:900px){.who p{font-size:max(15px,calc(17*var(--u)))}}
+.who .wn{display:block;margin-bottom:4px;font-size:max(9.5px,calc(11*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+.side .xr .bk{display:block}

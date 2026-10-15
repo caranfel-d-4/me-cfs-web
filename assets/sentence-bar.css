@@ -1,0 +1,51 @@
+/* Fußzeile der P1-Unterseiten (Entwurf H c aus den Wireframes, 13.10.): dunkelblaue Leiste, eine Zeile, der Satz gleitet,
+   das Satzglied der aktuellen Seite steht weiß und unterstrichen. Bleibt beim Scrollen unten stehen.
+   Darunter die Fußzeile der Landingpage P1 A2 (Funded by WWTF, co-funded by WE&ME). Eingesetzt von build.js, nur in P1. */
+.sbar{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:calc(8*var(--u));margin-top:80px;padding:calc(7*var(--u)) var(--pad);background:#005b94;color:#fff}
+.sb-home,.sb-nx{font-size:max(8px,calc(8*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+/* „Home“ führt zurück auf die eigene Landingpage: Pille nur mit Schrift (Home-Symbol Variante F, ohne Symbol). Auf der blauen Leiste umgekehrt: Hover weiße Fläche, Schrift dunkelblau */
+.sb-home{flex:none;display:inline-flex;align-items:center;height:2.1em;padding:0 .85em;border:1px solid #fff;border-radius:99px;color:#fff;text-decoration:none;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+.sb-home:hover,.sbar .sb-home:focus-visible{background:#fff;color:#005b94}
+.sb-win{position:relative;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 82%,transparent)}
+.sb-win::-webkit-scrollbar{display:none}
+.sbar.js .sb-win{overflow:hidden}
+.sb-trk{display:inline-block;margin:0;padding:0 7%;white-space:nowrap;font-size:max(11px,calc(11*var(--u)));line-height:1.5;text-transform:uppercase;letter-spacing:.01em;color:#cfcfce;transition:transform .6s cubic-bezier(.3,.7,.2,1)}
+.sb-trk a{color:#cfcfce;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:.22em;transition:color .2s,text-decoration-color .2s}
+.sb-trk a:hover,.sb-trk a:focus-visible{color:#fff;text-decoration-color:currentColor;outline:none}
+.sb-trk a.cur{color:#fff;text-decoration-color:#fff}
+.sb-trk .sep{padding:0 .15em}
+.sb-nx{display:flex;align-items:center;gap:.6em;color:#fff;text-decoration:none}
+.sb-nx span{display:none}
+.sb-nx svg{width:calc(26*var(--u));height:calc(12*var(--u));overflow:visible;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.sb-nx svg path{stroke-width:1.2px;vector-effect:non-scaling-stroke}
+.sb-nx:hover,.sb-nx:focus-visible{text-decoration:underline;text-underline-offset:.3em;outline:none}
+.sbar a:focus-visible{outline:1px solid #fff;outline-offset:2px}
+@media (min-width:900px){
+  .sbar{gap:calc(22*var(--u));margin-top:calc(120*var(--u));padding:calc(8*var(--u)) var(--pad)}
+  .sb-home,.sb-nx{font-size:max(10px,calc(10*var(--u)))}
+  .sb-trk{font-size:max(13px,calc(15*var(--u)))}
+  .sb-nx span{display:inline}
+  .sb-nx svg{width:calc(34*var(--u))}
+}
+/* Fußzeile darunter wie auf P1 A2 */
+.ff{margin-top:0;border-top:0;font-size:max(11.5px,calc(11.5*var(--u)))}
+@media (min-width:900px){.ff{margin-top:0;font-size:max(13px,calc(13.5*var(--u)))}}
+.ff .fb{line-height:1.9}
+.ff .logo-btn{display:inline-block;vertical-align:middle;margin:0 .1em 0 .3em;line-height:0;border-radius:99px;overflow:hidden}
+.ff .logo-btn svg{display:block;height:2.2em;width:auto;aspect-ratio:170.1/63.8}
+.ff .logo-btn .lg-bg{fill:#008FD4;transition:fill 160ms cubic-bezier(.4,0,.2,1)}
+.ff .logo-btn .lg-fg{fill:#fff}
+.ff .logo-btn:hover .lg-bg,.ff .logo-btn:focus-visible .lg-bg{fill:#005b94}
+.ff .logo-btn:focus-visible{outline:2px solid #005b94;outline-offset:3px}
+.ff .wm-btn{display:inline-flex;align-items:center;height:2.2em;padding:0 1.24em;background:#fff;box-shadow:inset 0 0 0 1px #cfcfce;transition:background-color 160ms cubic-bezier(.4,0,.2,1),box-shadow 160ms cubic-bezier(.4,0,.2,1)}
+.ff .wm-btn svg{height:.825em;aspect-ratio:132/32.2}
+.ff .wm-btn .wm-k{fill:#000}
+.ff .wm-btn .wm-b{fill:#2F74DC}
+.ff .wm-btn .wm-k,.ff .wm-btn .wm-b{transition:fill 160ms cubic-bezier(.4,0,.2,1)}
+.ff .wm-btn:hover,.ff .wm-btn:focus-visible{background:#005b94;box-shadow:inset 0 0 0 1px #005b94}
+.ff .wm-btn:hover .wm-k,.ff .wm-btn:hover .wm-b,.ff .wm-btn:focus-visible .wm-k,.ff .wm-btn:focus-visible .wm-b{fill:#fff}
+@media (prefers-reduced-motion:reduce){.sb-trk,.sb-trk a,.sb-home,.ff .logo-btn .lg-bg,.ff .wm-btn,.ff .wm-btn .wm-k,.ff .wm-btn .wm-b{transition:none}}
+/* Unten auf den Kapitelseiten keine Vor/Zurück-Links mehr (die Satzleiste führt durch die Kapitel): „Summary +“ steht allein, mittig, ohne Strich */
+.end.solo{border-top:0;align-items:center;text-align:center}
+.end.solo details ul{text-align:left;margin-inline:auto}
+@media (min-width:900px){.end.solo{justify-content:center}}

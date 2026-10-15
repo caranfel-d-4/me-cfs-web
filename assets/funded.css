@@ -1,0 +1,19 @@
+/* Fußzeile „Funded by [WWTF], co-funded by [WE&ME]“ wie auf P1 A2, für P3 C1 und P3 C2 (14.10.2026).
+   Knöpfe wie in p1-a2/index.html und sentence-bar.css (.ff); hier unter .fd, damit P1 unverändert bleibt. */
+.fd{font-size:max(11.5px,calc(11.5*var(--u)))}
+@media (min-width:900px){.fd{font-size:max(13px,calc(13.5*var(--u)))}}
+.fd .fb{line-height:1.9}
+.fd .logo-btn{display:inline-block;vertical-align:middle;margin:0 .1em 0 .3em;line-height:0;border-radius:99px;overflow:hidden}
+.fd .logo-btn svg{display:block;height:2.2em;width:auto;aspect-ratio:170.1/63.8}
+.fd .logo-btn .lg-bg{fill:#008FD4;transition:fill 160ms cubic-bezier(.4,0,.2,1)}
+.fd .logo-btn .lg-fg{fill:#fff}
+.fd .logo-btn:hover .lg-bg,.fd .logo-btn:focus-visible .lg-bg{fill:#005b94}
+.fd .logo-btn:focus-visible{outline:2px solid #005b94;outline-offset:3px}
+.fd .wm-btn{display:inline-flex;align-items:center;height:2.2em;padding:0 1.24em;background:#fff;box-shadow:inset 0 0 0 1px #cfcfce;transition:background-color 160ms cubic-bezier(.4,0,.2,1),box-shadow 160ms cubic-bezier(.4,0,.2,1)}
+.fd .wm-btn svg{height:.825em;aspect-ratio:132/32.2}
+.fd .wm-btn .wm-k{fill:#000}
+.fd .wm-btn .wm-b{fill:#2F74DC}
+.fd .wm-btn .wm-k,.fd .wm-btn .wm-b{transition:fill 160ms cubic-bezier(.4,0,.2,1)}
+.fd .wm-btn:hover,.fd .wm-btn:focus-visible{background:#005b94;box-shadow:inset 0 0 0 1px #005b94}
+.fd .wm-btn:hover .wm-k,.fd .wm-btn:hover .wm-b,.fd .wm-btn:focus-visible .wm-k,.fd .wm-btn:focus-visible .wm-b{fill:#fff}
+@media (prefers-reduced-motion:reduce){.fd .logo-btn .lg-bg,.fd .wm-btn,.fd .wm-btn .wm-k,.fd .wm-btn .wm-b{transition:none}}

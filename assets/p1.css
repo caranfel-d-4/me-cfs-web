@@ -1,0 +1,95 @@
+/* P1 – gemeinsame Satzseite für P1 C und P1 Z nach Moodboard 10.06 (#1 Kopfzeile, #2 Grotesk-Versalien, #3 Liste mit Randnotiz). Schwarzweiß. */
+@font-face{font-family:"Inter Tight";src:url(fonts/inter-tight-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter Tight";src:url(fonts/inter-tight-700.woff2) format("woff2");font-weight:700;font-display:swap}
+
+:root{
+  --paper:#FAFAF8; --ink:#1B1B1A; --mute:#6A6A67; --wire-soft:#DADAD6;
+  --grot:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  /* Handy: Entwurf auf 375 px */
+  --u:calc(100vw / 375);
+  --pad:22px; --fs:30px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){color-scheme:dark;--paper:#1F1F1E;--ink:#E6E6E3;--mute:#9C9C98;--wire-soft:#353533}
+}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#1F1F1E;--ink:#E6E6E3;--mute:#9C9C98;--wire-soft:#353533}
+/* Computer: Entwurf auf 1280 px, skaliert mit der Fensterbreite */
+@media (min-width:900px){
+  :root{--u:calc(100vw / 1280);--pad:calc(80*var(--u));--fs:calc(60*var(--u))}
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--grot);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* Kopfzeile nach #1 */
+.hd{position:absolute;top:0;left:0;right:0;display:grid;grid-template-columns:1fr 1.3fr auto;gap:10px;align-items:start;padding:34px var(--pad) 0;font-size:max(8.5px,calc(8.5*var(--u)));line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
+.hd b{display:block;font-weight:700;font-size:1.25em;letter-spacing:.03em}
+.hd .m{color:var(--mute)}
+.hd .r{text-align:right}
+.hd .r a{text-underline-offset:2px}
+@media (min-width:900px){
+  .hd{grid-template-columns:1fr 1fr 1fr;padding-top:calc(26*var(--u));font-size:max(11px,calc(11*var(--u)))}
+  .hd .m{text-align:center}
+}
+
+/* Satz: Einstieg auf halber Höhe, beim Ankommen nur bis „starting in 2024:“ */
+.hero{position:relative;min-height:100vh;min-height:100svh;padding:50vh var(--pad) calc(.9*var(--fs));padding-top:50svh}
+.sent{margin:0;font-weight:400;text-transform:uppercase;font-size:var(--fs);line-height:1.44;letter-spacing:-.022em}
+.sent.b1{padding-top:.3em}
+.sent br.d{display:none}
+@media (min-width:900px){.sent br.d{display:inline}.sent br.m{display:none}}
+.sent .kw{white-space:nowrap}
+.sent .g{display:block}
+.sent .g .g{display:inline}
+@media (max-width:899px){.sent .g .g{display:block}}
+
+/* Satzglieder: Unterstrich wächst beim Hover. Gleiche Stärke für alle Größen (aus --fs, nicht em), dünner als vorher (.06em);
+   je Zeile ein eigener Strich (box-decoration-break). assets/kw-snap.js rundet Stärke und Lage auf ganze Pixel, damit alle Striche gleich fein sind. Mehrzeilige Glieder tragen den Strich auf .u-Spannen, damit jedes Wort ihn bekommt */
+.kw{text-decoration:none;cursor:pointer;--ul:max(1px,calc(.035*var(--fs)));--ug:calc(.09*var(--fs))}
+/* Strich immer gleich weit unter der Grundlinie (--ug), egal wie groß die Schrift: Unterkante der Zeile liegt .24em unter der Grundlinie (Inter Tight) */
+.kw,.kw .u{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 calc(100% - .24em + var(--ug) + var(--us,0px));background-size:0% var(--ul);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .4s ease}
+.kw:has(.u){background-image:none}
+.kw:hover,.kw:focus-visible,.kw:hover .u,.kw:focus-visible .u{background-size:100% var(--ul)}
+.kw:focus-visible{outline:none}
+/* Schrägstrich in ME/CFS reicht unter die Grundlinie: dort setzt der Strich kurz aus (Schatten in Papierfarbe, wie skip-ink) */
+.kw .sl{text-shadow:-.035em 0 var(--paper),.035em 0 var(--paper),-.07em 0 var(--paper),.07em 0 var(--paper)}
+
+.cue{position:absolute;left:var(--pad);bottom:16px;font-size:max(9px,calc(9*var(--u)));color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+@media (min-width:900px){.cue{bottom:calc(16*var(--u));font-size:max(11px,calc(11*var(--u)))}}
+
+/* Scrollzeichen (C, gerader Pfeil), eingesetzt von scroll-cue.js: feiner Strich wie Pfeil B, zeichnet sich einmal nach, Hover Dunkelblau */
+.scroll-cue{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-size:12px;line-height:1;text-transform:uppercase;letter-spacing:.03em;transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.scroll-cue:hover,.scroll-cue:focus-visible{color:#005b94}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .scroll-cue:hover,:root:not([data-theme="light"]) .scroll-cue:focus-visible{color:#80cee6}}
+.scroll-cue:focus-visible{outline:1.35px solid currentColor;outline-offset:6px}
+.scroll-cue svg{display:block;width:48px;height:auto;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.35px;stroke-linecap:round;stroke-linejoin:round}
+@keyframes sc-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.scroll-cue .d{stroke-dasharray:1;stroke-dashoffset:1;animation:sc-draw 1.1s cubic-bezier(.4,0,.2,1) .2s forwards}
+.scroll-cue .h{stroke-dasharray:1;stroke-dashoffset:1;animation:sc-draw .35s cubic-bezier(.4,0,.2,1) 1.25s forwards}
+@media (prefers-reduced-motion:reduce){.scroll-cue .d,.scroll-cue .h{animation:none;stroke-dashoffset:0}.scroll-cue{transition:none}}
+
+/* Aufzählung nach #3: Ziffer und Text, Randnotiz; Striche nur hier */
+.list{list-style:none;margin:0;padding:0 var(--pad);font-size:var(--fs)}
+.it{display:grid;grid-template-columns:.78em 1fr;column-gap:.18em;padding:.3em 0 .12em;border-bottom:1px solid var(--ink)}
+.it:first-child{border-top:1px solid var(--ink)}
+.it .n,.it .t{text-transform:uppercase;line-height:1.02;letter-spacing:-.022em}
+.it .n{font-variant-numeric:tabular-nums}
+.it .a{grid-column:2;font-size:max(9.5px,calc(9.5*var(--u)));line-height:1.25;text-transform:uppercase;letter-spacing:.03em;color:var(--mute);padding-top:4px}
+@media (min-width:900px){
+  .it{grid-template-columns:.78em 1fr calc(230*var(--u));align-items:end}
+  .it .a{grid-column:3;font-size:max(11px,calc(11*var(--u)));text-align:right;padding:0 0 calc(6*var(--u))}
+}
+
+.b3{padding:calc(.9*var(--fs)) var(--pad) 0}
+
+.foot{display:flex;flex-direction:column;gap:6px;margin-top:80px;padding:10px var(--pad) 26px;border-top:1px solid var(--wire-soft);font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+.foot .links{display:flex;flex-wrap:wrap;gap:4px 12px}
+.foot a{text-underline-offset:2px}
+.foot .res{color:var(--ink)}
+@media (min-width:900px){
+  .foot{flex-direction:row;justify-content:space-between;margin-top:calc(120*var(--u));padding:calc(10*var(--u)) var(--pad) calc(26*var(--u));font-size:max(11px,calc(11*var(--u)))}
+}
+@media (prefers-reduced-motion: reduce){.kw,.kw .u{transition:none}}

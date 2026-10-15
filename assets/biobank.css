@@ -1,0 +1,19 @@
+/* Kapitel 6 „1 biobank“ (ME/CFS Biobank Austria) nach Wireframe KMeYvGjdibFGD51HEFnvgE. Baut auf p1.css, money.css und projects.css auf; hier nur, was dazukommt. Schwarzweiß, nur Inter Tight Regular */
+
+/* Bild am Computer flacher als bei den Projekten: Stimmung, keine Person */
+@media (min-width:900px){.pic.bio .photo{aspect-ratio:21/8}}
+
+/* So funktioniert sie: drei Schritte als Liste mit Strichen */
+.how{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.how li{display:grid;grid-template-columns:6.2em 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--wire-soft);font-size:max(13.5px,calc(13.5*var(--u)));line-height:1.4}
+.how .n{text-transform:uppercase;letter-spacing:-.008em;font-size:1.35em;line-height:1}
+@media (min-width:900px){.how li{grid-template-columns:7em 1fr;font-size:max(15px,calc(17*var(--u)));padding:calc(12*var(--u)) 0}}
+.tbc{color:var(--mute)}
+
+/* Grafiken: Geldfluss und Größenvergleich (Textstil aus money.css) */
+.fl .b-ink{fill:var(--ink)}
+.fl .b-mute{fill:var(--mute)}
+.fl .b-light{fill:var(--light)}
+.fl .b-open{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3}
+.fl .b-line{fill:none;stroke:var(--ink);stroke-width:1.2}
+.side .xr .bk{display:block}

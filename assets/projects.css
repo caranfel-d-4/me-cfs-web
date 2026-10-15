@@ -1,0 +1,63 @@
+/* P1 Kapitel 5 „7 exploratory projects“ und Kapitel 8 „1 call to consolidate what worked“ (Wireframe B4.1, B4.2) samt den sieben Projektseiten (B4, Projektseite 002).
+   Baut auf p1.css und money.css auf. Schwarzweiß, nur Inter Tight Regular, einzige Farbe Hover Dunkelblau, keine Bewegung */
+
+/* Turm: sieben Platten (je ein Projekt, Höhe nach Betrag), darauf der Block des Consolidation Call. Statisches SVG, Handy und Computer getrennt */
+.tower{margin:calc(40*var(--u)) var(--pad) 0}
+@media (min-width:900px){.tower{margin-top:calc(64*var(--u))}}
+.tw{display:block;width:100%;height:auto;overflow:visible}
+.tw.dk{display:none}
+@media (min-width:900px){.tw.ph{display:none}.tw.dk{display:block}}
+.tw text{font-family:var(--grot);fill:var(--ink)}
+.tw .fl{fill:var(--ink)}
+.tw .fr{fill:var(--mute)}
+.tw .ft{fill:var(--light)}
+.tw .oo{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3;stroke-linejoin:round}
+.tw .oo.top,.tw .oo.side{fill:var(--paper)}
+.tw .ht{stroke:var(--ink);stroke-width:1.2}
+.tw .ld{fill:none;stroke:var(--ink);stroke-width:1}
+.tw .tx,.tw .am{fill:var(--mute)}
+.tw .tot{letter-spacing:-.008em}
+/* Platten sind Links zur Projektseite: Hover und Fokus Dunkelblau */
+.tw .slab{cursor:pointer}
+.tw .slab .fl,.tw .slab .pl,.tw .slab .ld{transition:fill 160ms cubic-bezier(.4,0,.2,1),stroke 160ms cubic-bezier(.4,0,.2,1)}
+.tw .slab:hover .fl,.tw .slab:focus-visible .fl{fill:var(--navy)}
+.tw .slab:hover .pl,.tw .slab:focus-visible .pl{fill:var(--navy)}
+.tw .slab:hover .ld,.tw .slab:focus-visible .ld{stroke:var(--navy)}
+.tw .slab:hover .oo,.tw .slab:focus-visible .oo{stroke:var(--navy)}
+.tw .slab:focus-visible{outline:none}
+
+/* Projekte als Liste unter dem Turm (für Screenreader und zum Nachlesen; am Handy sichtbar, am Computer nur für Screenreader) */
+.tl ul{list-style:none;margin:calc(20*var(--u)) 0 0;padding:0;font-size:max(12px,calc(12.5*var(--u)))}
+.tl li{border-bottom:1px solid var(--wire-soft)}
+.tl li:first-child{border-top:1px solid var(--ink)}
+.tl a{display:grid;grid-template-columns:3.2em 1fr auto;gap:8px;padding:6px 0;width:100%}
+.tl .n,.tl .a{color:var(--mute);font-size:.85em;text-transform:uppercase;letter-spacing:.03em;align-self:center}
+.tl a:hover .n,.tl a:hover .a{color:inherit}
+@media (min-width:900px){.tl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+
+.side .xr .bk{display:inline}
+
+/* Projektseite: Foto (Platzhalter, bis die Freigabe da ist), Steckbrief, Text, Originaltitel */
+.pic{margin:0 var(--pad);display:flex;flex-direction:column;gap:6px}
+.pic .photo{display:block;width:100%;aspect-ratio:3/2;background:var(--wire-soft)}
+.pic figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 16px;font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+@media (min-width:900px){.pic figcaption{font-size:max(10.5px,calc(11*var(--u)))}}
+.pic+.cols{margin-top:calc(40*var(--u))}
+@media (min-width:900px){.pic+.cols{margin-top:calc(64*var(--u))}}
+
+.meta{margin:0;display:grid;grid-template-columns:1fr;font-size:max(12.5px,calc(12.5*var(--u)));line-height:1.35}
+.meta>div{display:grid;grid-template-columns:5.5em 1fr;gap:10px;padding:5px 0;border-bottom:1px solid var(--wire-soft)}
+.meta dt{color:var(--mute);text-transform:uppercase;letter-spacing:.03em;font-size:.82em;padding-top:.15em}
+.meta dd{margin:0}
+@media (min-width:900px){
+  .meta{grid-template-columns:repeat(4,1fr);gap:0 calc(18*var(--u));font-size:max(13px,calc(14*var(--u)))}
+  .meta>div{grid-template-columns:1fr;gap:3px}
+}
+.orig{margin:0;color:var(--mute);font-size:max(12.5px,calc(12.5*var(--u)));line-height:1.4}
+@media (min-width:900px){.orig{font-size:max(14px,calc(15*var(--u)));max-width:calc(700*var(--u))}}
+
+/* Ende: vorheriges und nächstes Projekt */
+.end .nx{align-self:auto}
+@media (max-width:899px){.end:not(:has(details)){flex-direction:row;justify-content:space-between;gap:16px}}
+
+@media (prefers-reduced-motion: reduce){.tw .slab .fl,.tw .slab .pl,.tw .slab .ld{transition:none}}

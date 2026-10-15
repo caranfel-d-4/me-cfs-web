@@ -1,0 +1,17 @@
+/* P1-Unterseiten: Überschrift nach Entwurf I h (Farbkonzepte, Abschnitt „Überschriften der Unterseiten“, 14.10.2026).
+   Kleiner als .big in money.css, schmal gestapelt, linksbündig, kein Strich darunter. Die Unterzeile (.hsub, früher rechts oben in nav.top)
+   steht direkt unter der Überschrift. Nur auf P1 geladen (build.js), P3 behält .big aus money.css. Lädt nach money.css und überschreibt es. */
+.big{font-size:calc(40*var(--u));line-height:.9;letter-spacing:-.02em;text-wrap:balance;max-width:calc(250*var(--u) + 2*var(--pad));padding:calc(44*var(--u)) var(--pad) 0}
+.top+.big{padding-top:calc(4*var(--u))}
+.hsub{margin:calc(4*var(--u)) var(--pad) 0;font-size:calc(15*var(--u));line-height:1;font-weight:400;text-transform:uppercase;letter-spacing:-.008em}
+/* kein Strich unter der Überschrift: die obere Linie des ersten Inhalts fällt weg, der Inhalt rückt nach */
+.hsub+.cols,.big+.cols{border-top:0;padding-top:0;margin-top:calc(12*var(--u))}
+.hsub+.vmap,.hsub+.pic,.big+.pic{margin-top:calc(12*var(--u))}
+.hsub+.vmap .map{border-top:0}
+@media (min-width:900px){
+  .big{font-size:calc(66*var(--u));max-width:calc(560*var(--u) + 2*var(--pad));padding-top:calc(64*var(--u))}
+  .top+.big{padding-top:calc(4*var(--u))}
+  .hsub{margin-top:calc(6*var(--u));font-size:calc(26*var(--u))}
+  .hsub+.cols,.big+.cols{margin-top:calc(18*var(--u))}
+  .hsub+.vmap,.hsub+.pic,.big+.pic{margin-top:calc(18*var(--u))}
+}

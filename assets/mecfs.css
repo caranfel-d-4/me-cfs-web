@@ -1,0 +1,94 @@
+/* Unterseite „ME/CFS“ nach Wireframe B2 (P1 S3), gemeinsam für p1-c, p1-a2, p3-c1. Baut auf money.css auf (Kopf, .big, Spalten, Randnotizen, Ende); hier nur, was dazukommt. Schwarzweiß, nur Inter Tight Regular */
+
+/* „The gap“ unter „ME/CFS“, kleiner, gehört zur Überschrift */
+.big .gap{display:block;font-size:calc(22*var(--u));line-height:1;margin-top:calc(10*var(--u))}
+@media (min-width:900px){.big .gap{font-size:calc(34*var(--u));margin-top:calc(14*var(--u))}}
+
+/* Zahlen, die noch nicht belegt sind */
+.tbc{color:var(--mute)}
+.side a{text-decoration:none}
+.side a:hover{color:var(--navy)}
+
+/* Register vor 2024, alles auf null */
+.zero,.show{margin:calc(40*var(--u)) var(--pad) 0;border-top:1.5px solid var(--ink);padding-top:calc(12*var(--u));display:flex;flex-direction:column;gap:calc(14*var(--u))}
+.zero .sh,.show .sh{margin:0}
+.zero .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:calc(16*var(--u)) calc(12*var(--u))}
+.z{display:flex;flex-direction:column;gap:4px}
+.z .n{letter-spacing:-.008em;line-height:.9;font-size:calc(56*var(--u))}
+.z .l,.sl .yr,.sl .src,.hd2 .ct{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+@media (min-width:900px){
+  .zero,.show{margin-top:calc(64*var(--u));padding-top:calc(16*var(--u));gap:calc(22*var(--u))}
+  .zero .grid{grid-template-columns:repeat(5,1fr)}
+  .z .n{font-size:calc(96*var(--u))}
+  .z .l,.sl .yr,.sl .src,.hd2 .ct{font-size:max(10.5px,calc(11*var(--u)))}
+}
+
+/* Drei Personen: ein Foto pro Person. Beim Scrollen nach unten bleibt die Reihe stehen und wandert seitlich (Skript setzt .hs); ohne Skript seitlich scrollbar */
+.hd2{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ct[hidden]{display:none}
+.pin{display:flex;flex-direction:column;gap:inherit}
+.track{display:flex;gap:calc(12*var(--u));overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.sl{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;gap:calc(10*var(--u))}
+/* Platzhalter, solange die Bildlizenz offen ist */
+.ph{width:100%;aspect-ratio:4/5;border:1px solid var(--wire-soft);background:
+  linear-gradient(to top right,transparent calc(50% - .6px),var(--wire-soft) 50%,transparent calc(50% + .6px)),
+  linear-gradient(to bottom right,transparent calc(50% - .6px),var(--wire-soft) 50%,transparent calc(50% + .6px))}
+.cap{display:flex;flex-direction:column;gap:4px;font-size:max(13px,calc(13*var(--u)));line-height:1.38}
+.cap .nm{text-transform:uppercase;letter-spacing:-.008em;line-height:.95;font-size:calc(22*var(--u))}
+.cap .go{align-self:flex-start;margin-top:4px}
+@media (min-width:900px){
+  .sl{display:grid;grid-template-columns:62fr 38fr;gap:calc(32*var(--u));align-items:end}
+  .ph{aspect-ratio:3/2}
+  .cap{font-size:max(15px,calc(17*var(--u)));gap:calc(8*var(--u))}
+  .cap .nm{font-size:calc(48*var(--u))}
+}
+
+
+/* Foto verlinkt auf die Personenseite */
+.phl{display:block}
+img.ph{display:block;height:auto;object-fit:cover;border:0;background:var(--wire-soft)}
+
+/* Seitlich wandern, angetrieben vom normalen Scrollen nach unten: .show ist n Bildschirmhöhen hoch, .pin klebt oben, .track wird verschoben */
+.show.hs{display:block;height:calc(var(--n,3)*100svh);border-top:0;padding-top:0}
+.hs .pin{position:sticky;top:0;height:100svh;justify-content:center;gap:calc(14*var(--u));overflow:clip}
+.hs .hd2{border-top:1.5px solid var(--ink);padding-top:calc(12*var(--u))}
+.hs .track{overflow:visible;scroll-snap-type:none;will-change:transform}
+.hs .ph{max-height:calc(100svh - 300px)}
+@media (min-width:900px){
+  .hs .pin{gap:calc(22*var(--u))}
+  .hs .hd2{padding-top:calc(16*var(--u))}
+  .hs .ph{max-height:calc(100svh - 200px)}
+}
+/* Reduzierte Bewegung: die drei Personen untereinander */
+@media (prefers-reduced-motion: reduce){
+  .track{flex-direction:column;overflow:visible;gap:calc(40*var(--u))}
+}
+
+/* Drei Personen als Tabelle (Wireframe „Three lives“ B, 14.10.2026), ersetzt die seitlich wandernde Reihe (.show):
+   eine Zeile pro Person mit Bild, Name groß, Jahr in Dunkelblau, einem Satz und Pfeil B. Hover: Fläche Dunkelblau, Schrift hell */
+.lv{margin:calc(40*var(--u)) var(--pad) 0;display:flex;flex-direction:column;gap:calc(14*var(--u))}
+.lv .sh{margin:0}
+.lv-t{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.lv-t li{border-bottom:1px solid var(--ink)}
+.lv-r{display:grid;grid-template-columns:calc(110*var(--u)) minmax(0,1fr) auto;gap:calc(6*var(--u)) calc(12*var(--u));align-items:start;padding:calc(10*var(--u)) 0;color:var(--ink);text-decoration:none;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+.lv-i{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:var(--wire-soft);grid-row:1/4}
+.lv-r .nm{grid-column:2;text-transform:uppercase;letter-spacing:-.008em;line-height:.95;font-size:calc(21*var(--u))}
+.lv-r .ar{grid-column:3;grid-row:1;width:calc(30*var(--u));height:auto;flex:none}
+.lv-r .yr{grid-column:2/4;color:var(--navy);font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;line-height:1.3}
+.lv-r .x{grid-column:2/4;color:var(--mute);font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35}
+.lv-r:hover,.lv-r:focus-visible{background:var(--navy);color:var(--paper);outline:none}
+.lv-r:hover .yr,.lv-r:focus-visible .yr,.lv-r:hover .x,.lv-r:focus-visible .x{color:var(--paper)}
+.lv .src{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+@media (min-width:900px){
+  .lv{margin-top:calc(64*var(--u));gap:calc(22*var(--u))}
+  .lv-r{grid-template-columns:calc(170*var(--u)) calc(400*var(--u)) calc(150*var(--u)) minmax(0,1fr) auto;gap:calc(24*var(--u));align-items:center;padding:calc(12*var(--u)) calc(10*var(--u)) calc(12*var(--u)) 0}
+  .lv-i{grid-row:auto}
+  .lv-r .nm,.lv-r .yr,.lv-r .x,.lv-r .ar{grid-column:auto;grid-row:auto}
+  .lv-r .nm{font-size:calc(40*var(--u))}
+  .lv-r .yr{font-size:max(12px,calc(14*var(--u)))}
+  .lv-r .x{font-size:max(14px,calc(15*var(--u)));max-width:36ch}
+  .lv-r .ar{width:calc(44*var(--u))}
+  .lv .src{font-size:max(10.5px,calc(11*var(--u)))}
+}
+@media (prefers-reduced-motion:reduce){.lv-r{transition:none}}

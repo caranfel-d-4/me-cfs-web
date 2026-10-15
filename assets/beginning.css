@@ -1,0 +1,33 @@
+/* Kapitel 10 „It is a beginning.“ nach Webkonzept v2 (kein eigener Wireframe). Baut auf p1.css, money.css und mecfs.css (.zero) auf. Schwarzweiß, nur Inter Tight Regular, statisch */
+
+/* Was weitergeht: Liste mit Zeitangabe */
+.cont{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.cont li{display:grid;grid-template-columns:6.5em 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--wire-soft);font-size:max(13.5px,calc(13.5*var(--u)));line-height:1.4}
+.cont .d,.ways .k{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3;padding-top:.3em}
+.cont .bk{display:inline}
+@media (min-width:900px){.cont li{font-size:max(15px,calc(17*var(--u)));padding:calc(12*var(--u)) 0;grid-template-columns:8em 1fr}.cont .d,.ways .k{font-size:max(10.5px,calc(11*var(--u)))}}
+
+/* Bilanz: wie auf ME/CFS, sechs Felder; die Nullen bleiben stehen */
+.zero .grid.g6{grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.zero .grid.g6{grid-template-columns:1.7fr repeat(5,1fr)}}
+@media (min-width:900px){.zero .g6 .n{font-size:calc(76*var(--u))}}
+.miss{max-width:calc(700*var(--u))}
+
+/* Was man tun kann: vier Wege gleichrangig nebeneinander */
+.ways{margin:calc(40*var(--u)) var(--pad) 0;border-top:1.5px solid var(--ink);padding-top:calc(12*var(--u));display:flex;flex-direction:column;gap:calc(14*var(--u))}
+.ways .sh{margin:0}
+.wg{display:grid;grid-template-columns:1fr;gap:16px}
+.wg>div{display:flex;flex-direction:column;gap:6px}
+.wg .k{padding:0 0 6px;border-bottom:1px solid var(--ink)}
+.wg ul{list-style:none;margin:0;padding:0}
+.wg li{padding:6px 0;border-bottom:1px solid var(--wire-soft);font-size:max(13.5px,calc(13.5*var(--u)));line-height:1.35}
+.wg .tbc{color:var(--mute)}
+@media (min-width:900px){
+  .ways{margin-top:calc(64*var(--u));padding-top:calc(16*var(--u));gap:calc(22*var(--u))}
+  .wg{grid-template-columns:repeat(4,1fr);gap:calc(24*var(--u))}
+  .wg li{font-size:max(14px,calc(15*var(--u)));padding:calc(8*var(--u)) 0}
+}
+
+/* Letzter Satz der Seite: eine Tatsache, groß */
+.last{margin:calc(56*var(--u)) var(--pad) 0;font-size:calc(26*var(--u));line-height:1.12;letter-spacing:-.008em;text-transform:uppercase}
+@media (min-width:900px){.last{margin-top:calc(96*var(--u));font-size:calc(56*var(--u));max-width:calc(1050*var(--u))}}

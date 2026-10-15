@@ -1,0 +1,75 @@
+/* Unterseite „€3.1 million“ nach Wireframe B1 (P1 S2), gemeinsam für p1-c, p1-a2, p3-c1. Kopf und Überschrift wie die Ressourcenseite, schwarzweiß, nur Inter Tight Regular, Pfeil B mit Hover Dunkelblau */
+:root{--navy:#005b94;--light:#B4B4B0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--navy:#80cee6;--light:#5A5A57}}
+:root[data-theme="dark"]{--navy:#80cee6;--light:#5A5A57}
+
+/* Kopf: zurück zur Landingpage, Seitenname (wie Ressourcen) */
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:34px var(--pad) 14px;font-size:max(12px,calc(12*var(--u)))}
+.top b{font-weight:700;text-align:right;margin-left:auto}
+@media (min-width:900px){.top{padding:calc(26*var(--u)) var(--pad) calc(18*var(--u));font-size:max(14px,calc(16*var(--u)))}}
+
+/* Pfeil B: lang und fein, in Ruhe Schwarz, Hover Dunkelblau */
+.bk{display:inline-flex;align-items:center;gap:.45em;text-decoration:none;color:var(--ink);transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.bk:hover,.bk:active{color:var(--navy)}
+.ar{display:inline-block;width:1.75em;height:.95em;flex:none;overflow:visible;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.ar path{stroke-width:1.35px;vector-effect:non-scaling-stroke}
+
+/* Überschrift wie „Resources“ */
+.big{margin:0;font-weight:400;text-transform:uppercase;letter-spacing:-.008em;line-height:.85;font-size:calc(50*var(--u));padding:6px var(--pad) 14px}
+@media (min-width:900px){.big{font-size:calc(150*var(--u));padding:calc(4*var(--u)) var(--pad) calc(22*var(--u))}}
+
+/* Text und Grafik links, Randnotizen rechts (Handy: darunter) */
+.cols{display:flex;flex-direction:column;gap:calc(26*var(--u));border-top:1.5px solid var(--ink);margin:calc(32*var(--u)) var(--pad) 0;padding:calc(14*var(--u)) 0 0}
+.body{display:flex;flex-direction:column;gap:calc(14*var(--u));min-width:0}
+.lead{margin:0;font-size:max(15px,calc(15*var(--u)));line-height:1.42}
+/* Strich direkt unter der Überschrift: enger (13.10.) */
+.big+.cols{margin-top:calc(14*var(--u))}
+@media (min-width:900px){.big+.cols{margin-top:calc(22*var(--u))}}
+.sh{margin:calc(12*var(--u)) 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.008em;line-height:1;font-size:calc(22*var(--u))}
+@media (min-width:900px){
+  .cols{display:grid;grid-template-columns:720fr 300fr;gap:calc(64*var(--u));align-items:start;padding-top:calc(22*var(--u));margin-top:calc(46*var(--u))}
+  .body{gap:calc(22*var(--u))}
+  .lead{font-size:max(17px,calc(21*var(--u)));max-width:calc(700*var(--u))}
+  .sh{font-size:calc(34*var(--u))}
+}
+
+/* Grafik: vier Ströme, so breit wie ihr Betrag, laufen zur Summe zusammen */
+.flow{margin:0}
+.fl{display:block;width:100%;height:auto;overflow:visible}
+.fl.dk{display:none}
+@media (min-width:900px){.fl.ph{display:none}.fl.dk{display:block}}
+.fl text{font-family:var(--grot);fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3.5px;stroke-linejoin:round}
+.fl .yl,.fl .nm,.fl .nw{fill:var(--mute);letter-spacing:.03em}
+.fl .am{letter-spacing:-.008em}
+.fl .sb{fill:var(--mute)}
+.fl .gl{stroke:var(--wire-soft);stroke-width:1}
+.fl .nl{stroke:var(--mute);stroke-width:1.5}
+.fl .s-call{fill:var(--ink)}
+.fl .s-bio{fill:var(--mute)}
+.fl .s-fel{fill:var(--light)}
+.fl .s-con{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3}
+.fl .ht{stroke:var(--ink);stroke-width:1.3}
+
+/* Summe unter der Grafik */
+.total{display:flex;flex-direction:column;gap:4px;border-top:1.5px solid var(--ink);padding-top:calc(10*var(--u));margin-top:calc(-14*var(--u))}
+.total .sum{text-transform:uppercase;letter-spacing:-.008em;line-height:.9;font-size:calc(46*var(--u))}
+.total .d,.side .src{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+@media (min-width:900px){.total .sum{font-size:calc(72*var(--u))}.total .d,.side .src{font-size:max(10.5px,calc(11*var(--u)))}}
+
+/* Randnotizen */
+.side{display:flex;flex-direction:column;gap:calc(12*var(--u));font-size:max(12px,calc(11.5*var(--u)));line-height:1.35}
+.side>div{border-top:1px solid var(--ink);padding-top:5px;display:flex;flex-direction:column;gap:2px}
+.side .xr span{display:block}
+/* Computer: erste Randnotiz ohne eigenen Strich, der Strich über den Spalten gilt für beide */
+@media (min-width:900px){.side>div:first-child{border-top:0;padding-top:0}}
+@media (min-width:900px){.side{font-size:max(13px,calc(14*var(--u)));gap:calc(18*var(--u))}}
+
+/* Ende: Zusammenfassung zum Aufklappen, weiter zum nächsten Kapitel */
+.end{display:flex;flex-direction:column;gap:12px;margin:calc(40*var(--u)) var(--pad) 0;border-top:1px solid var(--wire-soft);padding-top:10px;font-size:max(12px,calc(12*var(--u)))}
+@media (min-width:900px){.end{flex-direction:row;justify-content:space-between;align-items:baseline;font-size:max(14px,calc(15*var(--u)))}}
+.end summary{cursor:pointer;text-transform:uppercase;letter-spacing:.03em;list-style:none}
+.end summary::-webkit-details-marker{display:none}
+.end details ul{margin:8px 0 0;padding-left:1.1em;max-width:560px;line-height:1.4}
+.end .nx{align-self:flex-start}
+
+@media (prefers-reduced-motion: reduce){.bk{transition:none}}

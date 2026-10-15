@@ -1,0 +1,35 @@
+/* Kapitel 4 „starting in 2024“ nach Webkonzept v2 (kein eigener Wireframe). Baut auf p1.css, money.css, projects.css und vienna.css auf. Schwarzweiß, nur Inter Tight Regular, statisch */
+
+/* Ablauf des Call 2024: Handy untereinander, Computer fünf Spalten nebeneinander */
+.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);display:grid;grid-template-columns:1fr}
+.steps li{display:grid;grid-template-columns:5.2em 1fr;gap:2px 10px;padding:8px 0;border-bottom:1px solid var(--wire-soft)}
+.steps .d,.sel .k,.sel .cap{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+.steps .d{padding-top:.35em}
+.steps .t{font-size:max(17px,calc(17*var(--u)));letter-spacing:-.008em;line-height:1.1}
+.steps .x{grid-column:2;font-size:max(12.5px,calc(12.5*var(--u)));line-height:1.35;color:var(--mute)}
+@media (min-width:900px){
+  .steps{grid-template-columns:repeat(5,1fr);gap:0 calc(18*var(--u))}
+  .steps li{grid-template-columns:1fr;align-content:start;gap:calc(6*var(--u));padding:calc(10*var(--u)) 0 calc(14*var(--u))}
+  .steps .d,.sel .k,.sel .cap{font-size:max(10.5px,calc(11*var(--u)))}
+  .steps .t{font-size:max(18px,calc(24*var(--u)))}
+  .steps .x{grid-column:auto;font-size:max(12.5px,calc(13.5*var(--u)))}
+}
+
+/* Auswahl: 19 → 7 → 1–2 als Quadrate */
+.sel{margin:0;display:flex;flex-direction:column;border-top:1px solid var(--ink)}
+.sel .row{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--wire-soft)}
+.sel .k{grid-column:1 / -1}
+.sel .sq{display:flex;flex-wrap:wrap;gap:4px;--s:max(11px,calc(11*var(--u)))}
+.sel i{display:block;width:var(--s);height:var(--s);border:1px solid var(--mute)}
+.sel i.f{background:var(--ink);border-color:var(--ink)}
+.sel i.o{border:1.2px dashed var(--ink)}
+.sel i.big{width:calc(var(--s)*3);height:calc(var(--s)*1.6)}
+.sel .n{font-size:max(22px,calc(22*var(--u)));letter-spacing:-.008em;line-height:1}
+.sel .cap{margin-top:8px}
+@media (min-width:900px){
+  .sel .row{grid-template-columns:calc(190*var(--u)) 1fr auto;gap:calc(20*var(--u));padding:calc(12*var(--u)) 0}
+  .sel .k{grid-column:auto}
+  .sel .sq{gap:calc(6*var(--u));--s:max(12px,calc(18*var(--u)))}
+  .sel .n{font-size:max(26px,calc(40*var(--u)))}
+}
+.body>.meta{margin-top:calc(6*var(--u))}
