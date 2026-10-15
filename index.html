@@ -66,6 +66,7 @@
     .intro{display:none}
     .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
     .js .intro.out{opacity:0;pointer-events:none}
+    .no-intro .intro{display:none!important}
     .intro .hint{margin:0;width:100%;max-width:22em;font-size:max(15px,calc(18*var(--u)));line-height:1.35;text-transform:uppercase;letter-spacing:.03em}
     .intro .hint .tch{display:none}
     @media (hover:none){.intro .hint .tch{display:inline}.intro .hint .ptr{display:none}}
@@ -84,7 +85,15 @@
     .stage{padding-top:37px}
     @media (min-width:900px){.wwtf-mark{top:calc(20*var(--u));height:max(15px,calc(18*var(--u)))}.stage{padding-top:calc(49*var(--u))}}
   </style>
-  <script>document.documentElement.classList.add("js")</script>
+  <script>
+    document.documentElement.classList.add("js");
+    // Vorspann nur beim ersten Öffnen: nicht, wenn man von einer Unterseite zurückkommt oder ihn in diesem Tab schon gesehen hat
+    (function(){
+      var seen=false, base=location.origin+location.pathname.replace(/index\.html$/,'');
+      try{seen=sessionStorage.getItem('wm-intro')==='1';}catch(e){}
+      if(seen||(document.referrer&&document.referrer.indexOf(base)===0&&document.referrer!==base))document.documentElement.classList.add('no-intro');
+    })();
+  </script>
 </head>
 <body>
   <div class="intro" role="status">
@@ -136,9 +145,11 @@
     })();
   </script>
   <script>
-    // Vorspann: bis die Linie voll ist (2 s) und noch kurz Zeit zum Lesen, dann ausblenden; Klick oder Taste überspringt
+    // Vorspann (nur beim ersten Öffnen, siehe oben): bis die Linie voll ist (2 s) und noch kurz Zeit zum Lesen, dann ausblenden; Klick oder Taste überspringt
     (function(){
       var el=document.querySelector('.intro'), done=false;
+      if(document.documentElement.classList.contains('no-intro')){el.remove();return;}
+      try{sessionStorage.setItem('wm-intro','1');}catch(e){}
       function hide(){if(done)return;done=true;el.classList.add('out');setTimeout(function(){el.remove();},500);}
       var minWait=new Promise(function(r){setTimeout(r,2600);});
       var fonts=document.fonts?document.fonts.ready:Promise.resolve();
