@@ -51,3 +51,7 @@
 
 @media (prefers-reduced-motion: reduce){.bk,.ri .t{transition:none}}
 .gh .c{font-variant-numeric:tabular-nums}
+
+/* Resources ist eigenständig, ohne Satzleiste: Abstand zur Fußzeile wie sonst über der Leiste */
+main+.ff{margin-top:80px}
+@media (min-width:900px){main+.ff{margin-top:calc(120*var(--u))}}
