@@ -2,10 +2,12 @@
    das Satzglied der aktuellen Seite steht weiß und unterstrichen. Bleibt beim Scrollen unten stehen.
    Darunter die Fußzeile der Landingpage P1 A2 (Funded by WWTF, co-funded by WE&ME). Eingesetzt von build.js, nur in P1. */
 .sbar{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:calc(8*var(--u));margin-top:80px;padding:calc(7*var(--u)) var(--pad);background:#005b94;color:#fff}
-/* „Home“ führt zurück auf die Landingpage: links oben, dunkelblaue Pille im Stil des Resources-Knopfs der Landingpage, nur kleiner. Hover umgekehrt wie dort: Koralle mit dunkler Schrift. „Next“ (nächstes Kapitel) gleich, rechts oben */
-.home-btn,.next-btn{position:absolute;top:12px;left:var(--pad);z-index:6;display:inline-block;background:#005b94;color:#fff;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(11px,calc(12*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
-.next-btn{left:auto;right:var(--pad)}
-.home-btn:hover,.home-btn:focus-visible,.next-btn:hover,.next-btn:focus-visible{background:#ec6a61;color:#181715;outline:none}
+/* „Home“ führt zurück auf die Landingpage: links oben, dunkelblaue Pille im Stil des Resources-Knopfs der Landingpage, nur kleiner. Hover umgekehrt wie dort: Koralle mit dunkler Schrift. */
+/* „Next“ (nächstes Kapitel) rechts in der blauen Leiste: Pille in Koralle wie der Resources-Knopf, kleiner; Hover weiß */
+.sb-next{flex:none;display:inline-block;background:#ec6a61;color:#181715;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(10px,calc(10*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+.sbar .sb-next:hover,.sbar .sb-next:focus-visible{background:#fff;color:#005b94;outline:none}
+.home-btn{position:absolute;top:12px;left:var(--pad);z-index:6;display:inline-block;background:#005b94;color:#fff;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(11px,calc(12*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+.home-btn:hover,.home-btn:focus-visible{background:#ec6a61;color:#181715;outline:none}
 /* Seiten mit Zurück-Zeile oben (Projekte, Personen): die Zeile rückt unter den Knopf */
 .home-btn~main .top{padding-top:54px}
 .sb-win{position:relative;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 82%,transparent)}
@@ -19,7 +21,8 @@
 .sbar a:focus-visible{outline:1px solid #fff;outline-offset:2px}
 @media (min-width:900px){
   .sbar{gap:calc(22*var(--u));margin-top:calc(120*var(--u));padding:calc(8*var(--u)) var(--pad)}
-  .home-btn,.next-btn{top:calc(20*var(--u));font-size:max(12px,calc(15*var(--u)))}
+  .sb-next{font-size:max(11px,calc(13*var(--u)))}
+  .home-btn{top:calc(20*var(--u));font-size:max(12px,calc(15*var(--u)))}
   .home-btn~main .top{padding-top:calc(64*var(--u))}
   .sb-trk{font-size:max(13px,calc(15*var(--u)))}
 }
@@ -40,7 +43,7 @@
 .ff .wm-btn .wm-k,.ff .wm-btn .wm-b{transition:fill 160ms cubic-bezier(.4,0,.2,1)}
 .ff .wm-btn:hover,.ff .wm-btn:focus-visible{background:#005b94;box-shadow:inset 0 0 0 1px #005b94}
 .ff .wm-btn:hover .wm-k,.ff .wm-btn:hover .wm-b,.ff .wm-btn:focus-visible .wm-k,.ff .wm-btn:focus-visible .wm-b{fill:#fff}
-@media (prefers-reduced-motion:reduce){.sb-trk,.sb-trk a,.home-btn,.next-btn,.ff .logo-btn .lg-bg,.ff .wm-btn,.ff .wm-btn .wm-k,.ff .wm-btn .wm-b{transition:none}}
+@media (prefers-reduced-motion:reduce){.sb-trk,.sb-trk a,.home-btn,.sb-next,.ff .logo-btn .lg-bg,.ff .wm-btn,.ff .wm-btn .wm-k,.ff .wm-btn .wm-b{transition:none}}
 /* Unten auf den Kapitelseiten keine Vor/Zurück-Links mehr (die Satzleiste führt durch die Kapitel): „Summary +“ steht allein, mittig, ohne Strich */
 .end.solo{border-top:0;align-items:center;text-align:center}
 .end.solo details ul{text-align:left;margin-inline:auto}
