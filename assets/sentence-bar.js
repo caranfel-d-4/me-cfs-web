@@ -12,6 +12,12 @@
   else go(at,false);
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ if(!fromPrev) go(at,false); });
   addEventListener('resize',function(){ go(at,false); });
+  // Blass an den Rändern nur, wo der Satz weitergeht (siehe sentence-bar.css)
+  function fade(){ var x=w.scrollLeft, max=w.scrollWidth-w.clientWidth;
+    var clean=x<=1||links.some(function(a){ return Math.abs(a.offsetLeft-x)<2; });
+    w.classList.toggle("fl",!clean); w.classList.toggle("fr",x<max-1); }
+  w.addEventListener("scroll",fade,{passive:true}); addEventListener("resize",fade); fade();
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fade);
   // Mausrad (senkrecht) schiebt die Zeile seitlich
   w.addEventListener('wheel',function(e){ if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ w.scrollLeft+=e.deltaY; e.preventDefault(); } },{passive:false});
   // Mit der Tastatur: das fokussierte Satzglied ins Bild holen
