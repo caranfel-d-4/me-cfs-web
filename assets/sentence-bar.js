@@ -1,11 +1,11 @@
-// Fußzeile der P1-Unterseiten: scrollt den Satz so, dass das aktuelle Satzglied ein Fünftel von links steht.
+// Fußzeile der P1-Unterseiten: scrollt den Satz so, dass das aktuelle Satzglied direkt am linken Seitenrand beginnt (am Ende bündig rechts).
 // Die Zeile bleibt seitlich scrollbar (Wischen, Trackpad, Mausrad), damit jedes Satzglied erreichbar ist.
 // Gleiten nur, wenn man vom vorigen Satzglied kommt (nicht von Home oder einem Sprung, nicht bei „Bewegung reduzieren“).
 (function(){
   var b=document.querySelector('.sbar'); if(!b) return;
   var w=b.querySelector('.sb-win'), t=b.querySelector('.sb-trk'), links=[].slice.call(t.querySelectorAll('a'));
   var cur=t.querySelector('.cur'), at=cur||links[0], rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function go(el,anim){ w.scrollTo({left:Math.max(0,el.offsetLeft-w.clientWidth*.2),behavior:anim&&!rm?'smooth':'auto'}); }
+  function go(el,anim){ w.scrollTo({left:Math.max(0,el.offsetLeft),behavior:anim&&!rm?'smooth':'auto'}); }
   var prev=cur&&links[links.indexOf(cur)-1], ref=document.referrer.split(/[?#]/)[0];
   var fromPrev=prev&&ref&&ref.replace(/index\.html$/,'')===prev.href.replace(/index\.html$/,'');
   if(fromPrev&&!rm){ go(prev,false); requestAnimationFrame(function(){ go(at,true); }); }
