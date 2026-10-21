@@ -57,7 +57,7 @@
 @media (min-width:900px){.orig{font-size:max(14px,calc(15*var(--u)));max-width:calc(700*var(--u))}}
 
 /* Ende: vorheriges und nächstes Projekt */
-.end .nx{align-self:auto}
+.end .nx{align-self:auto;margin-left:auto}
 @media (max-width:899px){.end:not(:has(details)){flex-direction:row;justify-content:space-between;gap:16px}}
 
 @media (prefers-reduced-motion: reduce){.tw .slab .fl,.tw .slab .pl,.tw .slab .ld{transition:none}}

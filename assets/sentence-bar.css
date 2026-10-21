@@ -12,8 +12,7 @@
 .home-btn~main .top{padding-top:54px}
 .sb-win{position:relative;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 82%,transparent)}
 .sb-win::-webkit-scrollbar{display:none}
-.sbar.js .sb-win{overflow:hidden}
-.sb-trk{display:inline-block;margin:0;padding:0 7%;white-space:nowrap;font-size:24px;line-height:1.5;text-transform:uppercase;letter-spacing:.01em;color:#cfcfce;transition:transform .6s cubic-bezier(.3,.7,.2,1)}
+.sb-trk{display:inline-block;margin:0;padding:0 7%;white-space:nowrap;font-size:24px;line-height:1.5;text-transform:uppercase;letter-spacing:.01em;color:#cfcfce}
 .sb-trk a{color:#cfcfce;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:.22em;transition:color .2s,text-decoration-color .2s}
 .sb-trk a:hover,.sb-trk a:focus-visible{color:#fff;text-decoration-color:currentColor;outline:none}
 .sb-trk a.cur{color:#fff;text-decoration-color:#fff}

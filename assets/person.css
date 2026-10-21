@@ -17,7 +17,7 @@ img.photo{background:var(--wire-soft)}
 @media (min-width:900px){.quote{padding-top:calc(16*var(--u))}.quote p{font-size:calc(34*var(--u))}.quote cite{font-size:max(10.5px,calc(11*var(--u)))}}
 
 /* Ende: vorige und nächste Person */
-.end .nx{align-self:auto}
+.end .nx{align-self:auto;margin-left:auto}
 @media (max-width:899px){.end{flex-direction:row;justify-content:space-between}}
 
 /* Seit 14.10.2026 nach Entwurf B2 (Personen-Wireframes, Moodboard 10.14): keine Striche im Aufbau.
