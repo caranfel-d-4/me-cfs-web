@@ -31,7 +31,7 @@
 .ri .n{font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;font-variant-numeric:tabular-nums}
 .ri .t{text-transform:uppercase;letter-spacing:-.008em;line-height:1.05;font-size:calc(15*var(--u));text-decoration:none}
 /* Unterstrich nur unter der Schrift: liegt auf dem inneren span, bei zwei Zeilen unter jeder Zeile (box-decoration-break), nie in die leere Spalte hinein */
-.ri .t .u{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 calc(100% - .14em);background-size:0% 1px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .4s ease}
+.ri .t .u{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 calc(100% - .30em);background-size:0% 1px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .4s ease}
 .ri .t:hover .u,.ri .t:focus-visible .u{background-size:100% 1px}
 .ri .d{grid-column:2;font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35}
 .ri .m{grid-column:2;font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}

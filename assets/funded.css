@@ -5,7 +5,7 @@
 .fd .fb{line-height:1.9}
 .fd .logo-btn{display:inline-block;vertical-align:middle;margin:0 .1em 0 .3em;line-height:0;border-radius:99px;overflow:hidden}
 .fd .logo-btn svg{display:block;height:2.2em;width:auto;aspect-ratio:170.1/63.8}
-.fd .logo-btn .lg-bg{fill:#008FD4;transition:fill 160ms cubic-bezier(.4,0,.2,1)}
+.fd .logo-btn .lg-bg{fill:#008fd3;transition:fill 160ms cubic-bezier(.4,0,.2,1)}
 .fd .logo-btn .lg-fg{fill:#fff}
 .fd .logo-btn:hover .lg-bg,.fd .logo-btn:focus-visible .lg-bg{fill:#005b94}
 .fd .logo-btn:focus-visible{outline:2px solid #005b94;outline-offset:3px}

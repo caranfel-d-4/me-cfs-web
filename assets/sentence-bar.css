@@ -13,7 +13,7 @@
 .sb-win{position:relative;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 82%,transparent)}
 .sb-win::-webkit-scrollbar{display:none}
 .sbar.js .sb-win{overflow:hidden}
-.sb-trk{display:inline-block;margin:0;padding:0 7%;white-space:nowrap;font-size:max(11px,calc(11*var(--u)));line-height:1.5;text-transform:uppercase;letter-spacing:.01em;color:#cfcfce;transition:transform .6s cubic-bezier(.3,.7,.2,1)}
+.sb-trk{display:inline-block;margin:0;padding:0 7%;white-space:nowrap;font-size:24px;line-height:1.5;text-transform:uppercase;letter-spacing:.01em;color:#cfcfce;transition:transform .6s cubic-bezier(.3,.7,.2,1)}
 .sb-trk a{color:#cfcfce;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:.22em;transition:color .2s,text-decoration-color .2s}
 .sb-trk a:hover,.sb-trk a:focus-visible{color:#fff;text-decoration-color:currentColor;outline:none}
 .sb-trk a.cur{color:#fff;text-decoration-color:#fff}
@@ -24,7 +24,7 @@
   .sb-next{font-size:max(11px,calc(13*var(--u)))}
   .home-btn{top:calc(20*var(--u));font-size:max(12px,calc(15*var(--u)))}
   .home-btn~main .top{padding-top:calc(64*var(--u))}
-  .sb-trk{font-size:max(13px,calc(15*var(--u)))}
+  .sb-trk{font-size:24px}
 }
 /* Fußzeile darunter wie auf P1 A2 */
 .ff{margin-top:0;border-top:0;font-size:max(11.5px,calc(11.5*var(--u)))}
@@ -32,7 +32,7 @@
 .ff .fb{line-height:1.9}
 .ff .logo-btn{display:inline-block;vertical-align:middle;margin:0 .1em 0 .3em;line-height:0;border-radius:99px;overflow:hidden}
 .ff .logo-btn svg{display:block;height:2.2em;width:auto;aspect-ratio:170.1/63.8}
-.ff .logo-btn .lg-bg{fill:#008FD4;transition:fill 160ms cubic-bezier(.4,0,.2,1)}
+.ff .logo-btn .lg-bg{fill:#008fd3;transition:fill 160ms cubic-bezier(.4,0,.2,1)}
 .ff .logo-btn .lg-fg{fill:#fff}
 .ff .logo-btn:hover .lg-bg,.ff .logo-btn:focus-visible .lg-bg{fill:#005b94}
 .ff .logo-btn:focus-visible{outline:2px solid #005b94;outline-offset:3px}

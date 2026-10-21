@@ -1,10 +1,10 @@
 /* P1 – gemeinsame Satzseite für P1 C und P1 Z nach Moodboard 10.06 (#1 Kopfzeile, #2 Grotesk-Versalien, #3 Liste mit Randnotiz). Schwarzweiß. */
-@font-face{font-family:"Inter Tight";src:url(fonts/inter-tight-400.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Inter Tight";src:url(fonts/inter-tight-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-700.woff2) format("woff2");font-weight:700;font-display:swap}
 
 :root{
-  --paper:#FAFAF8; --ink:#1B1B1A; --mute:#6A6A67; --wire-soft:#DADAD6;
-  --grot:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --paper:#ffffff; --ink:#181715; --mute:#4c4c4b; --wire-soft:#e4e4e3;
+  --grot:"Source Sans 3","Source Sans Pro",Arial,sans-serif;
   /* Handy: Entwurf auf 375 px */
   --u:calc(100vw / 375);
   --pad:22px; --fs:30px;
@@ -49,8 +49,8 @@ a{color:inherit}
 /* Satzglieder: Unterstrich wächst beim Hover. Gleiche Stärke für alle Größen (aus --fs, nicht em), dünner als vorher (.06em);
    je Zeile ein eigener Strich (box-decoration-break). assets/kw-snap.js rundet Stärke und Lage auf ganze Pixel, damit alle Striche gleich fein sind. Mehrzeilige Glieder tragen den Strich auf .u-Spannen, damit jedes Wort ihn bekommt */
 .kw{text-decoration:none;cursor:pointer;--ul:max(1px,calc(.035*var(--fs)));--ug:calc(.09*var(--fs))}
-/* Strich immer gleich weit unter der Grundlinie (--ug), egal wie groß die Schrift: Unterkante der Zeile liegt .24em unter der Grundlinie (Inter Tight) */
-.kw,.kw .u{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 calc(100% - .24em + var(--ug) + var(--us,0px));background-size:0% var(--ul);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .4s ease}
+/* Strich immer gleich weit unter der Grundlinie (--ug), egal wie groß die Schrift: Unterkante der Zeile liegt .40em unter der Grundlinie (Source Sans 3, gemessen 21.10.2026) */
+.kw,.kw .u{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 calc(100% - .40em + var(--ug) + var(--us,0px));background-size:0% var(--ul);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .4s ease}
 .kw:has(.u){background-image:none}
 .kw:hover,.kw:focus-visible,.kw:hover .u,.kw:focus-visible .u{background-size:100% var(--ul)}
 .kw:focus-visible{outline:none}
