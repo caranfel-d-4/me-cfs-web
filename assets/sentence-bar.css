@@ -3,9 +3,9 @@
    Darunter die Fußzeile der Landingpage P1 A2 (Funded by WWTF, co-funded by WE&ME). Eingesetzt von build.js, nur in P1. */
 .sbar{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:calc(8*var(--u));margin-top:80px;padding:calc(7*var(--u)) var(--pad);background:#005b94;color:#fff}
 /* „Home“ führt zurück auf die Landingpage: links oben, dunkelblaue Pille im Stil des Resources-Knopfs der Landingpage, nur kleiner. Hover umgekehrt wie dort: Koralle mit dunkler Schrift. */
-/* „Next“ (nächstes Kapitel) rechts in der blauen Leiste: Pille in Koralle wie der Resources-Knopf, kleiner; Hover weiß */
-.sb-next{flex:none;display:inline-block;background:#ec6a61;color:#181715;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(10px,calc(10*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
-.sbar .sb-next:hover,.sbar .sb-next:focus-visible{background:#fff;color:#005b94;outline:none}
+/* „Next“ (nächstes Kapitel) rechts oben auf Höhe von Home, gleich groß: Pille in Koralle wie der Resources-Knopf; Hover umgekehrt zu Home: Dunkelblau mit weißer Schrift */
+.sb-next{position:absolute;top:12px;right:var(--pad);z-index:6;display:inline-block;background:#ec6a61;color:#181715;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(11px,calc(12*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+.sb-next:hover,.sb-next:focus-visible{background:#005b94;color:#fff;outline:none}
 .home-btn{position:absolute;top:12px;left:var(--pad);z-index:6;display:inline-block;background:#005b94;color:#fff;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(11px,calc(12*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
 .home-btn:hover,.home-btn:focus-visible{background:#ec6a61;color:#181715;outline:none}
 /* Seiten mit Zurück-Zeile oben (Projekte, Personen): die Zeile rückt unter den Knopf */
@@ -20,7 +20,7 @@
 .sbar a:focus-visible{outline:1px solid #fff;outline-offset:2px}
 @media (min-width:900px){
   .sbar{gap:calc(22*var(--u));margin-top:calc(120*var(--u));padding:calc(8*var(--u)) var(--pad)}
-  .sb-next{font-size:max(11px,calc(13*var(--u)))}
+  .sb-next{top:calc(20*var(--u));font-size:max(12px,calc(15*var(--u)))}
   .home-btn{top:calc(20*var(--u));font-size:max(12px,calc(15*var(--u)))}
   .home-btn~main .top{padding-top:calc(64*var(--u))}
   .sb-trk{font-size:24px}
