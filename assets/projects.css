@@ -15,6 +15,7 @@
 .tw .oo.top,.tw .oo.side{fill:var(--paper)}
 .tw .ht{stroke:var(--ink);stroke-width:1.2}
 .tw .ld{fill:none;stroke:var(--ink);stroke-width:1}
+.tw .cx{stroke:var(--mute)} /* Linie Konsortium ↔ Projekt 2024, auf dem es aufbaut */
 .tw .tx,.tw .am{fill:var(--mute)}
 .tw .tot{letter-spacing:-.008em}
 /* Platten sind Links zur Projektseite: Hover und Fokus Dunkelblau */
@@ -30,7 +31,7 @@
 .tl ul{list-style:none;margin:calc(20*var(--u)) 0 0;padding:0;font-size:max(12px,calc(12.5*var(--u)))}
 .tl li{border-bottom:1px solid var(--wire-soft)}
 .tl li:first-child{border-top:1px solid var(--ink)}
-.tl a{display:grid;grid-template-columns:3.2em 1fr auto;gap:8px;padding:6px 0;width:100%}
+.tl a{display:grid;grid-template-columns:5.6em 1fr auto;gap:8px;padding:6px 0;width:100%}
 .tl .n,.tl .a{color:var(--mute);font-size:.85em;text-transform:uppercase;letter-spacing:.03em;align-self:center}
 .tl a:hover .n,.tl a:hover .a{color:inherit}
 @media (min-width:900px){.tl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
