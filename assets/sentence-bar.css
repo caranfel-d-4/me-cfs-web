@@ -4,12 +4,14 @@
 .sbar{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:calc(8*var(--u));margin-top:80px;padding:calc(7*var(--u)) var(--pad);background:#005b94;color:#fff}
 /* Home und Next stehen außerhalb der Textspalte in den Ecken (Kopfzeile 21.10., Handy 12 px, Computer links 41u, rechts 43u vom Rand). „Home“ führt zurück auf die Landingpage: links oben, dunkelblaue Pille im Stil des Resources-Knopfs der Landingpage, nur kleiner. Hover umgekehrt wie dort: Koralle mit dunkler Schrift. */
 /* „Next“ (nächstes Kapitel) rechts oben auf Höhe von Home, gleich groß: Pille in Koralle wie der Resources-Knopf; Hover umgekehrt zu Home: Dunkelblau mit weißer Schrift */
-.sb-next{position:absolute;top:12px;right:12px;z-index:6;display:inline-block;background:#ec6a61;color:#181715;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(11px,calc(12*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+.sb-next{position:absolute;top:12px;right:12px;z-index:6;display:inline-block;background:#ec6a61;color:#181715;border-radius:99px;padding:.45em 1.25em .4em;font-size:24px;line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
 .sb-next:hover,.sb-next:focus-visible{background:#005b94;color:#fff;outline:none}
-.home-btn{position:absolute;top:12px;left:12px;z-index:6;display:inline-block;background:#005b94;color:#fff;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(11px,calc(12*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+.home-btn{position:absolute;top:12px;left:12px;z-index:6;display:inline-block;background:#005b94;color:#fff;border-radius:99px;padding:.45em 1.25em .4em;font-size:24px;line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
 .home-btn:hover,.home-btn:focus-visible{background:#ec6a61;color:#181715;outline:none}
 /* Seiten mit Zurück-Zeile oben (Projekte, Personen): die Zeile rückt unter den Knopf */
-.home-btn~main .top{padding-top:54px}
+/* Platz unter den 24-px-Knöpfen (23.10.) */
+.home-btn~main .top{padding-top:70px}
+.home-btn~main>.big:first-child{padding-top:72px}
 /* Laufband bündig mit dem Seitenrand (--pad) links und rechts. Blass wird es nur dort, wo der Satz weitergeht (Klassen fl/fr aus sentence-bar.js): rechts, solange noch Text folgt; links nur, wenn der Rand mitten durch ein Satzglied schneidet. Anfang und Ende des Satzes bleiben voll. */
 .sb-win{position:relative;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;--fl:0%;--fr:0%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 var(--fl),#000 calc(100% - var(--fr)),transparent);mask-image:linear-gradient(90deg,transparent,#000 var(--fl),#000 calc(100% - var(--fr)),transparent)}
 .sb-win.fl{--fl:12%}
@@ -23,11 +25,13 @@
 .sbar a:focus-visible{outline:1px solid #fff;outline-offset:2px}
 @media (min-width:900px){
   .sbar{gap:calc(22*var(--u));margin-top:calc(120*var(--u));padding:calc(8*var(--u)) var(--pad)}
-  .sb-next{top:calc(20*var(--u));right:calc(43*var(--u));font-size:max(12px,calc(15*var(--u)))}
-  .home-btn{top:calc(20*var(--u));left:calc(41*var(--u));font-size:max(12px,calc(15*var(--u)))}
-  .home-btn~main .top{padding-top:calc(64*var(--u))}
+  .sb-next{top:calc(20*var(--u));right:calc(43*var(--u))}
+  .home-btn{top:calc(20*var(--u));left:calc(41*var(--u))}
+  .home-btn~main .top{padding-top:calc(20*var(--u) + 58px)}
+  .home-btn~main>.big:first-child{padding-top:calc(20*var(--u) + 60px)}
   .sb-trk{font-size:24px}
 }
+/* Knöpfe (Home, Next, Resources, Next: <Name>): Schrift überall 24 px, wie die Satzleiste (ihre Richtlinie 23.10.2026) */
 /* Fußzeile darunter wie auf P1 A2 */
 .ff{margin-top:0;border-top:0;font-size:max(11.5px,calc(11.5*var(--u)))}
 @media (min-width:900px){.ff{margin-top:0;font-size:max(13px,calc(13.5*var(--u)))}}
@@ -51,7 +55,7 @@
 .end.solo details ul{text-align:left;margin-inline:auto}
 @media (min-width:900px){.end.solo{justify-content:center}}
 /* Personen- und Projektseiten: „Next“ unten führt zur nächsten Person bzw. zum nächsten Projekt, als Pille in Koralle wie oben; der Knopf oben führt zum nächsten Satzglied */
-.end a.nx-pill{display:inline-block;background:#ec6a61;color:#181715;border-radius:99px;padding:.45em 1.25em .4em;font-size:max(11px,calc(12*var(--u)));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
+.end a.nx-pill{display:inline-block;background:#ec6a61;color:#181715;border-radius:99px;padding:.45em 1.25em .4em;font-size:24px;line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
 .end a.nx-pill:hover,.end a.nx-pill:focus-visible{background:#005b94;color:#fff;outline:none}
-@media (min-width:900px){.end a.nx-pill{font-size:max(12px,calc(15*var(--u)))}}
+
 @media (prefers-reduced-motion:reduce){.end a.nx-pill{transition:none}}
