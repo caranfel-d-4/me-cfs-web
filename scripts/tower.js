@@ -22,7 +22,8 @@ const TXT = [
   {t:'1 call to consolidate what worked', l:[`${eur(CTOT)} · two consortia.`,'Awarded 10/2026, start 2027.','Each builds on a project below.']}
 ];
 
-// mode 'call': Konsortien voll, Projekte schraffiert. mode 'proj': alles voll.
+// mode 'call': Konsortien voll, Projekte schraffiert. mode 'proj': Projekte voll, Konsortien nur schraffiert,
+// ohne Link, Beschriftung und Linien (ihr Auftritt ist auf call/, Carolina 23.10.)
 function tower(desk, mode, hP, hC, pid) {
   const call = mode === 'call';
   const W = desk ? 1088 : 331, U = desk ? 15 : 12, w = desk ? 160 : 90, d = desk ? 110 : 44, G = desk ? 12 : 8;
@@ -55,10 +56,11 @@ function tower(desk, mode, hP, hC, pid) {
       + `<text class="pl" x="${f1(px)}" y="${f1(my + fs * .36)}" font-size="${fs}">${txt}${desk ? `<tspan class="am" dx="8" font-size="11">${amount}</tspan>` : ''}</text></a>`;
   }
   P.forEach((p, i) => { h += slab(`${hP}${p.nr}/`, `Project ME-CFS24-${p.nr}, ${p.ac}, ${eur(p.eur)}`, `ME-CFS24-${p.nr} ${p.ac} · ${eur(p.eur)}`, ys[i], call, `${p.nr}  ${p.ac}`, eur(p.eur), 'p' + p.nr); });
-  C.forEach((c, i) => { h += slab(`${hC}${c.nr}/`, `Consortium ME-CFS-CC26-${c.nr}, ${c.ac}, ${c.t}, ${eur(c.eur)}`, `ME-CFS-CC26-${c.nr} ${c.ac} · ${eur(c.eur)}`, yc[i], false, `CC26-${c.nr}  ${c.ac}`, eur(c.eur), 'c' + c.nr); });
+  if (!call) C.forEach((c, i) => { h += `<g class="blk">${box(x, yc[i][0], w, yc[i][1], true)}</g>`; });
+  else C.forEach((c, i) => { h += slab(`${hC}${c.nr}/`, `Consortium ME-CFS-CC26-${c.nr}, ${c.ac}, ${c.t}, ${eur(c.eur)}`, `ME-CFS-CC26-${c.nr} ${c.ac} · ${eur(c.eur)}`, yc[i], false, `CC26-${c.nr}  ${c.ac}`, eur(c.eur), 'c' + c.nr); });
   // Feine Linien rechts außen: jedes Konsortium zu dem Projekt, auf dem es aufbaut
   const cols = desk ? [W - 34, W - 18] : [W - 9, W - 3];
-  C.forEach((c, i) => {
+  if (call) C.forEach((c, i) => {
     const a = ends['c' + c.nr], b = ends['p' + c.from], cx = cols[i], g = desk ? 8 : 4;
     ld += `<path class="ld cx" d="M ${f1(a[0] + g)} ${f1(a[1] - (desk ? 4 : 3))} H ${f1(cx)} V ${f1(b[1] - (desk ? 4 : 3))} H ${f1(b[0] + g)}"/>`;
   });
@@ -85,11 +87,11 @@ function tower(desk, mode, hP, hC, pid) {
     + ld + h + lab + '</svg>';
 }
 
-const list = (hP, hC) => [...C.map(c => `          <li><a class="bk" href="${hC}${c.nr}/"><span class="n">CC26-${c.nr}</span><span class="t">${c.ac}</span><span class="a">${eur(c.eur)}</span></a></li>`),
+const list = (hP, hC, call) => [...(call ? C : []).map(c => `          <li><a class="bk" href="${hC}${c.nr}/"><span class="n">CC26-${c.nr}</span><span class="t">${c.ac}</span><span class="a">${eur(c.eur)}</span></a></li>`),
   ...P.map(p => `          <li><a class="bk" href="${hP}${p.nr}/"><span class="n">${p.nr}</span><span class="t">${p.ac}</span><span class="a">${eur(p.eur)}</span></a></li>`)].join('\n');
 const AL = {
   call: 'A tower: on top, two large slabs for the Consolidation Call, €1,999,099 for two consortia awarded in October 2026: CC26-004 Haider, building on project 018, and CC26-003 Wielscher, building on project 002. Below, seven thin hatched slabs, the exploratory projects they build on. Each slab links to its page.',
-  proj: 'A tower: seven thin slabs, one per exploratory project, about €100,000 each, €695,445 in total. On top, two large slabs for the Consolidation Call, €1,999,099: CC26-004 Haider, building on 018, and CC26-003 Wielscher, building on 002. Each slab links to its page.'
+  proj: 'A tower: seven thin slabs, one per exploratory project, about €100,000 each, €695,445 in total. On top, two large hatched slabs for the two consortia of the Consolidation Call, €1,999,099. Each project slab links to its page.'
 };
 for (const [file, mode, hP, hC, pid] of [['call/index.html', 'call', '../projects/', '', 'hc'], ['projects/index.html', 'proj', '', '../call/', 'hp']]) {
   const f = path.join(ROOT, file);
@@ -97,7 +99,7 @@ for (const [file, mode, hP, hC, pid] of [['call/index.html', 'call', '../project
   s = s.replace(/<svg class="tw ph[\s\S]*?<\/svg>(?=\s*<svg class="tw dk)/, () => tower(false, mode, hP, hC, pid));
   s = s.replace(/<svg class="tw dk[\s\S]*?<\/svg>(?=\s*<figcaption)/, () => tower(true, mode, hP, hC, pid + 'd'));
   s = s.replace(/(<figure class="tower" aria-label=")[^"]*/, (m, a) => a + AL[mode]);
-  s = s.replace(/(<figcaption class="tl">\s*<ul>\n)[\s\S]*?(\n\s*<\/ul>)/, (m, a, b) => a + list(hP, hC) + b);
+  s = s.replace(/(<figcaption class="tl">\s*<ul>\n)[\s\S]*?(\n\s*<\/ul>)/, (m, a, b) => a + list(hP, hC, mode === 'call') + b);
   fs.writeFileSync(f, s);
 }
 console.log('Turm neu: call/, projects/');
