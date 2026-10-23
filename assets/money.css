@@ -47,7 +47,7 @@
 .fl .s-call{fill:var(--ink)}
 .fl .s-bio{fill:var(--mute)}
 .fl .s-fel{fill:var(--light)}
-.fl .s-con{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3}
+.fl .s-con{stroke:var(--ink);stroke-width:1.2}
 .fl .ht{stroke:var(--ink);stroke-width:1.3}
 
 /* Summe unter der Grafik */
