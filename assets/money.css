@@ -55,6 +55,11 @@
 .ins li{padding:.3em 0 .12em;border-bottom:1px solid var(--ink);text-transform:uppercase;line-height:1.02;letter-spacing:-.008em}
 .ins li:first-child{border-top:1px solid var(--ink)}
 @media (min-width:900px){.ins{--fs:calc(20*var(--u))}}
+.cap{margin:0 0 calc(8*var(--u));font-weight:400;font-size:max(9.5px,calc(9.5*var(--u)));line-height:1.25;text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+@media (min-width:900px){.cap{font-size:max(11px,calc(11*var(--u)))}}
+/* Grafik unter beiden Spalten über die ganze Breite (23.10.) */
+.wide{display:flex;flex-direction:column;gap:calc(14*var(--u));min-width:0}
+@media (min-width:900px){.wide{grid-column:1/-1;gap:calc(22*var(--u))}}
 
 /* Ende: Zusammenfassung zum Aufklappen, weiter zum nächsten Kapitel */
 .end{display:flex;flex-direction:column;gap:12px;margin:calc(40*var(--u)) var(--pad) 0;border-top:1px solid var(--wire-soft);padding-top:10px;font-size:max(12px,calc(12*var(--u)))}
