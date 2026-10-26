@@ -28,10 +28,12 @@
     @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(170*var(--u))}.stage .it .t{white-space:nowrap}}
     /* Farbkonzept F1 d2 (11.10.): Satz und Schlusssatz größer als die Aufzählung, ME/CFS in WWTF-Dunkelblau, Resources-Knopf in WWTF-Koralle unten rechts */
     :root{--navy:#005b94;--coral:#ec6a61}
-    .stage{--sr:1.48}
-    @media (min-width:900px){.stage{--sr:1.52}}
+    /* Aufzählung im Verhältnis zum Satz eine Spur kleiner (26.10.: 1.65/1.7 statt 1.48/1.52) */
+    .stage{--sr:1.65}
+    @media (min-width:900px){.stage{--sr:1.7}}
     .stage .sent{font-size:calc(var(--sr)*var(--fs));line-height:1.06}
-    .stage .sent.b1{padding-bottom:calc(.4*var(--fs))}
+    /* mehr Abstand zwischen Satz und Aufzählung (26.10.: .8 statt .4) */
+    .stage .sent.b1{padding-bottom:calc(.8*var(--fs))}
     .stage .kw.me{color:var(--navy)}
     @media (max-width:899px){.stage .it .a{font-size:max(10px,calc(10*var(--u)))}}
     .stage .b3{display:flex;flex-direction:column;align-items:stretch;gap:calc(.5*var(--fs));padding-top:calc(.6*var(--fs))}
