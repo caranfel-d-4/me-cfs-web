@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="assets/p1.css">
   <style>
     /* A2 neu (07.10.): P1 C ohne Kopfzeile, Satz oben statt ab halber Höhe; der ganze Satz samt Aufzählung passt auf den ersten Bildschirm */
+    /* Rand am Computer 52u statt 80u, gleich wie die Unterseiten nach Entwurf B2 (26.10.2026): Text 52u, Home/Next 41u/43u; Handy bleibt 22 px */
+    @media (min-width:900px){:root{--pad:calc(52*var(--u))}}
     /* Schriftgröße --fs wird per Skript eingepasst, ohne Skript gilt der Wert aus p1.css */
     .stage{height:100vh;height:100svh;padding-block:var(--pad);overflow:hidden}
     @media (min-width:900px){.stage{padding-block:calc(28*var(--u))}}

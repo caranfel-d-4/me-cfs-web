@@ -1,0 +1,49 @@
+/* Unterseiten nach Entwurf B4 (Canvas „WMEW 3.1 Mio Kopfzeilen“, 26.10.2026), zuerst auf money/.
+   Lädt nach p1.css, money.css, p1-head.css und sentence-bar.css und überschreibt sie. Regeln im Konzept „Unterseiten nach B4“.
+   Kopfzeile: Home links, rechts WWTF-Zeichen + Next. Inhalt am Computer 52u vom Rand (wie die Landingpage), Handy 22 px.
+   Abstände wie am Handy: Kopfzeile → Überschrift 48 px, Überschrift → Text 18 px, vor einer neuen Zwischenüberschrift 80 px. */
+@media (min-width:900px){:root{--pad:calc(52*var(--u))}}
+
+/* Kopfzeile: Pillen enger um die Schrift (Schrift bleibt 24 px) */
+.home-btn,.sb-next{padding:.26em .55em .22em}
+@media (min-width:900px){.home-btn,.sb-next{padding:.26em .6em .22em}}
+/* rechts: WWTF-Zeichen (schwarz wie auf der Landingpage, Buchstaben so groß wie die Knopfschrift) direkt vor Next */
+.hd-r{position:absolute;top:12px;right:12px;z-index:6;display:flex;align-items:center;gap:14px}
+.hd-r .sb-next{position:static}
+.sub-mark{display:block;height:28px;width:auto;aspect-ratio:112.3/31.9;fill:var(--ink)}
+@media (min-width:900px){.hd-r{top:calc(20*var(--u));right:calc(43*var(--u));gap:22px}}
+
+/* Überschrift: großer Titel 52 px, Versalien, Regular; 48 px unter der Kopfzeile (Pille 36 px hoch) */
+.home-btn~main>.big:first-child{font-size:52px;line-height:1;letter-spacing:-.008em;max-width:none;padding:calc(12px + 36px + 48px) var(--pad) 0}
+@media (min-width:900px){.home-btn~main>.big:first-child{padding-top:calc(20*var(--u) + 36px + 48px)}}
+
+/* Text 18 px unter der Überschrift; Fließtext 24 px */
+.big+.cols{margin-top:18px}
+@media (min-width:900px){.big+.cols{margin-top:18px}}
+.cols{gap:26px}
+.body{gap:14px}
+.lead{font-size:24px;line-height:1.45;max-width:none}
+/* farblose Pille für Links im Fließtext */
+.op{color:inherit;text-decoration:none;border:1.2px solid currentColor;border-radius:99px;padding:0 .32em .04em;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
+.op:hover,.op:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
+
+/* Tabelle: Titel in Textfarbe 24 px, Zeilen mit Betrag; Computer rechts auf Höhe der Überschrift, Handy unter dem Text */
+.side .cap{font-size:24px;line-height:1.25;color:var(--ink);margin:0 0 8px}
+.ins{--fs:18px}
+.ins li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:.34em 0 .18em;line-height:1.05}
+.ins a{text-decoration:none;transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.ins a:hover,.ins a:focus-visible{color:var(--navy)}
+.ins .am{color:var(--mute);white-space:nowrap}
+@media (min-width:900px){
+  .cols{grid-template-columns:minmax(0,1fr) calc(420*var(--u));column-gap:calc(48*var(--u));row-gap:0}
+  .side{margin-top:calc(-18px - 52px + 2px)}
+  .ins{--fs:24px}
+  .ins li{gap:16px}
+}
+
+/* neue Zwischenüberschrift: 80 px davor, 18 px danach, 24 px Versalien */
+.wide{margin-top:80px;gap:18px}
+@media (min-width:900px){.wide{gap:18px}}
+.sh{margin:0;font-size:24px}
+@media (min-width:900px){.sh{font-size:24px}}
+@media (prefers-reduced-motion:reduce){.op,.ins a{transition:none}}
