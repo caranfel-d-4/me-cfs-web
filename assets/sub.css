@@ -16,14 +16,20 @@
 .sub-mark{display:block;height:28px;width:auto;aspect-ratio:112.3/31.9;fill:var(--ink)}
 @media (min-width:900px){.home-btn{top:calc(12*var(--u))}.hd-r{top:calc(12*var(--u));right:calc(43*var(--u));gap:22px}}
 
+/* Aufbau (27.10.): Titel und Unterzeile stehen in .cols als div.head, links in der Textspalte (bricht bei Bedarf um).
+   Die rechte Spalte (Tabelle) beginnt am Computer auf Höhe des Titels. Bild/Karte (biobank, vienna) über die ganze Breite unter dem Titel.
+   Handy: Titel, Bild/Karte, Text, Tabelle untereinander. */
+.cols{gap:26px;border-top:0;padding-top:0;margin:0 var(--pad)}
+.cols>.head{order:0;padding-top:calc(8px + 36px + 48px)}
+.cols>.pic,.cols>.vmap{order:1;margin:0}
+.cols>.body{order:2}
+.cols>.side{order:3}
+.cols>.wide{order:4}
 /* Überschrift: Größe --hs, Versalien, Regular; 48 px unter der Kopfzeile (Pille 36 px hoch) */
-.home-btn~main>.big:first-child{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:calc(8px + 36px + 48px) var(--pad) 0}
-@media (min-width:900px){.home-btn~main>.big:first-child{padding-top:calc(12*var(--u) + 36px + 48px)}}
-
+.head .big{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:0;text-wrap:balance}
+.head .hsub{margin:8px 0 0;font-size:24px;line-height:1.1}
 /* Text 18 px unter der Überschrift; Fließtext 24 px */
-.big+.cols{margin-top:18px}
-@media (min-width:900px){.big+.cols{margin-top:18px}}
-.cols{gap:26px}
+.cols>.head+.body{margin-top:-8px}
 .body{gap:14px}
 .lead{font-size:24px;line-height:1.45;max-width:none}
 /* farblose Pille für Links im Fließtext */
@@ -37,9 +43,18 @@
 .ins a{text-decoration:none;transition:color 160ms cubic-bezier(.4,0,.2,1)}
 .ins a:hover,.ins a:focus-visible{color:var(--navy)}
 .ins .am{color:var(--mute);white-space:nowrap}
+/* Notizen und Quellen klein unter der Tabelle */
+.side .nt{display:flex;flex-direction:column;gap:8px;margin-top:18px;font-size:15px;line-height:1.35}
+.side .nt .src{display:block;color:var(--mute)}
 @media (min-width:900px){
   .cols{grid-template-columns:minmax(0,1fr) calc(420*var(--u));column-gap:calc(48*var(--u));row-gap:0}
-  .side{margin-top:calc(-18px - var(--hs) + 2px)}
+  .cols>.head{grid-column:1;grid-row:1;padding-top:calc(12*var(--u) + 36px + 48px)}
+  .cols>.side{grid-column:2;grid-row:1/3;padding-top:calc(12*var(--u) + 36px + 48px + 2px)}
+  .cols>.body,.cols>.head+.body{grid-column:1;grid-row:2;margin-top:18px}
+  .cols>.wide{grid-column:1/-1}
+  .cols:has(>.pic,>.vmap)>.side{grid-row:1}
+  .cols>.pic,.cols>.vmap{grid-column:1/-1;grid-row:2;margin-top:40px}
+  .cols:has(>.pic,>.vmap)>.body{grid-row:3;margin-top:40px}
   .ins{--fs:24px}
   .ins li{gap:16px}
 }
@@ -48,5 +63,7 @@
 .wide{margin-top:80px;gap:18px}
 @media (min-width:900px){.wide{gap:18px}}
 .sh{margin:0;font-size:24px}
+/* Zwischenüberschrift im Text: 80 px davor (14 px Abstand der Spalte + 66 px) */
+.body>.sh{margin-top:66px}
 @media (min-width:900px){.sh{font-size:24px}}
 @media (prefers-reduced-motion:reduce){.op,.ins a{transition:none}}

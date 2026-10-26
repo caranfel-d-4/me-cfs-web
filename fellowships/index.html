@@ -13,15 +13,18 @@
   <link rel="stylesheet" href="../assets/fellowships.css">
   <link rel="stylesheet" href="../assets/p1-head.css">
   <link rel="stylesheet" href="../assets/sentence-bar.css?v=7">
+  <link rel="stylesheet" href="../assets/sub.css?v=2">
 </head>
 <body>
   <a class="home-btn" href="../">Home</a>
-  <a class="sb-next" href="../call/" aria-label="next: 1 call to consolidate what worked">Next</a>
+  <div class="hd-r"><svg class="sub-mark" viewBox="27.7 15.9 112.3 31.9" role="img" aria-label="WWTF"><polygon points="27.7,23 31,23 35.7,34.3 39.9,23.4 40.6,23.4 45,34.3 49.6,23 52.7,23 45.3,40.8 44.5,40.8 40.2,29.7 35.9,40.8 35.2,40.8"/><polygon points="62.8,23 66.1,23 70.7,34.3 75,23.4 75.7,23.4 80,34.3 84.7,23 87.8,23 80.4,40.8 79.6,40.8 75.3,29.7 71,40.8 70.2,40.8"/><polygon points="99.2,26 99.2,23.1 114.5,23.1 114.5,26 108.4,26 108.4,40.7 105.2,40.7 105.2,26"/><polygon points="128.2,23.1 140,23.1 140,26 131.3,26 131.3,31.1 138.6,31.1 138.6,33.8 131.3,33.8 131.3,40.7 128.2,40.7"/><rect x="57.3" y="15.9" width="1.1" height="31.9"/><rect x="92.3" y="15.9" width="1.1" height="31.9"/><rect x="120.3" y="15.9" width="1.1" height="31.9"/></svg><a class="sb-next" href="../call/" aria-label="next: 1 call to consolidate what worked">Next</a></div>
   <!-- P1 A2: Unterseite „6 fellowships“ (Kapitel 7) nach Webkonzept v2, Kapitel 7 und 3A.2 (kein eigener Wireframe). Drei hinaus, drei herein, dazu Leonardo Vincenzi. Erzeugt aus ~/.claude/skills/wmew-subpage/templates/fellowships.html und build.js, Änderungen dort machen -->
   <main>
-    <h1 class="big">6 fellowships</h1>
-    <p class="hsub">Six fellowships</p>
     <div class="cols">
+      <div class="head">
+        <h1 class="big">6 fellowships</h1>
+        <p class="hsub">Six fellowships</p>
+      </div>
       <div class="body">
         <p class="lead">Six early-career researchers spend about six months in another lab: three go from Vienna to labs abroad, three come to Vienna. They learn new methods and bring them back, and they build contacts early in their careers.</p>
         <p class="lead">The fellowships are open to researchers who have not worked on ME/CFS before. The first fellows started in May 2026.</p>
@@ -55,10 +58,16 @@
         <span class="src">Names of the other five fellows: tbc, consent pending</span>
       </div>
       <aside class="side" aria-label="Notes and sources">
-        <div><span>For early-career researchers, career stages R1 to R3.</span></div>
-        <div><a class="bk" href="../patients/">→ reviewed together with patients</a></div>
-        <div><span>Coming to Vienna means coming to a field that is still small:</span><a class="bk" href="../vienna/">→ research in Vienna</a></div>
-        <div><span class="src">Sources: WWTF, Connecting Minds 2026, networking event 06/2026 · as of 10/2026</span></div>
+        <h2 class="cap">See also</h2>
+        <ol class="ins">
+          <li><a href="../patients/">reviewed together with patients</a></li>
+          <li><a href="../vienna/">research in Vienna</a></li>
+        </ol>
+        <div class="nt">
+          <div><span>For early-career researchers, career stages R1 to R3.</span></div>
+          <div><span>Coming to Vienna means coming to a field that is still small.</span></div>
+          <div><span class="src">Sources: WWTF, Connecting Minds 2026, networking event 06/2026 · as of 10/2026</span></div>
+        </div>
       </aside>
     </div>
     <div class="end solo">
