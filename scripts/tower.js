@@ -19,7 +19,7 @@ const TOT = P.reduce((a, p) => a + p.eur, 0), CTOT = C.reduce((a, p) => a + p.eu
 const f1 = v => +v.toFixed(1);
 const TXT = [
   {t:'7 exploratory projects', l:['Call 2024 · since 01/2025 · €695,445.','Each slab is one project, up to','€100,000 for 12 to 15 months.']},
-  {t:'2 calls to consolidate what worked', l:[`${eur(CTOT)} · two consortia.`,'Awarded 10/2026, start 2027.','Each builds on a project below.']}
+  {t:'2 projects to consolidate what worked', l:[`${eur(CTOT)} · two consortia.`,'Awarded 10/2026, start 2027.','Each builds on a project below.']}
 ];
 
 // mode 'call': Konsortien voll, Projekte schraffiert. mode 'proj': Projekte voll, Konsortien nur schraffiert,
@@ -79,7 +79,7 @@ function tower(desk, mode, hP, hC, pid) {
     lab += `<text class="tot" x="${f1(bx - tk - 6)}" y="${f1(m - (desk ? 5 : 3))}" text-anchor="end" font-size="${s}">${big}</text>`
       + `<text class="tx" x="${f1(bx - tk - 6)}" y="${f1(m + (desk ? 13 : 9))}" text-anchor="end" font-size="${desk ? 11 : 8}">${small}</text>`;
   }
-  brk(top - sv, conBottom, '€2 million', '2 calls');
+  brk(top - sv, conBottom, '€2 million', '2 projects');
   brk(ys[6][0] - sv, bottom, eur(TOT), '7 projects');
   const H = bottom + (desk ? 30 : 20);
   return `<svg class="tw ${desk ? 'dk' : 'ph'}${call ? ' call' : ''}" viewBox="0 0 ${W} ${f1(H)}" aria-hidden="true">`
