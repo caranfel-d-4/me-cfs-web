@@ -2,6 +2,8 @@
    Lädt nach p1.css, money.css, p1-head.css und sentence-bar.css und überschreibt sie. Regeln im Konzept „Unterseiten nach B4“.
    Kopfzeile: Home links, rechts WWTF-Zeichen + Next. Inhalt am Computer 52u vom Rand (wie die Landingpage), Handy 22 px.
    Abstände wie am Handy: Kopfzeile → Überschrift 48 px, Überschrift → Text 18 px, vor einer neuen Zwischenüberschrift 80 px. */
+/* Überschrift wächst mit der Fensterbreite: Handy 44 px, 1280 px Breite 64 px, höchstens 80 px (26.10.) */
+:root{--hs:clamp(44px,5vw,80px)}
 @media (min-width:900px){:root{--pad:calc(52*var(--u))}}
 
 /* Kopfzeile näher am oberen Rand (26.10.): Handy 8 px statt 12 px, Computer 12u statt 20u. Pillen enger um die Schrift (Schrift bleibt 24 px) */
@@ -14,8 +16,8 @@
 .sub-mark{display:block;height:28px;width:auto;aspect-ratio:112.3/31.9;fill:var(--ink)}
 @media (min-width:900px){.home-btn{top:calc(12*var(--u))}.hd-r{top:calc(12*var(--u));right:calc(43*var(--u));gap:22px}}
 
-/* Überschrift: großer Titel 52 px, Versalien, Regular; 48 px unter der Kopfzeile (Pille 36 px hoch) */
-.home-btn~main>.big:first-child{font-size:52px;line-height:1;letter-spacing:-.008em;max-width:none;padding:calc(8px + 36px + 48px) var(--pad) 0}
+/* Überschrift: Größe --hs, Versalien, Regular; 48 px unter der Kopfzeile (Pille 36 px hoch) */
+.home-btn~main>.big:first-child{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:calc(8px + 36px + 48px) var(--pad) 0}
 @media (min-width:900px){.home-btn~main>.big:first-child{padding-top:calc(12*var(--u) + 36px + 48px)}}
 
 /* Text 18 px unter der Überschrift; Fließtext 24 px */
@@ -37,7 +39,7 @@
 .ins .am{color:var(--mute);white-space:nowrap}
 @media (min-width:900px){
   .cols{grid-template-columns:minmax(0,1fr) calc(420*var(--u));column-gap:calc(48*var(--u));row-gap:0}
-  .side{margin-top:calc(-18px - 52px + 2px)}
+  .side{margin-top:calc(-18px - var(--hs) + 2px)}
   .ins{--fs:24px}
   .ins li{gap:16px}
 }
