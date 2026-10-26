@@ -1,7 +1,5 @@
 /* P1 C Ressourcen nach B9: nummerierte Liste mit Strichen wie Bild 10 (Burgtheater), Themen als Gruppen. Schwarzweiß, Pfeil B mit Hover Dunkelblau */
 :root{--navy:#005b94}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--navy:#80cee6}}
-:root[data-theme="dark"]{--navy:#80cee6}
 
 /* Kopf: zurück zum Satz, Seitenname */
 .top{display:flex;justify-content:space-between;align-items:baseline;padding:34px var(--pad) 14px;font-size:max(12px,calc(12*var(--u)))}

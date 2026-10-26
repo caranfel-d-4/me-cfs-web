@@ -28,8 +28,6 @@
     @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(170*var(--u))}.stage .it .t{white-space:nowrap}}
     /* Farbkonzept F1 d2 (11.10.): Satz und Schlusssatz größer als die Aufzählung, ME/CFS in WWTF-Dunkelblau, Resources-Knopf in WWTF-Koralle unten rechts */
     :root{--navy:#005b94;--coral:#ec6a61}
-    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--navy:#80cee6}}
-    :root[data-theme="dark"]{--navy:#80cee6}
     .stage{--sr:1.48}
     @media (min-width:900px){.stage{--sr:1.52}}
     .stage .sent{font-size:calc(var(--sr)*var(--fs));line-height:1.06}
@@ -75,15 +73,12 @@
     .intro .ld{display:flex;flex-direction:column;align-items:center;gap:20px}
     .intro .ld span{font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
     .intro svg{--track:#e7e7e6;--lead:#005b94}
-    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .intro svg{--track:#353533;--lead:#80cee6}}
     /* Ladezeichen C füllt sich einmal von links nach rechts und bleibt voll stehen */
     @keyframes wm-fill{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}
     .intro .seg{animation:wm-fill 2s cubic-bezier(.4,0,.2,1) 1 forwards}
     @media (prefers-reduced-motion:reduce){.intro .seg{animation:none;stroke-dashoffset:0}.js .intro{transition:none}}
     /* WWTF-Schriftzug (wwtf-mark-black.svg aus dem Design System) klein rechts oben im Eck; im Dunkelmodus in Textfarbe, damit er sichtbar bleibt */
     .wwtf-mark{position:absolute;top:12px;right:var(--pad);z-index:5;display:block;height:28px;width:auto;aspect-ratio:112.3/31.9;fill:#181715}
-    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .wwtf-mark{fill:var(--ink)}}
-    :root[data-theme="dark"] .wwtf-mark{fill:var(--ink)}
     /* Zeichen 28 px hoch wie auf den Unterseiten (26.10.2026), Satz rückt um den Zuwachs nach unten */
     .stage{padding-top:48px}
     @media (min-width:900px){.wwtf-mark{top:calc(12*var(--u) + 4px);height:28px}.stage{padding-top:calc(41*var(--u) + 14px)}}

@@ -7,9 +7,6 @@
   --line: #e4e4e3;
   --font: "Source Sans 3","Source Sans Pro",Arial, sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root { --bg: #111111; --ink: #f2f2f2; --muted: #9a9a9a; --line: #333333; }
-}
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body {

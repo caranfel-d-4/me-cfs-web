@@ -2,17 +2,15 @@
 @font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-400.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-700.woff2) format("woff2");font-weight:700;font-display:swap}
 
+/* vorerst kein Dunkelmodus (Carolina, 27.10.2026): immer hell */
 :root{
+  color-scheme:light;
   --paper:#ffffff; --ink:#181715; --mute:#4c4c4b; --wire-soft:#e4e4e3;
   --grot:"Source Sans 3","Source Sans Pro",Arial,sans-serif;
   /* Handy: Entwurf auf 375 px */
   --u:calc(100vw / 375);
   --pad:22px; --fs:30px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){color-scheme:dark;--paper:#1F1F1E;--ink:#E6E6E3;--mute:#9C9C98;--wire-soft:#353533}
-}
-:root[data-theme="dark"]{color-scheme:dark;--paper:#1F1F1E;--ink:#E6E6E3;--mute:#9C9C98;--wire-soft:#353533}
 /* Computer: Entwurf auf 1280 px, skaliert mit der Fensterbreite */
 @media (min-width:900px){
   :root{--u:calc(100vw / 1280);--pad:calc(80*var(--u));--fs:calc(60*var(--u))}
@@ -63,7 +61,6 @@ a{color:inherit}
 /* Scrollzeichen (C, gerader Pfeil), eingesetzt von scroll-cue.js: feiner Strich wie Pfeil B, zeichnet sich einmal nach, Hover Dunkelblau */
 .scroll-cue{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-size:12px;line-height:1;text-transform:uppercase;letter-spacing:.03em;transition:color 160ms cubic-bezier(.4,0,.2,1)}
 .scroll-cue:hover,.scroll-cue:focus-visible{color:#005b94}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .scroll-cue:hover,:root:not([data-theme="light"]) .scroll-cue:focus-visible{color:#80cee6}}
 .scroll-cue:focus-visible{outline:1.35px solid currentColor;outline-offset:6px}
 .scroll-cue svg{display:block;width:48px;height:auto;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.35px;stroke-linecap:round;stroke-linejoin:round}
 @keyframes sc-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}

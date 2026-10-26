@@ -1,8 +1,6 @@
 /* Kapitel „research in Vienna“ nach Wireframe 8VN3r6zNausaugSSYdjKxy. Baut auf p1.css, money.css und projects.css auf.
    Einzige Farben der Website außerhalb des Hovers: im Wienplan Koralle (Standorte) und Dunkelblau (Donau), nach ihrem Moodboard 10.08. */
 :root{--coral:#ec6a61;--navy:#005b94;--light:#B4B4B0}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--coral:#f08a83;--navy:#80cee6;--light:#5A5A57}}
-:root[data-theme="dark"]{--coral:#f08a83;--navy:#80cee6;--light:#5A5A57}
 
 /* Wienplan */
 .vmap{margin:0 var(--pad);display:flex;flex-direction:column;gap:8px}

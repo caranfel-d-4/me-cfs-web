@@ -1,7 +1,5 @@
 /* Unterseite „€3.1 million“ nach Wireframe B1 (P1 S2), gemeinsam für p1-c, p1-a2, p3-c1. Kopf und Überschrift wie die Ressourcenseite, schwarzweiß, nur Inter Tight Regular, Pfeil B mit Hover Dunkelblau */
 :root{--navy:#005b94;--light:#B4B4B0}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--navy:#80cee6;--light:#5A5A57}}
-:root[data-theme="dark"]{--navy:#80cee6;--light:#5A5A57}
 
 /* Kopf: zurück zur Landingpage, Seitenname (wie Ressourcen) */
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:34px var(--pad) 14px;font-size:max(12px,calc(12*var(--u)))}
