@@ -54,3 +54,20 @@
 /* Resources ist eigenständig, ohne Satzleiste: Abstand zur Fußzeile wie sonst über der Leiste */
 main+.ff{margin-top:80px}
 @media (min-width:900px){main+.ff{margin-top:calc(120*var(--u))}}
+
+/* Schriftgrößen wie auf den Unterseiten nach B4 (27.10.2026). sub.css wird mitgeladen (Rand 52u, Kopfzeile, --hs);
+   die Regeln hier sind spezifischer als p1-head.css und sentence-bar.css, die nach dieser Datei laden.
+   Überschrift --hs, 48 px unter der Kopfzeile, 18 px bis zur ersten Gruppe; Gruppen und Titel 24 px wie Fließtext und Tabellen; Beschreibung, Nummer und Format 15 px wie die Notizen */
+body>.home-btn~main>.big:first-child{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:calc(8px + 36px + 48px) var(--pad) 18px;text-wrap:balance}
+main>.grp .gh{font-size:24px;letter-spacing:0;line-height:1.25;padding-top:80px}
+main>.big+.grp .gh{padding-top:0}
+.ri{row-gap:4px;padding:.5em 0 .55em}
+.ri .t{font-size:24px;line-height:1.15}
+.ri .n,.ri .d,.ri .m{font-size:15px;line-height:1.35}
+.ri .m{letter-spacing:.03em}
+@media (min-width:900px){
+  body>.home-btn~main>.big:first-child{padding-top:calc(12*var(--u) + 36px + 48px)}
+  .ri{grid-template-columns:calc(48*var(--u)) 5fr 4fr calc(170*var(--u)) calc(20*var(--u))}
+  .ri .t{font-size:24px}
+  .ri .n,.ri .d,.ri .m,.ri .go{font-size:15px}
+}
