@@ -67,5 +67,5 @@
 .body>.sh{margin-top:66px}
 @media (min-width:900px){.sh{font-size:24px}}
 @media (prefers-reduced-motion:reduce){.op,.ins a{transition:none}}
-/* zweite Tabelle in der rechten Spalte (mecfs/ „Stories of those affected“, 27.10.): Abstand zur nächsten Tabelle */
+/* zweite Tabelle in der rechten Spalte (mecfs/ „Find out more about people living with ME/CFS“, 27.10.): Abstand zur nächsten Tabelle */
 .side .ins+.cap{margin-top:40px}
