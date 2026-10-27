@@ -92,3 +92,6 @@ img.ph{display:block;height:auto;object-fit:cover;border:0;background:var(--wire
   .lv .src{font-size:max(10.5px,calc(11*var(--u)))}
 }
 @media (prefers-reduced-motion:reduce){.lv-r{transition:none}}
+
+/* Tabelle „Find out more about people living with ME/CFS“ (mecfs/ und Personenseiten, 27.10.): nur Namen, ohne Jahr, Schrift so groß wie der Fließtext (24 px, auch am Handy) */
+.ins.ppl{--fs:24px}
