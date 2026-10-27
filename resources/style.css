@@ -71,3 +71,8 @@ main>.big+.grp .gh{padding-top:0}
   .ri .t{font-size:24px}
   .ri .n,.ri .d,.ri .m,.ri .go{font-size:15px}
 }
+
+/* Designkonzept (27.10.): WWTF-Zeichen rechts oben wie auf den Unterseiten (ohne Next), Gruppenüberschriften in Textfarbe, Beschreibung in Fließtextgröße 24 px */
+main>.grp .gh{color:var(--ink)}
+.ri .d{font-size:24px;line-height:1.3}
+@media (min-width:900px){.ri .d{font-size:24px}}
