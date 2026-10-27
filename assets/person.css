@@ -1,11 +1,10 @@
 /* Personenseiten Mila, Carmen, Martin (Unter-Unterseiten von ME/CFS). Seit 27.10.2026 wie die Kapitelseiten nach B4: lädt vor sub.css, das Kopfzeile, Überschrift, Text und Tabellen setzt.
-   Hier nur, was die Personenseiten dazubrauchen: Foto über die ganze Bildschirmbreite unter dem Namen, Tabelle der drei Personen rechts neben dem Text (ab dem ersten Absatz), Zitat, Collage. Keine Bewegung */
+   Hier nur, was die Personenseiten dazubrauchen: Foto über die ganze Inhaltsbreite unter dem Namen, Tabelle der drei Personen rechts neben dem Text (ab dem ersten Absatz), Zitat, Collage. Keine Bewegung */
 
-/* Foto: unter dem Namen von Rand zu Rand (hebt den Rand --pad von .cols auf), Handy wie Computer */
+/* Foto: unter dem Namen über die ganze Inhaltsbreite (Randabstände bleiben), Handy wie Computer */
 .pic{display:flex;flex-direction:column;gap:6px}
 .pic .photo{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
 img.photo{background:var(--wire-soft)}
-.cols.person>.pic{margin-inline:calc(-1*var(--pad))}
 /* Tabelle der drei Personen beginnt erst unter dem Foto, auf Höhe des Fließtexts */
 @media (min-width:900px){
   .cols.person:has(>.pic)>.side{grid-row:3;padding-top:2px;margin-top:40px}
