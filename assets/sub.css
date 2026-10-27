@@ -45,6 +45,7 @@
 .ins .am{color:var(--mute);white-space:nowrap}
 /* Notizen und Quellen klein unter der Tabelle */
 .side .nt{display:flex;flex-direction:column;gap:8px;margin-top:18px;font-size:15px;line-height:1.35}
+.side>.nt:first-child{margin-top:0}
 .side .nt .src{display:block;color:var(--mute)}
 @media (min-width:900px){
   .cols{grid-template-columns:minmax(0,1fr) calc(420*var(--u));column-gap:calc(52*var(--u));row-gap:0}
