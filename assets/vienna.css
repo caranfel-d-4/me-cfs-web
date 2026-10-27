@@ -4,7 +4,7 @@
 
 /* Wienplan */
 .vmap{margin:0 var(--pad);display:flex;flex-direction:column;gap:8px}
-.map{display:block;width:100%;height:auto;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--wire-soft)}
+.map{display:block;width:100%;height:auto;border-bottom:1px solid var(--wire-soft)}
 .map.dk{display:none}
 @media (min-width:900px){.map.ph{display:none}.map.dk{display:block}}
 .map text{font-family:inherit}
