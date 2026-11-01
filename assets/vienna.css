@@ -56,6 +56,7 @@
 /* Wer dazukam */
 .who{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;border-top:1px solid var(--ink);padding-top:10px}
 @media (min-width:900px){.who{grid-template-columns:calc(150*var(--u)) 1fr;gap:calc(24*var(--u))}}
+.who+.who{margin-top:calc(24*var(--u))}
 .who .photo{aspect-ratio:4/5;background:var(--wire-soft)}
 .who p{margin:0 0 8px;font-size:max(13.5px,calc(13.5*var(--u)));line-height:1.42}
 @media (min-width:900px){.who p{font-size:max(15px,calc(17*var(--u)))}}
