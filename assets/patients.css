@@ -32,3 +32,24 @@
 @media (min-width:900px){.quote p{font-size:max(22px,calc(30*var(--u)));max-width:calc(700*var(--u))}.quote .src{font-size:max(10.5px,calc(11*var(--u)))}}
 .tbc{color:var(--mute)}
 .side .bk{display:block}
+
+/* „What patients added“ (01.11.2026, Wireframe Uf8mEAfrUrQqHf5fDZw891): 41 Gutachten als Kästchen, 13 gefüllt (■/□ wie Jurygrafik), zwei Blickwinkel als Listen */
+.rv{margin:0;display:flex;flex-direction:column;gap:2px}
+.dots{display:grid;grid-template-columns:repeat(14,1fr);gap:6px;max-width:340px}
+.dots span{aspect-ratio:1;border:1px solid var(--mute);box-sizing:border-box}
+.dots span.ex{background:var(--ink);border-color:var(--ink)}
+.lens{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.lens>div{min-width:0}
+.lens h3{margin:0;font-weight:400;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;color:var(--mute);border-bottom:1px solid var(--ink);padding-bottom:6px;display:flex;gap:7px;align-items:center}
+.lens h3::before{content:"";flex:none;width:9px;height:9px;border:1px solid var(--mute);box-sizing:border-box}
+.lens .ex h3{color:var(--ink)}
+.lens .ex h3::before{background:var(--ink);border-color:var(--ink)}
+.lens ul{list-style:none;margin:0;padding:0}
+.lens li{padding:8px 0;border-bottom:1px solid var(--wire-soft);font-size:18px;line-height:1.3}
+@media (min-width:900px){
+  .dots{grid-template-columns:repeat(21,1fr);gap:max(8px,calc(10*var(--u)));max-width:calc(640*var(--u))}
+  .lens{gap:calc(24*var(--u))}
+  .lens h3{font-size:15px;gap:10px}
+  .lens h3::before{width:max(9px,calc(11*var(--u)));height:max(9px,calc(11*var(--u)))}
+  .lens li{font-size:24px;padding:10px 0}
+}
