@@ -20,8 +20,11 @@
 .tw .tot{letter-spacing:-.008em}
 /* Platten sind Links zur Projektseite: Hover und Fokus Dunkelblau */
 .tw .slab{cursor:pointer}
-.tw .slab .fl,.tw .slab .pl,.tw .slab .ld{transition:fill 160ms cubic-bezier(.4,0,.2,1),stroke 160ms cubic-bezier(.4,0,.2,1)}
+.tw .slab .fl,.tw .slab .fr,.tw .slab .ft,.tw .slab .pl,.tw .slab .ld{transition:fill 160ms cubic-bezier(.4,0,.2,1),stroke 160ms cubic-bezier(.4,0,.2,1)}
+/* Hover: ganze Platte blau (01.11.2026), Vorderseite Dunkelblau, Seite und Deckel hellere Töne davon, damit sie räumlich bleibt */
 .tw .slab:hover .fl,.tw .slab:focus-visible .fl{fill:var(--navy)}
+.tw .slab:hover .fr,.tw .slab:focus-visible .fr{fill:color-mix(in srgb,var(--navy) 72%,#fff)}
+.tw .slab:hover .ft,.tw .slab:focus-visible .ft{fill:color-mix(in srgb,var(--navy) 45%,#fff)}
 .tw .slab:hover .pl,.tw .slab:focus-visible .pl{fill:var(--navy)}
 .tw .slab:hover .ld,.tw .slab:focus-visible .ld{stroke:var(--navy)}
 .tw .slab:hover .oo,.tw .slab:focus-visible .oo{stroke:var(--navy)}
@@ -61,4 +64,4 @@
 .end .nx{align-self:auto;margin-left:auto}
 @media (max-width:899px){.end:not(:has(details)){flex-direction:row;justify-content:space-between;gap:16px}}
 
-@media (prefers-reduced-motion: reduce){.tw .slab .fl,.tw .slab .pl,.tw .slab .ld{transition:none}}
+@media (prefers-reduced-motion: reduce){.tw .slab .fl,.tw .slab .fr,.tw .slab .ft,.tw .slab .pl,.tw .slab .ld{transition:none}}

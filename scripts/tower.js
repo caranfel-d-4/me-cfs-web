@@ -81,20 +81,22 @@ function tower(desk, mode, hP, hC, pid) {
     });
   }
   const bx = x - (desk ? 16 : 10), tk = desk ? 6 : 4;
-  function brk(y1, y2, big, small) {
+  // Jahreszahl (01.11.2026, Carolina): Computer eigene Zeile über dem Betrag, Handy vor dem Betrag
+  function brk(y1, y2, big, small, yr) {
     const m = (y1 + y2) / 2;
     if (desk) {
       ld += `<path class="ld" d="M ${f1(bx + tk)} ${f1(y1)} H ${f1(bx)} V ${f1(y2)} H ${f1(bx + tk)} M ${f1(bx)} ${f1(m)} H ${f1(bx - tk)}"/>`;
-      lab += `<text class="tot tx-l" x="${f1(bx - tk - 6)}" y="${f1(m - LS * .12)}" text-anchor="end">${big}</text>`
+      lab += `<text class="tot yr tx-l" x="${f1(bx - tk - 6)}" y="${f1(m - LS * 1.22)}" text-anchor="end">${yr}</text>`
+        + `<text class="tot tx-l" x="${f1(bx - tk - 6)}" y="${f1(m - LS * .12)}" text-anchor="end">${big}</text>`
         + `<text class="tx tx-s" x="${f1(bx - tk - 6)}" y="${f1(m + SS * 1.15)}" text-anchor="end">${small}</text>`;
     } else {
       ld += `<path class="ld" d="M ${f1(bx + tk)} ${f1(y1)} H ${f1(bx)} V ${f1(y2)} H ${f1(bx + tk)}"/>`;
       const by = y1 - SS * .5;
-      lab += `<text class="tot tx-l" x="0" y="${f1(by)}">${big}<tspan class="tx tx-s" dx="${f1(SS * .5)}">${small}</tspan></text>`;
+      lab += `<text class="tot tx-l" x="0" y="${f1(by)}"><tspan class="yr">${yr}</tspan> · ${big}<tspan class="tx tx-s" dx="${f1(SS * .5)}">${small}</tspan></text>`;
     }
   }
-  brk(top - sv, conBottom, '€2 million', '2 projects');
-  brk(ys[6][0] - sv, bottom, eur(TOT), '7 projects');
+  brk(top - sv, conBottom, '€2 million', '2 projects', '2026');
+  brk(ys[6][0] - sv, bottom, eur(TOT), '7 projects', '2024');
   const H = bottom + (desk ? 30 : 20);
   return `<svg data-fit class="tw ${desk ? 'dk' : 'ph'}${call ? ' call' : ''}" viewBox="0 0 ${W} ${f1(H)}" aria-hidden="true">`
     + `<defs><pattern id="${pid}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="ht"/></pattern></defs>`
