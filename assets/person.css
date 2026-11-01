@@ -66,3 +66,5 @@ img.photo{background:var(--wire-soft)}
   .duo.hs .hs-track{display:flex;width:200vw;will-change:transform}
   .duo.hs .hs-track>figure{flex:0 0 100vw;width:100vw;padding:0 var(--pad,22px);box-sizing:border-box}
 }
+/* Computer (01.11.2026): ohne Randspalte läuft der Fließtext über die ganze Breite */
+@media (min-width:900px){.cols.person>.body,.cols.person>.fam{grid-column:1/-1}}
