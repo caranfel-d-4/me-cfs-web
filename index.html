@@ -38,7 +38,9 @@
     .stage .kw.me{color:var(--navy)}
     /* „reviewed together with patients:“ als Überschrift der Aufzählung, so groß wie die Aufzählung (27.10.) */
     .stage .lh{margin:0;padding:0 var(--pad) .3em;font-size:var(--fs);line-height:1.02;text-transform:uppercase;letter-spacing:-.008em}
-    @media (max-width:899px){.stage .it .a{font-size:max(10px,calc(10*var(--u)))}}
+    /* Untertitel in der Tabelle: WWTF-DS „sm“, Handy 14 px, Computer 15 px wie Kleintext der Unterseiten */
+    .stage .it .a{font-size:14px;line-height:1.2}
+    @media (min-width:900px){.stage .it .a{font-size:15px}}
     .stage .b3{display:flex;flex-direction:column;align-items:stretch;gap:calc(.5*var(--fs));padding-top:calc(1.1*var(--fs))}
     .stage .b3 .rb{align-self:flex-end}
     .stage .b3 .sent{min-width:0}
