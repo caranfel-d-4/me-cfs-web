@@ -15,8 +15,10 @@
   function update() {
     queued = false;
     if (!phone.matches || calm.matches) { track.style.transform = ''; return; }
-    var r = duo.getBoundingClientRect(), total = r.height - window.innerHeight;
-    var p = total <= 0 ? 1 : Math.min(1, Math.max(0, -r.top / total));
+    // Pin so hoch wie das Foto, steht in der Mitte: Fortschritt von „Pin erreicht die Mitte“ bis „Spacer zu Ende“
+    var r = duo.getBoundingClientRect(), ph = pin.offsetHeight, total = r.height - ph;
+    var stick = (window.innerHeight - ph) / 2;
+    var p = total <= 0 ? 1 : Math.min(1, Math.max(0, (stick - r.top) / total));
     track.style.transform = 'translateX(' + (-p * (n - 1) * 100) + 'vw)';
   }
   function queue() { if (!queued) { queued = true; requestAnimationFrame(update); } }

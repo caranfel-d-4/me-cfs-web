@@ -61,8 +61,9 @@ img.photo{background:var(--wire-soft)}
 /* Handy: die zwei Fotos unten als waagrechte Spur, vom Scrollen nach unten gesteuert (assets/duo-scroll.js, 01.11.2026) */
 .hs-pin,.hs-track{display:contents}
 @media (max-width:899px) and (prefers-reduced-motion:no-preference){
-  .duo.wide.hs{display:block;height:200svh;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
-  .duo.hs .hs-pin{display:flex;align-items:center;position:sticky;top:0;height:100svh;overflow:hidden}
+  /* 01.11.2026: Pin nur so hoch wie das Foto, bleibt in der Bildschirmmitte stehen; kein Weiß über/unter dem Foto, Abstand zum Text klein */
+  .duo.wide.hs{display:block;--ih:calc((100vw - 2*var(--pad,22px))*2/3);height:calc(var(--ih) + 70svh);width:100vw;margin-top:14px;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+  .duo.hs .hs-pin{display:block;position:sticky;top:calc(50svh - var(--ih)/2);overflow:hidden}
   .duo.hs .hs-track{display:flex;width:200vw;will-change:transform}
   .duo.hs .hs-track>figure{flex:0 0 100vw;width:100vw;padding:0 var(--pad,22px);box-sizing:border-box}
 }
