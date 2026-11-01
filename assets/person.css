@@ -27,3 +27,13 @@ img.photo{background:var(--wire-soft)}
 /* Ende: vorige und nächste Person */
 .end .nx{align-self:auto;margin-left:auto}
 @media (max-width:899px){.end{flex-direction:row;flex-wrap:wrap;justify-content:space-between}}
+/* Zeile über dem Foto (01.11.2026): Erkrankung seit/Dauer, als Fließtext, nicht in Versalien */
+.head .hsub.ft{text-transform:none;letter-spacing:0}
+/* Mila (01.11.2026): Text über die Familie zwischen den Collagen, dann drei Familienfotos nebeneinander */
+.cols>.fam{order:5;display:flex;flex-direction:column;gap:14px;margin-top:80px}
+.cols>.wide.trio{order:6}
+.fam .lead{margin:0}
+.duo .x a{color:inherit;text-underline-offset:.2em}
+.duo .x a:hover,.duo .x a:focus-visible{color:#005b94}
+@media (min-width:900px){.cols>.fam{grid-column:1}.duo.trio{grid-template-columns:1fr 1fr 1fr}}
+@media (min-width:900px){.cols:has(>.fam)>.duo:not(.trio){grid-row:4}.cols>.fam{grid-row:5}.cols>.trio{grid-row:6}}
