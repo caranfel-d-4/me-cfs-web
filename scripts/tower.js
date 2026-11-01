@@ -18,8 +18,8 @@ const eur = n => '€' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const TOT = P.reduce((a, p) => a + p.eur, 0), CTOT = C.reduce((a, p) => a + p.eur, 0);
 const f1 = v => +v.toFixed(1);
 const TXT = [
-  {yr:'2024', t:'7 exploratory projects', l:['Call 2024 · since 01/2025 · €695,445.','Each slab is one project, up to','€100,000 for 12 to 15 months.']},
-  {yr:'2026', t:'2 projects to consolidate what worked', l:[`${eur(CTOT)} · two consortia.`,'Awarded 10/2026, start 2027.','Each builds on a project below.']}
+  {t:'ME/CFS 2024 – Understanding ME/CFS', l:['Call 2024 · since 01/2025 · €695,445.','Each slab is one project, up to','€100,000 for 12 to 15 months.']},
+  {t:'ME/CFS Consolidation Call 2026', l:[`${eur(CTOT)} · two consortia.`,'Awarded 10/2026, start 2027.','Each builds on a project below.']}
 ];
 
 // mode 'call': Konsortien voll, Projekte schraffiert. mode 'proj': Projekte voll, Konsortien nur schraffiert,
@@ -72,10 +72,8 @@ function tower(desk, mode, hP, hC, pid) {
   if (desk) {
     const maxW = ex - 12 - lx;
     [[TXT[1], top - 4, top + (conBottom - top) * .5], [TXT[0], gapY + 20, (ys[6][0] + bottom) / 2]].forEach(([o, ty, ey]) => {
-      // Jahreszahl über der Beschriftung, Notizen darunter entfernt (01.11.2026, Carolina)
+      // Beschriftung links = Name des Calls, ohne Notizen darunter (01.11.2026, Carolina)
       let yl = ty + LS * .75;
-      lab += `<text class="ti yr tx-l" x="${f1(lx)}" y="${f1(yl)}">${o.yr}</text>`;
-      yl += LS * 1.1;
       wrap(o.t, maxW, LS * .47).forEach((z, i) => { if (i) yl += LS * 1.1; lab += `<text class="ti tx-l" x="${f1(lx)}" y="${f1(yl)}">${z}</text>`; });
       const ly = Math.max(ey, yl + SS * .8);
       ld += `<path class="ld" d="M ${f1(lx - 14)} ${f1(ty)} V ${f1(ly)} H ${f1(ex)}"/>`;
