@@ -30,7 +30,7 @@ function tower(desk, mode, hP, hC, pid) {
   // Schrift in festen px (01.11.2026): 24 px groß, klein 15 px Computer / 14 px Handy; in SVG-Einheiten für das schmalste Fenster
   // (Computer 900 px → Turm 827 px breit, Handy 360 px → 316 px), damit es dort noch passt. Größen selbst: sub.css .tx-l/.tx-s
   const K = desk ? W / 827 : W / 316, LS = 24 * K, SS = (desk ? 15 : 14) * K;
-  const x = desk ? 520 : 20, top = desk ? 60 : 44;
+  const x = desk ? 520 : 20, top = desk ? 60 : 62; // Handy höher: Platz für den zweizeiligen Call-Namen über der Klammer
   const poly = (c, pts) => `<polygon class="${c}" points="${pts.map(p => f1(p[0]) + ',' + f1(p[1])).join(' ')}"/>`;
   function box(bx, by, bw, bh, open) {
     const s = d * .12, f = [[bx,by],[bx+bw,by],[bx+bw,by+bh],[bx,by+bh]], r = [[bx+bw,by],[bx+bw+d,by-s],[bx+bw+d,by+bh-s],[bx+bw,by+bh]], t = [[bx,by],[bx+d,by-s],[bx+bw+d,by-s],[bx+bw,by]];
@@ -81,7 +81,8 @@ function tower(desk, mode, hP, hC, pid) {
   }
   const bx = x - (desk ? 16 : 10), tk = desk ? 6 : 4;
   // Jahreszahl nicht beim Betrag (01.11.2026, Carolina): Computer steht sie links bei der Beschriftung, Handy hinter der kleinen Beschriftung
-  function brk(y1, y2, big, small, yr) {
+  // Handy (01.11.2026, Carolina, Screenshot): neben dem Betrag der Call-Name statt „2 projects · 2026“, bei Bedarf zweizeilig
+  function brk(y1, y2, big, small, name) {
     const m = (y1 + y2) / 2;
     if (desk) {
       ld += `<path class="ld" d="M ${f1(bx + tk)} ${f1(y1)} H ${f1(bx)} V ${f1(y2)} H ${f1(bx + tk)} M ${f1(bx)} ${f1(m)} H ${f1(bx - tk)}"/>`;
@@ -89,12 +90,14 @@ function tower(desk, mode, hP, hC, pid) {
         + `<text class="tx tx-s" x="${f1(bx - tk - 6)}" y="${f1(m + SS * 1.15)}" text-anchor="end">${small}</text>`;
     } else {
       ld += `<path class="ld" d="M ${f1(bx + tk)} ${f1(y1)} H ${f1(bx)} V ${f1(y2)} H ${f1(bx + tk)}"/>`;
-      const by = y1 - SS * .5;
-      lab += `<text class="tot tx-l" x="0" y="${f1(by)}">${big}<tspan class="tx tx-s" dx="${f1(SS * .5)}">${small} · ${yr}</tspan></text>`;
+      const nx = big.length * LS * .52 + SS * .6, lines = wrap(name, W - nx, SS * .5), ls = SS * 1.15;
+      const by = y1 - SS * .5 - (lines.length - 1) * ls;
+      lab += `<text class="tot tx-l" x="0" y="${f1(by)}">${big}</text>`;
+      lines.forEach((z, i) => { lab += `<text class="tx tx-s" x="${f1(nx)}" y="${f1(by + i * ls)}">${z}</text>`; });
     }
   }
-  brk(top - sv, conBottom, '€2 million', '2 projects', '2026');
-  brk(ys[6][0] - sv, bottom, eur(TOT), '7 projects', '2024');
+  brk(top - sv, conBottom, '€2 million', '2 projects', 'ME/CFS Consolidation Call 2026');
+  brk(ys[6][0] - sv, bottom, eur(TOT), '7 projects', 'ME/CFS 2024');
   const H = bottom + (desk ? 30 : 20);
   return `<svg data-fit class="tw ${desk ? 'dk' : 'ph'}${call ? ' call' : ''}" viewBox="0 0 ${W} ${f1(H)}" aria-hidden="true">`
     + `<defs><pattern id="${pid}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="ht"/></pattern></defs>`

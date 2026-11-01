@@ -37,7 +37,10 @@
 .tl a{display:grid;grid-template-columns:5.6em 1fr auto;gap:8px;padding:6px 0;width:100%}
 .tl .n,.tl .a{color:var(--mute);font-size:.85em;text-transform:uppercase;letter-spacing:.03em;align-self:center}
 .tl a:hover .n,.tl a:hover .a{color:inherit}
-@media (min-width:900px){.tl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+/* Liste nur für Screenreader, auch auf dem Handy (01.11.2026: „extra Auflistung überflüssig“) */
+.tl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Call-Link im Einstieg: auf dem Handy nur „ME/CFS 2024“, damit die Pille nicht über den Rand geht */
+@media (max-width:899px){.op .lg{display:none}}
 
 .side .xr .bk{display:inline}
 
