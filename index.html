@@ -45,6 +45,9 @@
     /* Computer: „There is more to come“ steht auf einer Zeile, der Hover-Strich läuft in einem Zug über das ganze Glied statt in zwei Stücken (.u) */
     @media (min-width:900px){.stage .b3 .kw:has(.u){background-image:linear-gradient(currentColor,currentColor)}.stage .b3 .kw .u{background-image:none}}
     @media (min-width:900px){.stage .b3{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:calc(24*var(--u))}}
+    /* Laptop, schmales Fenster (01.11., Variante B aus „WMEW Resources-Knopf“): Resources in eigener Zeile unter dem Schlusssatz, rechtsbündig.
+       Abstand Grundlinie „to come“ → Knopf = Abstand WWTF-Zeichen → Versalhöhe des Satzes oben: 29u − 18px + .182·Satzgröße, abzüglich .218·Satzgröße unter der Grundlinie */
+    @media (min-width:900px) and (max-width:1279px){.stage .b3{flex-direction:column;align-items:stretch;gap:calc(29*var(--u) - 18px - .036*var(--sr)*var(--fs))}}
     .rb{flex:none;display:inline-block;background:var(--coral);color:#181715;border-radius:99px;padding:.26em .6em .22em;font-size:calc(.85*var(--fs));line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1)}
     .rb:hover,.rb:focus-visible{background:#005b94;color:#fff}
     /* Resources größer (27.10. abends): Computer .85 der Satzgröße statt .66, Handy 30 px statt 24 px */
