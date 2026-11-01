@@ -47,7 +47,11 @@ img.photo{background:var(--wire-soft)}
 .duo .x a{color:inherit;text-underline-offset:.2em}
 .duo .x a:hover,.duo .x a:focus-visible{color:#005b94}
 @media (min-width:900px){.cols>.fam{grid-column:1}.duo.trio{grid-template-columns:1fr 1fr 1fr}}
-@media (min-width:900px){.cols:has(>.fam)>.duo:not(.trio){grid-row:4}.cols>.fam{grid-row:5}.cols>.trio{grid-row:6}}
+/* Mila 01.11.2026: Familientext direkt unter dem Text, Bilder darunter */
+.cols>.fam{order:3;margin-top:-12px}
+@media (min-width:900px){.cols>.fam{margin-top:14px}}
+.cols:has(>.fam)>.wide{order:5}
+@media (min-width:900px){.cols>.fam{grid-row:4}.cols:has(>.fam)>.duo:not(.trio){grid-row:5}.cols>.trio{grid-row:6}}
 
 /* Mila 01.11.2026: Zitat in Fließtextgröße unter dem Text, Fotonachweis ganz unten statt Randnotiz */
 .quote.ft{margin:6px 0 0}
