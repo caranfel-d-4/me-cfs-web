@@ -27,8 +27,19 @@ img.photo{background:var(--wire-soft)}
 /* Ende: vorige und nächste Person */
 .end .nx{align-self:auto;margin-left:auto}
 @media (max-width:899px){.end{flex-direction:row;flex-wrap:wrap;justify-content:space-between}}
-/* Zeile über dem Foto (01.11.2026): Erkrankung seit/Dauer, als Fließtext, nicht in Versalien */
-.head .hsub.ft{text-transform:none;letter-spacing:0}
+/* Zeile über dem Foto (01.11.2026, nach Referenzbild „Narrative“): Alter, Erkrankung seit, Dauer als kleine Versalien-Etiketten
+   in einer Reihe knapp über dem Foto. Computer: Alter und „since“ links nebeneinander, Dauer rechts auf Höhe der rechten Spalte.
+   Handy: drei Etiketten über die ganze Breite verteilt. Kleintext wie auf der Landing (14/15 px) */
+.head .hsub.pm{display:flex;justify-content:space-between;gap:12px;margin:18px 0 0;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.01em}
+.hsub.pm span{white-space:nowrap}
+.hsub.pm .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cols:has(.hsub.pm)>.pic{margin-top:-14px}
+@media (min-width:900px){
+  .cols:has(.hsub.pm)>.head{grid-column:1/-1}
+  .head .hsub.pm{display:grid;grid-template-columns:auto auto minmax(0,1fr) calc(420*var(--u));column-gap:calc(52*var(--u));margin-top:calc(26*var(--u));font-size:15px}
+  .hsub.pm span:last-child{grid-column:4}
+  .cols:has(.hsub.pm)>.pic{margin-top:12px}
+}
 /* Mila (01.11.2026): Text über die Familie zwischen den Collagen, dann drei Familienfotos nebeneinander */
 .cols>.fam{order:5;display:flex;flex-direction:column;gap:14px;margin-top:80px}
 .cols>.wide.trio{order:6}
