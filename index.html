@@ -25,7 +25,7 @@
     .stage .nw{white-space:nowrap}
     .stage .it{grid-template-columns:.78em minmax(0,1fr)}
     /* Computer: jeder Punkt der Aufzählung bleibt auf einer Zeile */
-    @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(170*var(--u))}.stage .it .t{white-space:nowrap}}
+    @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) max(calc(170*var(--u)),205px)}.stage .it .t{white-space:nowrap}}
     /* Farbkonzept F1 d2 (11.10.): Satz und Schlusssatz größer als die Aufzählung, ME/CFS in WWTF-Dunkelblau, Resources-Knopf in WWTF-Koralle unten rechts */
     :root{--navy:#005b94;--coral:#ec6a61}
     /* Aufzählung im Verhältnis zum Satz eine Spur kleiner (26.10.: 1.65/1.7 statt 1.48/1.52) */
