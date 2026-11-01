@@ -26,8 +26,11 @@ const TXT = [
 // ohne Link, Beschriftung und Linien (ihr Auftritt ist auf call/, Carolina 23.10.)
 function tower(desk, mode, hP, hC, pid) {
   const call = mode === 'call';
-  const W = desk ? 1088 : 331, U = desk ? 15 : 12, w = desk ? 160 : 90, d = desk ? 110 : 44, G = desk ? 12 : 8;
-  const x = desk ? (W - w - d) / 2 + 40 : 72, top = desk ? 60 : 40;
+  const W = desk ? 1088 : 331, U = desk ? 15 : 12, w = desk ? 130 : 90, d = desk ? 90 : 44, G = desk ? 12 : 8;
+  // Schrift in festen px (01.11.2026): 24 px groß, klein 15 px Computer / 14 px Handy; in SVG-Einheiten für das schmalste Fenster
+  // (Computer 900 px → Turm 827 px breit, Handy 360 px → 316 px), damit es dort noch passt. Größen selbst: sub.css .tx-l/.tx-s
+  const K = desk ? W / 827 : W / 316, LS = 24 * K, SS = (desk ? 15 : 14) * K;
+  const x = desk ? 520 : 20, top = desk ? 60 : 44;
   const poly = (c, pts) => `<polygon class="${c}" points="${pts.map(p => f1(p[0]) + ',' + f1(p[1])).join(' ')}"/>`;
   function box(bx, by, bw, bh, open) {
     const s = d * .12, f = [[bx,by],[bx+bw,by],[bx+bw,by+bh],[bx,by+bh]], r = [[bx+bw,by],[bx+bw+d,by-s],[bx+bw+d,by+bh-s],[bx+bw,by+bh]], t = [[bx,by],[bx+d,by-s],[bx+bw+d,by-s],[bx+bw,by]];
@@ -40,49 +43,60 @@ function tower(desk, mode, hP, hC, pid) {
   let yy = top;
   for (let i = C.length - 1; i >= 0; i--) { const hh = C[i].eur / 100000 * U; yc[i] = [yy, hh]; yy += hh + G; }
   const conBottom = yy - G;
-  yy = conBottom + (desk ? 40 : 24);
+  yy = conBottom + (desk ? 40 : 46);
   for (let i = P.length - 1; i >= 0; i--) { const hh = P[i].eur / 100000 * U; ys[i] = [yy, hh]; yy += hh + G; }
-  const bottom = yy - G, sv = d * .12, rEdge = x + w + d + 6, px = desk ? 790 : x + w + d + 20;
-  const fs = desk ? 13 : 9.5, cw = fs * .42; // geschätzte Zeichenbreite für das Ende der Beschriftung
+  const bottom = yy - G, sv = d * .12, rEdge = x + w + d + 6, px = desk ? x + w + d + 24 : x + w + d + 24;
+  const cw = SS * .47; // geschätzte Zeichenbreite für das Ende der Beschriftung
   const mid = ([y, h]) => y + h / 2 - sv / 2;
   const ends = {}; // rechtes Ende der Beschriftung je Platte, für die Verbindungslinien
   let h = '', lab = '', ld = '';
   function slab(href, aria, title, yh, open, name, amount, key) {
     const my = mid(yh), txt = name;
-    ends[key] = [px + txt.length * cw + (desk ? 8 + amount.length * 11 * .48 : 0), my];
+    ends[key] = [px + txt.length * cw + (desk ? 8 + amount.length * SS * .5 : 0), my];
     return `<a class="slab" href="${href}" aria-label="${aria}"><title>${title}</title>`
       + box(x, yh[0], w, yh[1], open)
       + `<path class="ld" d="M ${f1(desk ? rEdge : x + w + d + 4)} ${f1(my)} H ${f1(px - 8)}"/>`
-      + `<text class="pl" x="${f1(px)}" y="${f1(my + fs * .36)}" font-size="${fs}">${txt}${desk ? `<tspan class="am" dx="8" font-size="11">${amount}</tspan>` : ''}</text></a>`;
+      + `<text class="pl tx-s" x="${f1(px)}" y="${f1(my + SS * .36)}">${txt}${desk ? `<tspan class="am" dx="8">${amount}</tspan>` : ''}</text></a>`;
   }
   P.forEach((p, i) => { h += slab(`${hP}${p.nr}/`, `Project ME-CFS24-${p.nr}, ${p.ac}, ${eur(p.eur)}`, `ME-CFS24-${p.nr} ${p.ac} · ${eur(p.eur)}`, ys[i], call, `${p.nr}  ${p.ac}`, eur(p.eur), 'p' + p.nr); });
   if (!call) C.forEach((c, i) => { h += `<g class="blk">${box(x, yc[i][0], w, yc[i][1], true)}</g>`; });
   else C.forEach((c, i) => { h += slab(`${hC}${c.nr}/`, `Consortium ME-CFS-CC26-${c.nr}, ${c.ac}, ${c.t}, ${eur(c.eur)}`, `ME-CFS-CC26-${c.nr} ${c.ac} · ${eur(c.eur)}`, yc[i], false, `CC26-${c.nr}  ${c.ac}`, eur(c.eur), 'c' + c.nr); });
   // Feine Linien rechts außen: jedes Konsortium zu dem Projekt, auf dem es aufbaut
-  const cols = desk ? [W - 34, W - 18] : [W - 9, W - 3];
+  const cols = desk ? [W - 22, W - 8] : [W - 9, W - 3];
   if (call) C.forEach((c, i) => {
     const a = ends['c' + c.nr], b = ends['p' + c.from], cx = cols[i], g = desk ? 8 : 4;
     ld += `<path class="ld cx" d="M ${f1(a[0] + g)} ${f1(a[1] - (desk ? 4 : 3))} H ${f1(cx)} V ${f1(b[1] - (desk ? 4 : 3))} H ${f1(b[0] + g)}"/>`;
   });
-  const gapY = conBottom + 20, lx = 110, ex = x - 16 - 120;
+  const gapY = conBottom + 20, lx = 16, bxx = x - 16, ex = bxx - 6 - 6 - 4.6 * LS - 16;
+  const wrap = (str, max, cwid) => { const out = []; let cur = ''; str.split(' ').forEach(t => { const n = cur ? cur + ' ' + t : t; if (cur && n.length * cwid > max) { out.push(cur); cur = t; } else cur = n; }); out.push(cur); return out; };
   if (desk) {
-    [[TXT[1], lx, top + 20, top + (conBottom - top) * .62], [TXT[0], lx, gapY + 40, (ys[6][0] + bottom) / 2 + 34]].forEach(([o, tx, ty, ey]) => {
-      lab += `<text class="ti" x="${f1(tx)}" y="${f1(ty - 2)}" font-size="15">${o.t}</text>`;
-      o.l.forEach((z, i) => { lab += `<text class="tx" x="${f1(tx)}" y="${f1(ty + 18 + i * 15)}" font-size="11.5">${z}</text>`; });
-      ld += `<path class="ld" d="M ${f1(tx - 14)} ${f1(ty - 18)} V ${f1(ey)} H ${f1(ex)}"/>`;
+    const maxW = ex - 12 - lx;
+    [[TXT[1], top - 4, top + (conBottom - top) * .5], [TXT[0], gapY + 20, (ys[6][0] + bottom) / 2]].forEach(([o, ty, ey]) => {
+      let yl = ty + LS * .75;
+      wrap(o.t, maxW, LS * .47).forEach((z, i) => { if (i) yl += LS * 1.1; lab += `<text class="ti tx-l" x="${f1(lx)}" y="${f1(yl)}">${z}</text>`; });
+      yl += SS * .4;
+      o.l.forEach(z => wrap(z, maxW, SS * .47).forEach(zz => { yl += SS * 1.3; lab += `<text class="tx tx-s" x="${f1(lx)}" y="${f1(yl)}">${zz}</text>`; }));
+      const ly = Math.max(ey, yl + SS * .8);
+      ld += `<path class="ld" d="M ${f1(lx - 14)} ${f1(ty)} V ${f1(ly)} H ${f1(ex)}"/>`;
     });
   }
   const bx = x - (desk ? 16 : 10), tk = desk ? 6 : 4;
   function brk(y1, y2, big, small) {
-    const m = (y1 + y2) / 2, s = desk ? 16 : 10.5;
-    ld += `<path class="ld" d="M ${f1(bx + tk)} ${f1(y1)} H ${f1(bx)} V ${f1(y2)} H ${f1(bx + tk)} M ${f1(bx)} ${f1(m)} H ${f1(bx - tk)}"/>`;
-    lab += `<text class="tot" x="${f1(bx - tk - 6)}" y="${f1(m - (desk ? 5 : 3))}" text-anchor="end" font-size="${s}">${big}</text>`
-      + `<text class="tx" x="${f1(bx - tk - 6)}" y="${f1(m + (desk ? 13 : 9))}" text-anchor="end" font-size="${desk ? 11 : 8}">${small}</text>`;
+    const m = (y1 + y2) / 2;
+    if (desk) {
+      ld += `<path class="ld" d="M ${f1(bx + tk)} ${f1(y1)} H ${f1(bx)} V ${f1(y2)} H ${f1(bx + tk)} M ${f1(bx)} ${f1(m)} H ${f1(bx - tk)}"/>`;
+      lab += `<text class="tot tx-l" x="${f1(bx - tk - 6)}" y="${f1(m - LS * .12)}" text-anchor="end">${big}</text>`
+        + `<text class="tx tx-s" x="${f1(bx - tk - 6)}" y="${f1(m + SS * 1.15)}" text-anchor="end">${small}</text>`;
+    } else {
+      ld += `<path class="ld" d="M ${f1(bx + tk)} ${f1(y1)} H ${f1(bx)} V ${f1(y2)} H ${f1(bx + tk)}"/>`;
+      const by = y1 - SS * .5;
+      lab += `<text class="tot tx-l" x="0" y="${f1(by)}">${big}<tspan class="tx tx-s" dx="${f1(SS * .5)}">${small}</tspan></text>`;
+    }
   }
   brk(top - sv, conBottom, '€2 million', '2 projects');
   brk(ys[6][0] - sv, bottom, eur(TOT), '7 projects');
   const H = bottom + (desk ? 30 : 20);
-  return `<svg class="tw ${desk ? 'dk' : 'ph'}${call ? ' call' : ''}" viewBox="0 0 ${W} ${f1(H)}" aria-hidden="true">`
+  return `<svg data-fit class="tw ${desk ? 'dk' : 'ph'}${call ? ' call' : ''}" viewBox="0 0 ${W} ${f1(H)}" aria-hidden="true">`
     + `<defs><pattern id="${pid}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="ht"/></pattern></defs>`
     + ld + h + lab + '</svg>';
 }
@@ -96,8 +110,8 @@ const AL = {
 for (const [file, mode, hP, hC, pid] of [['call/index.html', 'call', '../projects/', '', 'hc'], ['projects/index.html', 'proj', '', '../call/', 'hp']]) {
   const f = path.join(ROOT, file);
   let s = fs.readFileSync(f, 'utf8');
-  s = s.replace(/<svg class="tw ph[\s\S]*?<\/svg>(?=\s*<svg class="tw dk)/, () => tower(false, mode, hP, hC, pid));
-  s = s.replace(/<svg class="tw dk[\s\S]*?<\/svg>(?=\s*<figcaption)/, () => tower(true, mode, hP, hC, pid + 'd'));
+  s = s.replace(/<svg (?:data-fit )?class="tw ph[\s\S]*?<\/svg>(?=\s*<svg (?:data-fit )?class="tw dk)/, () => tower(false, mode, hP, hC, pid));
+  s = s.replace(/<svg (?:data-fit )?class="tw dk[\s\S]*?<\/svg>(?=\s*<figcaption)/, () => tower(true, mode, hP, hC, pid + 'd'));
   s = s.replace(/(<figure class="tower" aria-label=")[^"]*/, (m, a) => a + AL[mode]);
   s = s.replace(/(<figcaption class="tl">\s*<ul>\n)[\s\S]*?(\n\s*<\/ul>)/, (m, a, b) => a + list(hP, hC, mode === 'call') + b);
   fs.writeFileSync(f, s);

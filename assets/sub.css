@@ -70,3 +70,11 @@
 @media (prefers-reduced-motion:reduce){.op,.ins a{transition:none}}
 /* zweite Tabelle in der rechten Spalte (mecfs/ „Find out more about people living with ME/CFS“, 27.10.): Abstand zur nächsten Tabelle */
 .side .ins+.cap{margin-top:40px}
+
+/* Schrift in Grafiken (01.11.2026): zwei Größen, gleich auf allen Seiten.
+   .tx-l = Fließtextgröße 24 px, .tx-s = Kleintext wie rechts in der Tabelle der Landingpage (Handy 14 px, Computer 15 px).
+   --k setzt assets/svg-text.js; ohne Skript gilt 1 (SVG-Einheit = px). */
+svg[data-fit]{--tl:24px;--ts:14px}
+@media (min-width:900px){svg[data-fit]{--ts:15px}}
+svg[data-fit] .tx-l{font-size:calc(var(--tl)*var(--k,1))}
+svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
