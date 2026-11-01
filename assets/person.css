@@ -48,3 +48,8 @@ img.photo{background:var(--wire-soft)}
 .duo .x a:hover,.duo .x a:focus-visible{color:#005b94}
 @media (min-width:900px){.cols>.fam{grid-column:1}.duo.trio{grid-template-columns:1fr 1fr 1fr}}
 @media (min-width:900px){.cols:has(>.fam)>.duo:not(.trio){grid-row:4}.cols>.fam{grid-row:5}.cols>.trio{grid-row:6}}
+
+/* Mila 01.11.2026: Zitat in Fließtextgröße unter dem Text, Fotonachweis ganz unten statt Randnotiz */
+.quote.ft{margin:6px 0 0}
+.quote.ft p{font-size:24px;line-height:1.45;letter-spacing:0}
+.credit{margin:80px var(--pad) 0;font-size:15px;line-height:1.35;color:var(--mute)}
