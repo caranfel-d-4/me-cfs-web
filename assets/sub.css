@@ -78,3 +78,19 @@ svg[data-fit]{--tl:24px;--ts:14px}
 @media (min-width:900px){svg[data-fit]{--ts:15px}}
 svg[data-fit] .tx-l{font-size:calc(var(--tl)*var(--k,1))}
 svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
+
+/* Ausklapptabelle (02.11.2026, Moodboard 11.2 nach A22a „Pillars“): Zeilen 24 px in Versalien wie die Tabelle der Landingpage,
+   Striche in Textfarbe, rechts „+“, offen „–“. Inhalt in Fließtextgröße. Zuerst auf den Projektseiten (Team, Period, Funding, Description). */
+.acc{margin-top:26px;border-top:1px solid var(--ink)}
+.acc details{border-bottom:1px solid var(--ink)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:.34em 0 .18em;font-size:24px;line-height:1.05;text-transform:uppercase;cursor:pointer;transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";flex:none}
+.acc details[open]>summary::after{content:"–"}
+.acc summary:hover,.acc summary:focus-visible{color:var(--navy);outline:none}
+.ac-b{padding:4px 0 18px}
+.ac-b p{margin:0;font-size:24px;line-height:1.45}
+.ac-b p+p{margin-top:14px}
+@media (prefers-reduced-motion:reduce){.acc summary{transition:none}}
+/* Projektseiten: Fließtext unter dem Namen, Tabelle direkt darunter */
+.cols.proj>.body{gap:0}

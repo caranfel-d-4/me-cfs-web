@@ -66,3 +66,8 @@ img.photo{background:var(--wire-soft)}
 /* mittleres Etikett unter dem WWTF-Zeichen (assets/pm-align.js setzt .al und den Abstand, 02.11.2026) */
 .head .hsub.pm.al{display:flex;justify-content:flex-start;gap:0}
 .hsub.pm.al span:last-child{margin-left:auto}
+/* Bildunterschriften (02.11.2026, Moodboard 11.2 nach A22a): unter jedem Foto eine kurze Zeile, klein (14/15 px) in Textfarbe, mittig.
+   Fotonachweis bleibt gesammelt unten auf der Seite (.credit) */
+figure .bc{display:block;margin:8px 0 0;font-size:14px;line-height:1.3;text-align:center;text-transform:none;color:var(--ink)}
+@media (min-width:900px){figure .bc{font-size:15px}}
+.pic:has(.bc){gap:0}
