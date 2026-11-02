@@ -94,3 +94,5 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
 @media (prefers-reduced-motion:reduce){.acc summary{transition:none}}
 /* Projektseiten: Fließtext unter dem Namen, Tabelle direkt darunter */
 .cols.proj>.body{gap:0}
+/* Unter-Unterseiten ohne Randtabelle (02.11.): Text über die ganze Breite */
+@media (min-width:900px){.cols.proj{grid-template-columns:minmax(0,1fr)}}
