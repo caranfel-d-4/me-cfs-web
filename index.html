@@ -82,11 +82,13 @@
     .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
     .js .intro.out{opacity:0;pointer-events:none}
     .no-intro .intro{display:none!important}
-    .intro .hint{margin:0;width:100%;max-width:22em;font-size:max(15px,calc(18*var(--u)));line-height:1.35;text-transform:uppercase;letter-spacing:.03em}
+    /* Hinweis in Fließtextgröße 24 px in Versalien (02.11.2026, Moodboard 11.2), „Loading“ klein wie der Kleintext der Tabelle (14/15 px) */
+    .intro .hint{margin:0;width:100%;max-width:22em;font-size:24px;line-height:1.25;text-transform:uppercase;letter-spacing:-.008em}
     .intro .hint .tch{display:none}
     @media (hover:none){.intro .hint .tch{display:inline}.intro .hint .ptr{display:none}}
     .intro .ld{display:flex;flex-direction:column;align-items:center;gap:20px}
-    .intro .ld span{font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
+    .intro .ld span{font-size:14px;line-height:1.2;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
+    @media (min-width:900px){.intro .ld span{font-size:15px}}
     .intro svg{--track:#e7e7e6;--lead:#005b94}
     /* Ladezeichen C füllt sich einmal von links nach rechts und bleibt voll stehen */
     @keyframes wm-fill{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}

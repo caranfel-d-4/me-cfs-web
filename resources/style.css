@@ -76,3 +76,21 @@ main>.big+.grp .gh{padding-top:0}
 main>.grp .gh{color:var(--ink)}
 .ri .d{font-size:24px;line-height:1.3}
 @media (min-width:900px){.ri .d{font-size:24px}}
+
+/* Wie die Tabelle der Landingpage (02.11.2026, Moodboard 11.2): Nummer und Titel gleich groß in Versalien (24 px), dünne Striche in Textfarbe,
+   rechts klein in Versalien (14 px Handy / 15 px Computer, Nebentextfarbe, rechtsbündig) Beschreibung und Format · Sprache.
+   Handy wie die Landing: Kleintext unter dem Titel. Kein Pfeil mehr (die Landing hat keinen); Hover: Unterstrich unter dem Titel */
+.gh{border-bottom-width:1px}
+.ri{font-size:24px;grid-template-columns:1.25em minmax(0,1fr);column-gap:.25em;row-gap:4px;padding:.34em 0 .3em}
+.ri .n,.ri .t{font-size:24px;line-height:1.05;letter-spacing:-.008em;text-transform:uppercase}
+.ri .d,.ri .m{grid-column:2;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+.ri .d{padding-top:2px}
+.ri .go{display:none}
+@media (min-width:900px){
+  .ri{grid-template-columns:1.3em minmax(0,1fr) max(calc(300*var(--u)),300px);grid-template-rows:auto auto;column-gap:.3em;align-items:start;padding:.34em 0 .3em}
+  .ri .n,.ri .t{grid-row:1/3;font-size:24px}
+  .ri .d,.ri .m{grid-column:3;font-size:15px;text-align:right;padding-top:0}
+  .ri .d{grid-row:1;padding-top:.3em}
+  .ri .m{grid-row:2}
+  .ri .go{display:none}
+}
