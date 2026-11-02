@@ -58,15 +58,9 @@ img.photo{background:var(--wire-soft)}
 .quote.ft p{font-size:24px;line-height:1.45;letter-spacing:0}
 .credit{margin:80px var(--pad) 0;font-size:15px;line-height:1.35;color:var(--mute)}
 
-/* Handy: die zwei Fotos unten als waagrechte Spur, vom Scrollen nach unten gesteuert (assets/duo-scroll.js, 01.11.2026) */
-.hs-pin,.hs-track{display:contents}
-@media (max-width:899px) and (prefers-reduced-motion:no-preference){
-  /* 01.11.2026: Pin nur so hoch wie das Foto, bleibt in der Bildschirmmitte stehen; kein Weiß über/unter dem Foto, Abstand zum Text klein */
-  .duo.wide.hs{display:block;--ih:calc((100vw - 2*var(--pad,22px))*2/3);height:calc(var(--ih) + 70svh);width:100vw;margin-top:14px;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
-  .duo.hs .hs-pin{display:block;position:sticky;top:calc(50svh - var(--ih)/2);overflow:hidden}
-  .duo.hs .hs-track{display:flex;width:200vw;will-change:transform}
-  .duo.hs .hs-track>figure{flex:0 0 100vw;width:100vw;padding:0 var(--pad,22px);box-sizing:border-box}
-}
+/* Handy: die zwei Fotos unten einfach untereinander (Scrollspur am 02.11.2026 auf ihren Wunsch entfernt).
+   Abstand Text → erstes Foto wie zwischen den Fotos: 14 px + 26 px Spaltenabstand = 40 px */
+@media (max-width:899px){.cols>.duo.wide:not(.trio){margin-top:14px}}
 /* Computer (01.11.2026): ohne Randspalte läuft der Fließtext über die ganze Breite */
 @media (min-width:900px){.cols.person>.body,.cols.person>.fam{grid-column:1/-1}}
 /* mittleres Etikett unter dem WWTF-Zeichen (assets/pm-align.js setzt .al und den Abstand, 02.11.2026) */
