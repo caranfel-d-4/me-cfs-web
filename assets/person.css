@@ -69,3 +69,6 @@ img.photo{background:var(--wire-soft)}
 }
 /* Computer (01.11.2026): ohne Randspalte läuft der Fließtext über die ganze Breite */
 @media (min-width:900px){.cols.person>.body,.cols.person>.fam{grid-column:1/-1}}
+/* mittleres Etikett unter dem WWTF-Zeichen (assets/pm-align.js setzt .al und den Abstand, 02.11.2026) */
+.head .hsub.pm.al{display:flex;justify-content:flex-start;gap:0}
+.hsub.pm.al span:last-child{margin-left:auto}
