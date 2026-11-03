@@ -16,15 +16,18 @@
 .sub-hd .home-btn:focus-visible{outline:2px solid #005b94;outline-offset:4px}
 .sub-mark{display:block;height:28px;width:auto;aspect-ratio:112.3/31.9;fill:currentColor}
 .sub-hd .hd-r{right:12px;gap:10px}
-.sub-hd .sb-prev,.sub-hd .sb-next{position:relative;top:auto;right:auto;display:grid;place-items:center;box-sizing:border-box;width:34px;height:34px;padding:0;border-radius:50%;background:transparent;color:#181715;border:1.6px solid #181715;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
-.sub-hd .sb-prev::before,.sub-hd .sb-next::before{content:"";position:absolute;inset:-6px}
-.sub-hd .sb-prev:hover,.sub-hd .sb-prev:focus-visible,.sub-hd .sb-next:hover,.sub-hd .sb-next:focus-visible{background:#005b94;border-color:#005b94;color:#fff}
-.sb-prev .chev,.sb-next .chev{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.92;stroke-linecap:round;stroke-linejoin:round}
+.sub-hd .sb-prev,.sub-hd .sb-next{position:relative;top:auto;right:auto;display:grid;place-items:center;box-sizing:border-box;width:40px;height:40px;padding:0;border-radius:50%;background:#ec6a61;color:#181715;border:0;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
+.sub-hd .sb-prev::before,.sub-hd .sb-next::before{content:"";position:absolute;inset:-4px}
+.sub-hd .sb-prev:hover,.sub-hd .sb-prev:focus-visible,.sub-hd .sb-next:hover,.sub-hd .sb-next:focus-visible{background:#005b94;color:#fff}
+.sb-prev .chev,.sb-next .chev{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 @media (min-width:900px){
   .sub-hd{height:calc(24*var(--u) + 44px)}
   .sub-hd .home-btn,.sub-hd .hd-r{top:calc(12*var(--u));height:44px}
   .sub-hd .home-btn{left:calc(41*var(--u))}
   .sub-hd .hd-r{right:calc(43*var(--u))}
+  /* Variante C (Koralle-Kreis) wieder ab 03.11.: Computer 44 px */
+  .sub-hd .sb-prev,.sub-hd .sb-next{width:44px;height:44px}
+  .sb-prev .chev,.sb-next .chev{width:26px;height:26px}
 }
 @media (prefers-reduced-motion:reduce){.sub-hd .home-btn,.sub-hd .sb-prev,.sub-hd .sb-next{transition:none}}
 
