@@ -103,7 +103,7 @@ main>.grp .gh{color:var(--ink)}
 .ri.nws::after{content:"";position:absolute;left:var(--pad);right:var(--pad);bottom:0;height:1px;background:var(--ink)}
 .nws .np{flex:none;font-size:15px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;text-decoration:none;color:inherit;border:1px solid currentColor;border-radius:99px;padding:.3em .75em .25em}
 .nws .np:hover,.nws .np:focus-visible{background:var(--navy);border-color:var(--navy);color:#fff;outline:none}
-.nws .nk{flex:1;min-width:0;display:flex;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent)}
+.nws .nk{flex:1;min-width:0;display:flex;overflow-x:auto;overflow-y:hidden;touch-action:pan-x pan-y;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent)}
 .nws .nk::-webkit-scrollbar{display:none}
 .nws .nk a{flex:none;white-space:nowrap;font-size:24px;line-height:1.15;text-transform:uppercase;letter-spacing:-.008em;color:inherit;text-decoration:none}
 .nws .nk a+a::before{content:"·";display:inline-block;margin:0 .6em}
