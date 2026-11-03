@@ -113,10 +113,9 @@ main>.grp .gh{color:var(--ink)}
 .nws .nk a:focus-visible{outline:none}
 @media (min-width:900px){.ri.nws{gap:18px;padding-block:14px 15px}}
 .nws .np .na{display:inline-block;width:.7em;height:.7em;margin-left:.4em;vertical-align:-.02em;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-/* Handy (03.11., nach ihrem Screenshot): Pille eigene Zeile, Schlagworte darunter umbrechend statt seitlich scrollen */
+/* Handy (03.11., nach ihrem Screenshot): Pille eigene Zeile, darunter die Schlagworte in einer Zeile, seitlich scrollbar */
 @media (max-width:899px){
-  .ri.nws{flex-direction:column;align-items:flex-start;gap:10px}
-  .nws .nk{display:block;overflow:visible;-webkit-mask-image:none;mask-image:none}
-  .nws .nk a{white-space:normal}
-  .nws .nk a:last-child{padding-right:0}
+  .ri.nws{flex-direction:column;align-items:stretch;gap:10px}
+  .nws .np{align-self:flex-start}
+  .nws .nk{flex:none;width:100%}
 }
