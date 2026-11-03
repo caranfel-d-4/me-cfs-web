@@ -1,26 +1,30 @@
 /* Kapitel 9 „reviewed together with patients“ nach Wireframe QcVdvYdf3MWEJwhB1VrQRE. Baut auf p1.css, money.css und projects.css auf; hier nur, was dazukommt. Schwarzweiß, nur Inter Tight Regular */
 
 /* Juryplätze: drei Sitzungen als Spalten, je sechs Plätze; der Platz der Betroffenen ist gefüllt und durch eine Linie verbunden */
-.seats{--rh:40px;--g:10px;--sq:9px;position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0 var(--g);margin:0}
-.seats .col{display:flex;flex-direction:column;min-width:0}
+.seats{--rh:40px;--g:10px;--sq:9px;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(7,auto);grid-auto-flow:column;gap:0 var(--g);margin:0}
+/* Spalten und Listen lösen sich ins Raster auf: so stehen gleiche Plätze aller drei Sitzungen auf einer Zeile, auch wenn eine Institution umbricht (03.11.2026) */
+.seats .col,.seats ul{display:contents}
 .seats .jh{display:flex;flex-direction:column;gap:2px;min-height:72px;box-sizing:border-box;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--ink)}
 .seats .jh b{font-weight:400;font-size:18px;line-height:1.1;letter-spacing:-.008em}
 .seats .jh span{font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
-.seats ul{list-style:none;margin:0;padding:0}
 /* Schrift wie in den übrigen Grafiken (01.11.2026): Daten 18 px (03.11., vorher 24), sonst 14 px Handy / 15 px Computer; auf dem Handy zweizeilig statt abgeschnitten */
-.seats li{height:var(--rh);display:flex;align-items:center;gap:7px;font-size:14px;line-height:1.2;color:var(--mute)}
+.seats li{list-style:none;min-height:var(--rh);padding:6px 0;box-sizing:border-box;display:flex;align-items:center;gap:7px;font-size:14px;line-height:1.2;color:var(--mute)}
 .seats li::before{content:"";flex:none;width:var(--sq);height:var(--sq);border:1px solid var(--mute);box-sizing:border-box}
 .seats li.ex{position:relative;z-index:1;color:var(--ink)}
 .seats li.ex::before{background:var(--ink);border-color:var(--ink)}
 .seats li.ex span{background:var(--paper);padding-right:4px}
-.seats::after{content:"";position:absolute;left:calc(var(--sq)/2);bottom:calc(var(--rh)/2);width:calc((100% - 2*var(--g))/3*2 + 2*var(--g));border-top:1.5px solid var(--ink)}
+/* Institution unter dem Namen, gleiche Größe, grau */
+.seats li span{min-width:0}
+.seats li i{display:block;font-style:normal;color:var(--mute)}
+/* Linie vom ersten zum dritten Betroffenen-Platz, auf Höhe der Quadrate */
+.seats .col:first-child li.ex::after{content:"";position:absolute;z-index:-1;left:calc(var(--sq)/2);top:50%;width:calc(200% + 2*var(--g));border-top:1.5px solid var(--ink)}
 .seat-cap{font-size:14px;text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3;margin-top:8px}
 @media (min-width:900px){
   .seats{--rh:calc(30*var(--u));--g:calc(24*var(--u));--sq:max(9px,calc(11*var(--u)))}
   .seats{--rh:max(30px,calc(30*var(--u)))}
   .seats .jh{min-height:0}
   .seats .jh span,.seat-cap{font-size:15px}
-  .seats li{font-size:15px;gap:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .seats li{font-size:15px;gap:10px}
 }
 
 /* Steckbrief einspaltig, großes Zitat aus dem Netzwerktreffen */
