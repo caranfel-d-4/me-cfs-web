@@ -107,7 +107,7 @@ for (const t of ts.slice(0, 2)) {           // neuester Monatsthread, sonst der 
 if (!hit) throw new Error("Kein Wochenbeitrag mit ME/CFS-Studien gefunden (Aufbau geändert?)");
 
 const date = fmt(hit.thread.start);
-const row = `<!--news--><li class="ri nws"><a class="np" href="${FORUM}" target="_blank" rel="noopener">News · ${date}<span aria-hidden="true"> ↗</span></a>`
+const row = `<!--news--><li class="ri nws"><a class="np" href="${FORUM}" target="_blank" rel="noopener">News · ${date}<svg class="na" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M4 2h6v6"/></svg></a>`
   + `<div class="nk">${hit.k.map((k) => `<a href="${FORUM}" target="_blank" rel="noopener"><span class="u">${esc(k)}</span></a>`).join("")}</div></li><!--/news-->`;
 
 const page = await readFile(PAGE, "utf8");

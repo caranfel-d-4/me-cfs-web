@@ -58,7 +58,7 @@ main+.ff{margin-top:80px}
 /* Schriftgrößen wie auf den Unterseiten nach B4 (27.10.2026). sub.css wird mitgeladen (Rand 52u, Kopfzeile, --hs);
    die Regeln hier sind spezifischer als p1-head.css und sentence-bar.css, die nach dieser Datei laden.
    Überschrift --hs, 48 px unter der Kopfzeile, 18 px bis zur ersten Gruppe; Gruppen und Titel 18 px wie Fließtext und Tabellen (03.11., vorher 24); Beschreibung, Nummer und Format 15 px wie die Notizen */
-body>.home-btn~main>.big:first-child{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:calc(8px + 36px + 48px) var(--pad) 18px;text-wrap:balance}
+body>.sub-hd~main>.big:first-child{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:calc(8px + 36px + 48px) var(--pad) 18px;text-wrap:balance}
 main>.grp .gh{font-size:18px;letter-spacing:0;line-height:1.25;padding-top:80px}
 main>.big+.grp .gh{padding-top:0}
 .ri{row-gap:4px;padding:.5em 0 .55em}
@@ -66,7 +66,7 @@ main>.big+.grp .gh{padding-top:0}
 .ri .n,.ri .d,.ri .m{font-size:15px;line-height:1.35}
 .ri .m{letter-spacing:.03em}
 @media (min-width:900px){
-  body>.home-btn~main>.big:first-child{padding-top:calc(12*var(--u) + 36px + 48px)}
+  body>.sub-hd~main>.big:first-child{padding-top:calc(12*var(--u) + 36px + 48px)}
   .ri{grid-template-columns:calc(48*var(--u)) 5fr 4fr calc(170*var(--u)) calc(20*var(--u))}
   .ri .t{font-size:18px}
   .ri .n,.ri .d,.ri .m,.ri .go{font-size:15px}
@@ -112,3 +112,11 @@ main>.grp .gh{color:var(--ink)}
 .nws .nk a:hover .u,.nws .nk a:focus-visible .u{text-decoration-color:currentColor}
 .nws .nk a:focus-visible{outline:none}
 @media (min-width:900px){.ri.nws{gap:18px;padding-block:14px 15px}}
+.nws .np .na{display:inline-block;width:.7em;height:.7em;margin-left:.4em;vertical-align:-.02em;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+/* Handy (03.11., nach ihrem Screenshot): Pille eigene Zeile, Schlagworte darunter umbrechend statt seitlich scrollen */
+@media (max-width:899px){
+  .ri.nws{flex-direction:column;align-items:flex-start;gap:10px}
+  .nws .nk{display:block;overflow:visible;-webkit-mask-image:none;mask-image:none}
+  .nws .nk a{white-space:normal}
+  .nws .nk a:last-child{padding-right:0}
+}
