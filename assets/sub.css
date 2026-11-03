@@ -6,7 +6,7 @@
 :root{--hs:clamp(44px,5vw,80px)}
 @media (min-width:900px){:root{--pad:calc(52*var(--u))}}
 
-/* Kopfzeile näher am oberen Rand (26.10.): Handy 8 px statt 12 px, Computer 12u statt 20u. Pillen enger um die Schrift (Schrift bleibt 24 px) */
+/* Kopfzeile näher am oberen Rand (26.10.): Handy 8 px statt 12 px, Computer 12u statt 20u. Pillen enger um die Schrift (Schrift 22 px seit 03.11., vorher 24) */
 .home-btn,.sb-next{padding:.26em .55em .22em}
 @media (min-width:900px){.home-btn,.sb-next{padding:.26em .6em .22em}}
 /* rechts: WWTF-Zeichen (schwarz wie auf der Landingpage, Buchstaben so groß wie die Knopfschrift) direkt vor Next */
