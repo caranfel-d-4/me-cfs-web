@@ -7,7 +7,7 @@
     raf=0;
     var dpr=window.devicePixelRatio||1;
     document.querySelectorAll('.kw').forEach(function(kw){
-      // Strich auf den .u-Spannen nur, wenn das Glied selbst keinen trägt (Startseite am Computer: „There is more to come“ in einem Zug)
+      // Strich auf den .u-Spannen nur, wenn das Glied selbst keinen trägt (Startseite am Computer: „Impact so far“ in einem Zug)
       var els=kw.querySelector('.u')&&getComputedStyle(kw).backgroundImage==='none'?kw.querySelectorAll('.u'):[kw];
       Array.prototype.forEach.call(els,function(el){
         // Übergang kurz aus, sonst liefert getComputedStyle den alten, noch animierten Wert
