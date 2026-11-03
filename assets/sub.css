@@ -114,6 +114,6 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
 .sub-hd .sb-res:hover,.sub-hd .sb-res:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
 @media (prefers-reduced-motion:reduce){.sub-hd .sb-res{transition:none}}
 
-/* Lesebalken (03.11.2026, nach research.wwtf.at/issue-12): 3 px Koralle an der Unterkante der festen Kopfzeile, wächst mit dem Scrollen von links nach rechts.
+/* Lesebalken (03.11.2026, nach research.wwtf.at/issue-12): 3 px WWTF-Dunkelblau an der Unterkante der festen Kopfzeile, wächst mit dem Scrollen von links nach rechts.
    Ohne Skript und mit „Bewegung reduzieren“ trotzdem da (keine Animation, nur Breite). Skript in sentence-bar.js setzt --rd (0–1). */
-.sub-hd .rd-bar{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#ec6a61;transform-origin:0 50%;transform:scaleX(var(--rd,0));pointer-events:none}
+.sub-hd .rd-bar{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#005b94;transform-origin:0 50%;transform:scaleX(var(--rd,0));pointer-events:none}
