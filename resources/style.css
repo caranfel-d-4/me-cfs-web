@@ -57,38 +57,38 @@ main+.ff{margin-top:80px}
 
 /* Schriftgrößen wie auf den Unterseiten nach B4 (27.10.2026). sub.css wird mitgeladen (Rand 52u, Kopfzeile, --hs);
    die Regeln hier sind spezifischer als p1-head.css und sentence-bar.css, die nach dieser Datei laden.
-   Überschrift --hs, 48 px unter der Kopfzeile, 18 px bis zur ersten Gruppe; Gruppen und Titel 24 px wie Fließtext und Tabellen; Beschreibung, Nummer und Format 15 px wie die Notizen */
+   Überschrift --hs, 48 px unter der Kopfzeile, 18 px bis zur ersten Gruppe; Gruppen und Titel 18 px wie Fließtext und Tabellen (03.11., vorher 24); Beschreibung, Nummer und Format 15 px wie die Notizen */
 body>.home-btn~main>.big:first-child{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:calc(8px + 36px + 48px) var(--pad) 18px;text-wrap:balance}
-main>.grp .gh{font-size:24px;letter-spacing:0;line-height:1.25;padding-top:80px}
+main>.grp .gh{font-size:18px;letter-spacing:0;line-height:1.25;padding-top:80px}
 main>.big+.grp .gh{padding-top:0}
 .ri{row-gap:4px;padding:.5em 0 .55em}
-.ri .t{font-size:24px;line-height:1.15}
+.ri .t{font-size:18px;line-height:1.15}
 .ri .n,.ri .d,.ri .m{font-size:15px;line-height:1.35}
 .ri .m{letter-spacing:.03em}
 @media (min-width:900px){
   body>.home-btn~main>.big:first-child{padding-top:calc(12*var(--u) + 36px + 48px)}
   .ri{grid-template-columns:calc(48*var(--u)) 5fr 4fr calc(170*var(--u)) calc(20*var(--u))}
-  .ri .t{font-size:24px}
+  .ri .t{font-size:18px}
   .ri .n,.ri .d,.ri .m,.ri .go{font-size:15px}
 }
 
-/* Designkonzept (27.10.): WWTF-Zeichen rechts oben wie auf den Unterseiten (ohne Next), Gruppenüberschriften in Textfarbe, Beschreibung in Fließtextgröße 24 px */
+/* Designkonzept (27.10.): WWTF-Zeichen rechts oben wie auf den Unterseiten (ohne Next), Gruppenüberschriften in Textfarbe, Beschreibung in Fließtextgröße 18 px */
 main>.grp .gh{color:var(--ink)}
-.ri .d{font-size:24px;line-height:1.3}
-@media (min-width:900px){.ri .d{font-size:24px}}
+.ri .d{font-size:18px;line-height:1.3}
+@media (min-width:900px){.ri .d{font-size:18px}}
 
-/* Wie die Tabelle der Landingpage (02.11.2026, Moodboard 11.2): Nummer und Titel gleich groß in Versalien (24 px), dünne Striche in Textfarbe,
+/* Wie die Tabelle der Landingpage (02.11.2026, Moodboard 11.2): Nummer und Titel gleich groß in Versalien (18 px seit 03.11.), dünne Striche in Textfarbe,
    rechts klein in Versalien (14 px Handy / 15 px Computer, Nebentextfarbe, rechtsbündig) Beschreibung und Format · Sprache.
    Handy wie die Landing: Kleintext unter dem Titel. Kein Pfeil mehr (die Landing hat keinen); Hover: Unterstrich unter dem Titel */
 .gh{border-bottom-width:1px}
-.ri{font-size:24px;grid-template-columns:1.25em minmax(0,1fr);column-gap:.25em;row-gap:4px;padding:.34em 0 .3em}
-.ri .n,.ri .t{font-size:24px;line-height:1.05;letter-spacing:-.008em;text-transform:uppercase}
+.ri{font-size:18px;grid-template-columns:1.25em minmax(0,1fr);column-gap:.25em;row-gap:4px;padding:.34em 0 .3em}
+.ri .n,.ri .t{font-size:18px;line-height:1.05;letter-spacing:-.008em;text-transform:uppercase}
 .ri .d,.ri .m{grid-column:2;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
 .ri .d{padding-top:2px}
 .ri .go{display:none}
 @media (min-width:900px){
   .ri{grid-template-columns:1.3em minmax(0,1fr) max(calc(300*var(--u)),300px);grid-template-rows:auto auto;column-gap:.3em;align-items:start;padding:.34em 0 .3em}
-  .ri .n,.ri .t{grid-row:1/3;font-size:24px}
+  .ri .n,.ri .t{grid-row:1/3;font-size:18px}
   .ri .d,.ri .m{grid-column:3;font-size:15px;text-align:right;padding-top:0}
   .ri .d{grid-row:1;padding-top:.3em}
   .ri .m{grid-row:2}
