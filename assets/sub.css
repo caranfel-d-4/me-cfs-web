@@ -117,3 +117,11 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
 /* Lesebalken (03.11.2026, nach research.wwtf.at/issue-12): 3 px WWTF-Dunkelblau an der Unterkante der festen Kopfzeile, wächst mit dem Scrollen von links nach rechts.
    Ohne Skript und mit „Bewegung reduzieren“ trotzdem da (keine Animation, nur Breite). Skript in sentence-bar.js setzt --rd (0–1). */
 .sub-hd .rd-bar{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#005b94;transform-origin:0 50%;transform:scaleX(var(--rd,0));pointer-events:none}
+
+/* Text über die ganze Breite (03.11.2026): keine rechte Spalte mehr am Computer. Linktabellen auf patients, projects, biobank,
+   fellowships, call, beginning entfernt; was rechts übrig ist (Notizen, auf mecfs/ die Personenliste), steht unter dem Text. */
+@media (min-width:900px){
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .cols>.head,.cols>.body,.cols>.head+.body{grid-column:1/-1}
+  .cols>.side,.cols:has(>.pic,>.vmap)>.side{grid-column:1/-1;grid-row:auto;padding-top:0;margin-top:40px}
+}
