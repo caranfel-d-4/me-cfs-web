@@ -6,7 +6,7 @@
 :root{--hs:clamp(44px,5vw,80px)}
 @media (min-width:900px){:root{--pad:calc(52*var(--u))}}
 
-/* Kopfzeile (03.11.2026, ihre Vorgabe): links das WWTF-Zeichen statt HOME, führt auf die Landingpage; rechts Next als Kreis-Umriss mit kurzem Pfeil (Variante F aus dem Canvas „WMEW Next-Pfeil“, 03.11.).
+/* Kopfzeile (03.11.2026, ihre Vorgabe): links das WWTF-Zeichen statt HOME, führt auf die Landingpage; rechts Next als Kreis-Umriss mit kurzem Pfeil (Variante F aus dem Canvas „WMEW Next-Pfeil“, 03.11.), links daneben derselbe Kreis für zurück: Kapitelseiten → voriges Kapitel (money → Landingpage), Projekt-/Personen-/Konsortienseiten → ihre Kapitelseite.
    Die Kopfzeile bleibt beim Scrollen oben stehen (fixed, weiße Fläche). Abstände zum Rand wie vorher: Handy 8/12 px, Computer 12u oben, links 41u, rechts 43u.
    Der Inhalt darunter behält seinen Abstand nach oben, deshalb liegt die feste Leiste anfangs genau dort, wo vorher Home/Next standen. */
 .sub-hd{position:fixed;top:0;left:0;right:0;z-index:20;height:52px;background:var(--paper,#fff)}
@@ -15,18 +15,18 @@
 .sub-hd .home-btn:hover,.sub-hd .home-btn:focus-visible{background:none;color:#005b94;outline:none}
 .sub-hd .home-btn:focus-visible{outline:2px solid #005b94;outline-offset:4px}
 .sub-mark{display:block;height:28px;width:auto;aspect-ratio:112.3/31.9;fill:currentColor}
-.sub-hd .hd-r{right:12px;gap:0}
-.sub-hd .sb-next{position:relative;top:auto;right:auto;display:grid;place-items:center;box-sizing:border-box;width:34px;height:34px;padding:0;border-radius:50%;background:transparent;color:#181715;border:1.6px solid #181715;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
-.sub-hd .sb-next::before{content:"";position:absolute;inset:-6px}
-.sub-hd .sb-next:hover,.sub-hd .sb-next:focus-visible{background:#005b94;border-color:#005b94;color:#fff}
-.sb-next .chev{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.92;stroke-linecap:round;stroke-linejoin:round}
+.sub-hd .hd-r{right:12px;gap:10px}
+.sub-hd .sb-prev,.sub-hd .sb-next{position:relative;top:auto;right:auto;display:grid;place-items:center;box-sizing:border-box;width:34px;height:34px;padding:0;border-radius:50%;background:transparent;color:#181715;border:1.6px solid #181715;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
+.sub-hd .sb-prev::before,.sub-hd .sb-next::before{content:"";position:absolute;inset:-6px}
+.sub-hd .sb-prev:hover,.sub-hd .sb-prev:focus-visible,.sub-hd .sb-next:hover,.sub-hd .sb-next:focus-visible{background:#005b94;border-color:#005b94;color:#fff}
+.sb-prev .chev,.sb-next .chev{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.92;stroke-linecap:round;stroke-linejoin:round}
 @media (min-width:900px){
   .sub-hd{height:calc(24*var(--u) + 44px)}
   .sub-hd .home-btn,.sub-hd .hd-r{top:calc(12*var(--u));height:44px}
   .sub-hd .home-btn{left:calc(41*var(--u))}
   .sub-hd .hd-r{right:calc(43*var(--u))}
 }
-@media (prefers-reduced-motion:reduce){.sub-hd .home-btn,.sub-hd .sb-next{transition:none}}
+@media (prefers-reduced-motion:reduce){.sub-hd .home-btn,.sub-hd .sb-prev,.sub-hd .sb-next{transition:none}}
 
 /* Aufbau (27.10.): Titel und Unterzeile stehen in .cols als div.head, links in der Textspalte (bricht bei Bedarf um).
    Die rechte Spalte (Tabelle) beginnt am Computer auf Höhe des Titels. Bild/Karte (biobank, vienna) über die ganze Breite unter dem Titel.
@@ -108,3 +108,8 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
 .cols.proj>.body{gap:0}
 /* Unter-Unterseiten ohne Randtabelle (02.11.): Text über die ganze Breite */
 @media (min-width:900px){.cols.proj{grid-template-columns:minmax(0,1fr)}}
+
+/* beginning/: rechts statt Next ein Text-Knopf „Resources“ im Stil von Next F (Umriss, Hover gefüllt Dunkelblau), 03.11. */
+.sub-hd .sb-res{position:relative;display:inline-flex;align-items:center;box-sizing:border-box;height:34px;padding:0 .6em;border:1.6px solid #181715;border-radius:99px;color:#181715;font-size:22px;line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
+.sub-hd .sb-res:hover,.sub-hd .sb-res:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
+@media (prefers-reduced-motion:reduce){.sub-hd .sb-res{transition:none}}
