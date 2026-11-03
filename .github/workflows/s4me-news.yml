@@ -1,0 +1,46 @@
+# News-Zeile auf resources/ aus Science for ME „Weekly ME News in Brief“ (siehe scripts/s4me-news.mjs).
+# Jeden Montag 06:00 UTC = 07:00 Wien (Winterzeit) bzw. 08:00 (Sommerzeit). Von Hand: Actions → S4ME news → Run workflow.
+# Scheitert der Lauf, bleibt die Seite unverändert und GitHub schickt eine Fehler-E-Mail.
+name: S4ME news
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: s4me-news
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Read S4ME and update resources/
+        run: node scripts/s4me-news.mjs
+
+      - name: Commit and publish if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- resources/index.html; then
+            echo "Keine neuen News."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "News: S4ME News in Brief aktualisiert" -- resources/index.html
+          git push
+          # Seite neu bauen (Pushes mit dem Actions-Token lösen den Pages-Build nicht immer aus)
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
