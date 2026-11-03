@@ -18,6 +18,8 @@
 
 *{box-sizing:border-box}
 html,body{margin:0}
+/* iPhone-Safari vergrößert sonst Text in waagrecht scrollenden Zeilen (Satzleiste) von selbst (03.11.2026) */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font-family:var(--grot);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
