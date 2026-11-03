@@ -1,5 +1,5 @@
 /* Schrift in Grafiken in festen px (01.11.2026): setzt --k = SVG-Einheiten pro Bildschirm-px
-   auf jedem svg[data-fit], damit font-size:calc(24px*var(--k)) auf dem Schirm genau 24 px ergibt. */
+   auf jedem svg[data-fit], damit font-size:calc(18px*var(--k)) auf dem Schirm genau 18 px ergibt. */
 (function(){
   var list=[].slice.call(document.querySelectorAll('svg[data-fit]'));
   function set(s){var w=s.getBoundingClientRect().width;if(!w)return;var vb=s.viewBox.baseVal;s.style.setProperty('--k',(vb.width/w).toFixed(4));}

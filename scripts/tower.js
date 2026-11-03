@@ -27,10 +27,10 @@ const TXT = [
 function tower(desk, mode, hP, hC, pid) {
   const call = mode === 'call';
   const W = desk ? 1088 : 331, U = desk ? 15 : 12, w = desk ? 230 : 110, d = desk ? 110 : 46, G = desk ? 12 : 8;
-  // Schrift in festen px (01.11.2026): 24 px groß, klein 15 px Computer / 14 px Handy; in SVG-Einheiten für das schmalste Fenster
+  // Schrift in festen px (01.11.2026, groß seit 03.11. 18 px statt 24): 18 px groß, klein 15 px Computer / 14 px Handy; in SVG-Einheiten für das schmalste Fenster
   // Platten breiter (02.11.2026, Moodboard 11.2: „Spalten könnten breiter sein“): Computer 230 statt 130, Handy 110 statt 90.
   // (Computer 900 px → Turm 827 px breit, Handy 360 px → 316 px), damit es dort noch passt. Größen selbst: sub.css .tx-l/.tx-s
-  const K = desk ? W / 827 : W / 316, LS = 24 * K, SS = (desk ? 15 : 14) * K;
+  const K = desk ? W / 827 : W / 316, LS = 18 * K, SS = (desk ? 15 : 14) * K;
   const x = desk ? 440 : 20, top = desk ? 60 : 62; // Handy höher: Platz für den zweizeiligen Call-Namen über der Klammer
   const poly = (c, pts) => `<polygon class="${c}" points="${pts.map(p => f1(p[0]) + ',' + f1(p[1])).join(' ')}"/>`;
   function box(bx, by, bw, bh, open) {

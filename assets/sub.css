@@ -28,17 +28,17 @@
 /* Überschrift: Größe --hs, Versalien, Regular; 48 px unter der Kopfzeile (Pille 36 px hoch) */
 .head .big{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:0;text-wrap:balance}
 .head .hsub{margin:8px 0 0;font-size:24px;line-height:1.1}
-/* Text 18 px unter der Überschrift; Fließtext 24 px */
+/* Text 18 px unter der Überschrift; Fließtext 18 px nach WWTF-DS (03.11., vorher 24 px) */
 .cols>.head+.body{margin-top:-8px}
 .body{gap:14px}
-.lead{font-size:24px;line-height:1.45;max-width:none}
+.lead{font-size:18px;line-height:1.45;max-width:none}
 /* farblose Pille für Links im Fließtext */
 .op{color:inherit;text-decoration:none;border:1.2px solid currentColor;border-radius:99px;padding:0 .32em .04em;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
 .op:hover,.op:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
 
-/* Tabelle: Titel und Zeilen 24 px, auch am Handy (02.11.); Computer rechts auf Höhe der Überschrift, Handy unter dem Text */
-.side .cap{font-size:24px;line-height:1.25;color:var(--ink);margin:0 0 8px}
-.ins{--fs:24px}
+/* Tabelle: Titel und Zeilen 18 px wie der Fließtext (03.11., vorher 24 px), auch am Handy; Computer rechts auf Höhe der Überschrift, Handy unter dem Text */
+.side .cap{font-size:18px;line-height:1.25;color:var(--ink);margin:0 0 8px}
+.ins{--fs:18px}
 .ins li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:.34em 0 .18em;line-height:1.05}
 .ins a{text-decoration:none;transition:color 160ms cubic-bezier(.4,0,.2,1)}
 .ins a:hover,.ins a:focus-visible{color:var(--navy)}
@@ -56,7 +56,7 @@
   .cols:has(>.pic,>.vmap)>.side{grid-row:1}
   .cols>.pic,.cols>.vmap{grid-column:1/-1;grid-row:2;margin-top:40px}
   .cols:has(>.pic,>.vmap)>.body{grid-row:3;margin-top:40px}
-  .ins{--fs:24px}
+  .ins{--fs:18px}
   .ins li{gap:16px}
 }
 
@@ -74,7 +74,7 @@
 /* Schrift in Grafiken (01.11.2026): zwei Größen, gleich auf allen Seiten.
    .tx-l = Fließtextgröße 24 px, .tx-s = Kleintext wie rechts in der Tabelle der Landingpage (Handy 14 px, Computer 15 px).
    --k setzt assets/svg-text.js; ohne Skript gilt 1 (SVG-Einheit = px). */
-svg[data-fit]{--tl:24px;--ts:14px}
+svg[data-fit]{--tl:18px;--ts:14px}
 @media (min-width:900px){svg[data-fit]{--ts:15px}}
 svg[data-fit] .tx-l{font-size:calc(var(--tl)*var(--k,1))}
 svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
@@ -89,7 +89,7 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
 .acc details[open]>summary::after{content:"–"}
 .acc summary:hover,.acc summary:focus-visible{color:var(--navy);outline:none}
 .ac-b{padding:4px 0 18px}
-.ac-b p{margin:0;font-size:24px;line-height:1.45}
+.ac-b p{margin:0;font-size:18px;line-height:1.45}
 .ac-b p+p{margin-top:14px}
 @media (prefers-reduced-motion:reduce){.acc summary{transition:none}}
 /* Projektseiten: Fließtext unter dem Namen, Tabelle direkt darunter */

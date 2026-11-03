@@ -4,10 +4,10 @@
 .seats{--rh:40px;--g:10px;--sq:9px;position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0 var(--g);margin:0}
 .seats .col{display:flex;flex-direction:column;min-width:0}
 .seats .jh{display:flex;flex-direction:column;gap:2px;min-height:72px;box-sizing:border-box;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--ink)}
-.seats .jh b{font-weight:400;font-size:24px;line-height:1.1;letter-spacing:-.008em}
+.seats .jh b{font-weight:400;font-size:18px;line-height:1.1;letter-spacing:-.008em}
 .seats .jh span{font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
 .seats ul{list-style:none;margin:0;padding:0}
-/* Schrift wie in den übrigen Grafiken (01.11.2026): Daten 24 px, sonst 14 px Handy / 15 px Computer; auf dem Handy zweizeilig statt abgeschnitten */
+/* Schrift wie in den übrigen Grafiken (01.11.2026): Daten 18 px (03.11., vorher 24), sonst 14 px Handy / 15 px Computer; auf dem Handy zweizeilig statt abgeschnitten */
 .seats li{height:var(--rh);display:flex;align-items:center;gap:7px;font-size:14px;line-height:1.2;color:var(--mute)}
 .seats li::before{content:"";flex:none;width:var(--sq);height:var(--sq);border:1px solid var(--mute);box-sizing:border-box}
 .seats li.ex{position:relative;z-index:1;color:var(--ink)}
@@ -51,5 +51,5 @@
   .lens{gap:calc(24*var(--u))}
   .lens h3{font-size:15px;gap:10px}
   .lens h3::before{width:max(9px,calc(11*var(--u)));height:max(9px,calc(11*var(--u)))}
-  .lens li{font-size:24px;padding:10px 0}
+  .lens li{font-size:18px;padding:10px 0}
 }
