@@ -55,7 +55,7 @@ img.photo{background:var(--wire-soft)}
 
 /* Mila 01.11.2026: Zitat in Fließtextgröße unter dem Text, Fotonachweis ganz unten statt Randnotiz */
 .quote.ft{margin:6px 0 0}
-.quote.ft p{font-size:18px;line-height:1.2;letter-spacing:0}
+.quote.ft p{font-size:18px;line-height:1.45;letter-spacing:0}
 .credit{margin:80px var(--pad) 0;font-size:15px;line-height:1.35;color:var(--mute)}
 
 /* Handy: die zwei Fotos unten einfach untereinander (Scrollspur am 02.11.2026 auf ihren Wunsch entfernt).

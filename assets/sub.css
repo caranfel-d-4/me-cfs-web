@@ -28,10 +28,10 @@
 /* Überschrift: Größe --hs, Versalien, Regular; 48 px unter der Kopfzeile (Pille 36 px hoch) */
 .head .big{font-size:var(--hs);line-height:1;letter-spacing:-.008em;max-width:none;padding:0;text-wrap:balance}
 .head .hsub{margin:8px 0 0;font-size:24px;line-height:1.1}
-/* Text 18 px unter der Überschrift; Fließtext 18 px, Zeilenabstand 1.2 nach WWTF-DS (03.11., vorher 24 px / 1.45) */
+/* Text 18 px unter der Überschrift; Fließtext 18 px nach WWTF-DS (03.11., vorher 24 px) */
 .cols>.head+.body{margin-top:-8px}
 .body{gap:14px}
-.lead{font-size:18px;line-height:1.2;max-width:none}
+.lead{font-size:18px;line-height:1.45;max-width:none}
 /* farblose Pille für Links im Fließtext */
 .op{color:inherit;text-decoration:none;border:1.2px solid currentColor;border-radius:99px;padding:0 .32em .04em;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
 .op:hover,.op:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
@@ -89,7 +89,7 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
 .acc details[open]>summary::after{content:"–"}
 .acc summary:hover,.acc summary:focus-visible{color:var(--navy);outline:none}
 .ac-b{padding:4px 0 18px}
-.ac-b p{margin:0;font-size:18px;line-height:1.2}
+.ac-b p{margin:0;font-size:18px;line-height:1.45}
 .ac-b p+p{margin-top:14px}
 @media (prefers-reduced-motion:reduce){.acc summary{transition:none}}
 /* Projektseiten: Fließtext unter dem Namen, Tabelle direkt darunter */
