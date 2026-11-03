@@ -113,3 +113,7 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
 .sub-hd .sb-res{position:relative;display:inline-flex;align-items:center;box-sizing:border-box;height:34px;padding:0 .6em;border:1.6px solid #181715;border-radius:99px;color:#181715;font-size:22px;line-height:1;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
 .sub-hd .sb-res:hover,.sub-hd .sb-res:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
 @media (prefers-reduced-motion:reduce){.sub-hd .sb-res{transition:none}}
+
+/* Lesebalken (03.11.2026, nach research.wwtf.at/issue-12): 3 px Koralle an der Unterkante der festen Kopfzeile, wächst mit dem Scrollen von links nach rechts.
+   Ohne Skript und mit „Bewegung reduzieren“ trotzdem da (keine Animation, nur Breite). Skript in sentence-bar.js setzt --rd (0–1). */
+.sub-hd .rd-bar{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#ec6a61;transform-origin:0 50%;transform:scaleX(var(--rd,0));pointer-events:none}

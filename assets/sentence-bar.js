@@ -23,3 +23,12 @@
   // Mit der Tastatur: das fokussierte Satzglied ins Bild holen
   t.addEventListener('focusin',function(e){ if(e.target.tagName==='A') go(e.target,true); });
 })();
+
+/* Lesebalken der Kopfzeile (03.11.2026): Anteil der gelesenen Seite als --rd auf .rd-bar */
+(function(){
+  var b=document.querySelector('.sub-hd .rd-bar');if(!b)return;
+  var q=false;
+  function upd(){q=false;var d=document.documentElement,max=d.scrollHeight-innerHeight;b.style.setProperty('--rd',max>0?Math.min(1,Math.max(0,scrollY/max)):0);}
+  function req(){if(!q){q=true;requestAnimationFrame(upd);}}
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);upd();
+})();
