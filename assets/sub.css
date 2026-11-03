@@ -1,20 +1,33 @@
 /* Unterseiten nach Entwurf B4 (Canvas „WMEW 3.1 Mio Kopfzeilen“, 26.10.2026), zuerst auf money/.
    Lädt nach p1.css, money.css, p1-head.css und sentence-bar.css und überschreibt sie. Regeln im Konzept „Unterseiten nach B4“.
-   Kopfzeile: Home links, rechts WWTF-Zeichen + Next. Inhalt am Computer 52u vom Rand (wie die Landingpage), Handy 22 px.
+   Kopfzeile: WWTF-Zeichen links (→ Landingpage), rechts Next als Koralle-Kreis, fest oben (03.11.). Inhalt am Computer 52u vom Rand (wie die Landingpage), Handy 22 px.
    Abstände wie am Handy: Kopfzeile → Überschrift 48 px, Überschrift → Text 18 px, vor einer neuen Zwischenüberschrift 80 px. */
 /* Überschrift wächst mit der Fensterbreite: Handy 44 px, 1280 px Breite 64 px, höchstens 80 px (26.10.) */
 :root{--hs:clamp(44px,5vw,80px)}
 @media (min-width:900px){:root{--pad:calc(52*var(--u))}}
 
-/* Kopfzeile näher am oberen Rand (26.10.): Handy 8 px statt 12 px, Computer 12u statt 20u. Pillen enger um die Schrift (Schrift 22 px seit 03.11., vorher 24) */
-.home-btn,.sb-next{padding:.26em .55em .22em}
-@media (min-width:900px){.home-btn,.sb-next{padding:.26em .6em .22em}}
-/* rechts: WWTF-Zeichen (schwarz wie auf der Landingpage, Buchstaben so groß wie die Knopfschrift) direkt vor Next */
-.home-btn{top:8px}
-.hd-r{position:absolute;top:8px;right:12px;z-index:6;display:flex;align-items:center;gap:14px}
-.hd-r .sb-next{position:static}
-.sub-mark{display:block;height:28px;width:auto;aspect-ratio:112.3/31.9;fill:var(--ink)}
-@media (min-width:900px){.home-btn{top:calc(12*var(--u))}.hd-r{top:calc(12*var(--u));right:calc(43*var(--u));gap:22px}}
+/* Kopfzeile (03.11.2026, ihre Vorgabe): links das WWTF-Zeichen statt HOME, führt auf die Landingpage; rechts Next als Koralle-Kreis mit Pfeil C (Winkel).
+   Die Kopfzeile bleibt beim Scrollen oben stehen (fixed, weiße Fläche). Abstände zum Rand wie vorher: Handy 8/12 px, Computer 12u oben, links 41u, rechts 43u.
+   Der Inhalt darunter behält seinen Abstand nach oben, deshalb liegt die feste Leiste anfangs genau dort, wo vorher Home/Next standen. */
+.sub-hd{position:fixed;top:0;left:0;right:0;z-index:20;height:52px;background:var(--paper,#fff)}
+.sub-hd .home-btn,.sub-hd .hd-r{position:absolute;top:6px;display:flex;align-items:center;height:40px}
+.sub-hd .home-btn{left:12px;background:none;padding:0;border-radius:0;color:var(--ink,#181715);transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.sub-hd .home-btn:hover,.sub-hd .home-btn:focus-visible{background:none;color:#005b94;outline:none}
+.sub-hd .home-btn:focus-visible{outline:2px solid #005b94;outline-offset:4px}
+.sub-mark{display:block;height:28px;width:auto;aspect-ratio:112.3/31.9;fill:currentColor}
+.sub-hd .hd-r{right:12px;gap:0}
+.sub-hd .sb-next{position:static;display:grid;place-items:center;width:40px;height:40px;padding:0;border-radius:50%;background:#ec6a61;color:#181715}
+.sub-hd .sb-next:hover,.sub-hd .sb-next:focus-visible{background:#005b94;color:#fff}
+.sb-next .chev{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+@media (min-width:900px){
+  .sub-hd{height:calc(24*var(--u) + 44px)}
+  .sub-hd .home-btn,.sub-hd .hd-r{top:calc(12*var(--u));height:44px}
+  .sub-hd .home-btn{left:calc(41*var(--u))}
+  .sub-hd .hd-r{right:calc(43*var(--u))}
+  .sub-hd .sb-next{width:44px;height:44px}
+  .sb-next .chev{width:26px;height:26px}
+}
+@media (prefers-reduced-motion:reduce){.sub-hd .home-btn{transition:none}}
 
 /* Aufbau (27.10.): Titel und Unterzeile stehen in .cols als div.head, links in der Textspalte (bricht bei Bedarf um).
    Die rechte Spalte (Tabelle) beginnt am Computer auf Höhe des Titels. Bild/Karte (biobank, vienna) über die ganze Breite unter dem Titel.
