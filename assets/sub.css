@@ -19,9 +19,9 @@
 .sub-hd .sb-prev,.sub-hd .sb-next{position:relative;top:auto;right:auto;display:grid;place-items:center;box-sizing:border-box;width:40px;height:40px;padding:0;border-radius:50%;background:#ec6a61;color:#181715;border:0;transition:background-color 160ms cubic-bezier(.4,0,.2,1),color 160ms cubic-bezier(.4,0,.2,1),border-color 160ms cubic-bezier(.4,0,.2,1)}
 .sub-hd .sb-prev::before,.sub-hd .sb-next::before{content:"";position:absolute;inset:-4px}
 .sub-hd .sb-prev:hover,.sub-hd .sb-prev:focus-visible,.sub-hd .sb-next:hover,.sub-hd .sb-next:focus-visible{background:#005b94;color:#fff}
-/* 11.11.: Zurück nur schwarzer Pfeil, ohne Koralle-Kreis; Hover Pfeil Dunkelblau */
-.sub-hd .sb-prev{background:none}
-.sub-hd .sb-prev:hover,.sub-hd .sb-prev:focus-visible{background:none;color:#005b94}
+/* 11.11.: Zurück und Weiter nur schwarzer Pfeil, ohne Koralle-Kreis; Hover Pfeil Dunkelblau */
+.sub-hd .sb-prev,.sub-hd .sb-next{background:none}
+.sub-hd .sb-prev:hover,.sub-hd .sb-prev:focus-visible,.sub-hd .sb-next:hover,.sub-hd .sb-next:focus-visible{background:none;color:#005b94}
 .sb-prev .chev,.sb-next .chev{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 @media (min-width:900px){
   .sub-hd{height:calc(24*var(--u) + 44px)}
