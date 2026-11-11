@@ -134,7 +134,7 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 /* News: Kreis wächst aus dem Knopf (11.11.) */
 @media (max-width:899px){
 .ri.nws.pv-nw{display:block!important;position:relative;padding-top:0!important;padding-bottom:0!important;min-height:0!important;overflow:hidden}
-.pv-bg{position:absolute;inset:0;background:#bad150;clip-path:circle(0px at 0 0);pointer-events:none}
+.pv-bg{position:absolute;inset:0;background:#bad150;clip-path:inset(50% 50% 50% 50%);pointer-events:none}
 .pv-nhd,.pv-nb{position:relative}
 .pv-nhd{display:flex;justify-content:space-between;align-items:center;min-height:72px;cursor:pointer}
 .pv-nhd:focus-visible{outline:2px solid #005b94;outline-offset:2px}
@@ -142,4 +142,28 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 .pv-nb a.hl .t{font-size:24px;line-height:1.05;text-transform:uppercase;letter-spacing:-.008em}
 .pv-nb a.hl .s{display:block;margin-top:4px;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;opacity:.65}
 .pv-nb a.all{display:flex;align-items:center;gap:10px;padding:10px 0 20px;font-size:24px;text-transform:uppercase;color:#181715;text-decoration:none}
+}
+/* Tabellen eine Spur kleiner (11.11. abends): Titel 22 px, Unterzeile 13 px, Nummer 22 px, Zeile mind. 64 px */
+@media (max-width:899px){
+.stage .it{min-height:64px!important;padding-top:7px!important;padding-bottom:7px!important;row-gap:3px!important}
+.stage .it .n,.stage .it .t{font-size:22px!important}
+.stage .it .a{font-size:13px!important}
+.ri{min-height:64px!important;padding-top:7px!important;padding-bottom:7px!important;row-gap:3px!important}
+.ri .t,.ri .n{font-size:22px!important}
+.ri .m,.ri .d{font-size:13px!important}
+.pv-row{min-height:64px!important}
+.pv-n,.pv-t,.pv-mx .nm{font-size:22px!important}
+.pv-s{font-size:13px!important;margin-top:3px!important}
+.acc summary{min-height:64px!important;font-size:22px!important}
+.ri.nws.pv-nw,.pv-nhd{min-height:64px!important}
+.pv-nb a.hl .t{font-size:22px!important}.pv-nb a.hl .s{font-size:13px!important}.pv-nb a.all{font-size:22px!important}
+.pv-mx>*{min-height:50px!important}
+.how .n{font-size:22px!important}
+}
+/* Tabellenüberschriften 22 px halbfett wie die Zeilen; Startseite enger, damit sie auf einen Bildschirm passt (11.11.) */
+@media (max-width:899px){
+.stage .lh,.gh,h2.cap,.pv-th,.pv-dir .hdr .lb,.lens h3{font-size:22px!important}
+.stage{padding-bottom:16px!important}
+.stage .sent.b1{padding-bottom:26px!important}
+.stage .b3{padding-top:26px!important;gap:12px!important}
 }

@@ -140,7 +140,7 @@ function run(){
  var nws=document.querySelector('.ri.nws');
  if(nws){var n=nws.querySelector('.n');if(n)n.remove();
   var links=[].map.call(nws.querySelectorAll('.nk a'),function(a){return {h:a.getAttribute('href'),t:a.textContent.trim()};});var npl=nws.querySelector('.np');var all=npl?npl.getAttribute('href'):'';
-  // News öffnet sich als Kreis, der aus dem grünen Knopf wächst und nur die News-Fläche füllt (11.11.)
+  // News öffnet sich als Knopf, der aus dem grünen NEWS-Knopf wächst und nur die News-Fläche füllt (11.11.)
   var news=nws.querySelector('.pv-news'),plus=nws.querySelector('.pv-plus');nws.classList.add('pv-nw');
   var bg=document.createElement('div');bg.className='pv-bg';bg.setAttribute('aria-hidden','true');
   var hd=document.createElement('div');hd.className='pv-nhd';hd.setAttribute('role','button');hd.tabIndex=0;hd.setAttribute('aria-expanded','false');hd.appendChild(news);hd.appendChild(plus);
@@ -148,10 +148,10 @@ function run(){
   body.innerHTML=links.map(function(k){return '<a class="hl" href="'+k.h+'" target="_blank" rel="noopener"><span class="t">'+k.t+'<span class="s">Science for ME · News in Brief</span></span><span class="i"><svg class="pv-ar ur" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>';}).join('')+'<a class="all" href="'+all+'" target="_blank" rel="noopener">All news <svg class="pv-ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>';
   nws.insertBefore(bg,nws.firstChild);nws.appendChild(hd);nws.appendChild(body);
   var busy=false,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function geo(){var b=nws.getBoundingClientRect(),k=news.querySelector('.pv-btn').getBoundingClientRect();var x=k.left+k.width/2-b.left,y=k.top+k.height/2-b.top;var R=Math.ceil(Math.hypot(Math.max(x,b.width-x),Math.max(y,b.height-y)));return {x:x,y:y,R:R};}
+  function geo(){var b=nws.getBoundingClientRect(),k=news.querySelector('.pv-btn').getBoundingClientRect();return {t:k.top-b.top,l:k.left-b.left,r:b.right-k.right,bo:b.bottom-k.bottom,rad:k.height/2};}
   function tog(){if(busy)return;var open=body.hidden;busy=true;hd.setAttribute('aria-expanded',String(open));plus.textContent=open?'–':'+';
    if(open)body.hidden=false;
-   var g=geo(),from='circle(0px at '+g.x+'px '+g.y+'px)',to='circle('+g.R+'px at '+g.x+'px '+g.y+'px)';
+   var g=geo(),from='inset('+g.t+'px '+g.r+'px '+g.bo+'px '+g.l+'px round '+g.rad+'px)',to='inset(0px 0px 0px 0px round 0px)';
    function done(){bg.style.clipPath=open?to:from;if(!open)body.hidden=true;busy=false;}
    if(rm||!bg.animate){done();return;}
    var an=bg.animate([{clipPath:open?from:to},{clipPath:open?to:from}],{duration:open?650:380,easing:open?'cubic-bezier(.45,0,.2,1)':'cubic-bezier(.4,0,.2,1)'});
