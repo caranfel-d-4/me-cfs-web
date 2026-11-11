@@ -87,7 +87,7 @@ function run(){
   var ex='Keith Geraghty';names=names.filter(function(n){return n!==ex;}).concat([ex]);
   var mx=document.createElement('div');mx.className='pv-mx';mx.innerHTML='<span class="h"></span>'+cols.map(function(c){return '<span class="h">'+c.d+'<br>'+c.c.replace('Consolidation Call','Consol.')+'</span>';}).join('');
   names.forEach(function(n){mx.innerHTML+='<span class="nm'+(n===ex?' ex':'')+'">'+n+'</span>'+cols.map(function(c){return '<span class="c'+(n===ex?' ex':'')+'">'+(c.m.indexOf(n)>=0?'<i class="dt"></i>':'<i class="no"></i>')+'</span>';}).join('');});
-  seats.replaceWith(mx);var cap=document.querySelector('.seat-cap');if(cap)cap.innerHTML='● sat in this jury meeting · <span style="color:#ec6a61">●</span> expert by experience · international jury of WWTF';}
+  seats.replaceWith(mx);var cap=document.querySelector('.seat-cap');if(cap)cap.innerHTML='<span style="color:#005b94">●</span> sat in this jury meeting · <span style="color:#ec6a61">●</span> expert by experience · international jury of WWTF';}
  // fellowships/: B, Schrift statt Netz
  var fnet=document.querySelector('figure.fnet');
  if(fnet){var ins=[],outs=[];fnet.querySelectorAll('ol.fls li').forEach(function(li){var sp=li.querySelectorAll('span');var r={n:li.querySelector('b').textContent,w:sp[0].textContent,m:sp[1]?sp[1].textContent:''};(/→.*(Wien|Vienna)/.test(r.w)?ins:outs).push(r);});
@@ -121,7 +121,7 @@ function run(){
  // patients: What patients added als Kreise
  var rv=document.querySelector('figure.rv .dots');
  if(rv){var g=document.createElement('div');g.className='pv-dots';rv.querySelectorAll('span').forEach(function(s){var i=document.createElement('i');if(s.classList.contains('ex'))i.className='ex';g.appendChild(i);});rv.replaceWith(g);
-  var cap=document.querySelector('figure.rv .seat-cap');if(cap)cap.innerHTML='● scientists and clinicians · <span style="color:#ec6a61">●</span> Science for ME · Consolidation Call 2026, 41 reviews of 6 proposals';}
+  var cap=document.querySelector('figure.rv .seat-cap');if(cap)cap.innerHTML='<span style="color:#005b94">●</span> scientists and clinicians · <span style="color:#ec6a61">●</span> Science for ME · Consolidation Call 2026, 41 reviews of 6 proposals';}
  // fellowships: B mit Knopf
  if(/\/fellowships\//.test(path)){
   var heads=[].filter.call(document.querySelectorAll('.pv-th'),function(h){return /into Vienna|out of Vienna/.test(h.textContent);});

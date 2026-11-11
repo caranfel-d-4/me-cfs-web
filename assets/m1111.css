@@ -69,7 +69,7 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 .pv-mx .c{justify-content:center}
 .pv-mx .h{min-height:52px;font-size:14px;line-height:1.15;text-transform:uppercase;letter-spacing:.03em;color:#4c4c4b;flex-direction:column;justify-content:center;text-align:center}
 .pv-mx .nm{font-size:24px;line-height:1.05;text-transform:uppercase}
-.pv-mx .dt{width:16px;height:16px;border-radius:99px;background:#181715}
+.pv-mx .dt{width:16px;height:16px;border-radius:99px;background:#005b94}
 .pv-mx .ex .dt{background:#ec6a61}
 .pv-mx .no{width:6px;height:1px;background:#9d9d9c}
 /* Impact-Mosaik (Platzhalter) */
@@ -89,7 +89,7 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 .pv-mx{grid-template-columns:minmax(0,1fr) repeat(3,58px)!important}
 .pv-mx .h{font-size:13px!important;letter-spacing:0!important}
 .pv-dots{display:grid;grid-template-columns:repeat(9,16px);gap:10px;margin:14px 0 10px}
-.pv-dots i{width:16px;height:16px;border-radius:99px;background:#181715;display:block}
+.pv-dots i{width:16px;height:16px;border-radius:99px;background:#005b94;display:block}
 .pv-dots i.ex{background:#ec6a61}
 }
 @media (max-width:899px){
@@ -109,3 +109,5 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 
 /* Pfeile überall in der Form der Kopfzeile: langer feiner Pfeil, Strich 1,6; schräg = um 45° gedreht; im Fließtext kleiner */
 @media (max-width:899px){.pv-ar{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:middle;flex:none}.pv-ar.ur{transform:rotate(-45deg)}.pv-ar.sm{width:.85em;height:.85em;vertical-align:-.08em}.pv-i{display:flex;justify-content:flex-end}}
+/* patients/: Grafik in Dunkelblau und Koralle (11.11.) */
+@media (max-width:899px){.lens h3::before{width:12px!important;height:12px!important;border:0!important;border-radius:99px;background:#005b94!important}.lens .ex h3::before{background:#ec6a61!important}}
