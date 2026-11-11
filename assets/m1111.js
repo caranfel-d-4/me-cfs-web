@@ -51,7 +51,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 (function(){
 if(innerWidth>899)return;
-var PLUS='+',ARR='→';
+var PLUS='+',ARR='<svg class="pv-ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>';
 function row(n,t,s,icon,href){var a=document.createElement(href?'a':'div');if(href)a.href=href;a.className='pv-row'+(n===null?' nn':'');a.innerHTML=(n!==null?'<span class="pv-n">'+n+'</span>':'')+'<span class="pv-t">'+t+(s?'<span class="pv-s">'+s+'</span>':'')+'</span><span class="pv-i">'+(icon||'')+'</span>';return a;}
 function det(n,t,body){var d=document.createElement('details');var s=document.createElement('summary');s.appendChild(row(n,t,'',PLUS));d.appendChild(s);var b=document.createElement('div');b.className='pv-d';b.innerHTML=body;d.appendChild(b);d.addEventListener('toggle',function(){s.querySelector('.pv-i').textContent=d.open?'–':'+';});return d;}
 function fitH(h){h.innerHTML=h.innerHTML.replace(/<wbr\s*\/?>/g,'').replace(/<br\s*\/?>/g,' ').replace(/\s+/g,' ').trim();h.style.whiteSpace='nowrap';var cs=parseFloat(getComputedStyle(h).fontSize);var w=h.parentNode.clientWidth;if(h.scrollWidth>w){var n=cs*w/h.scrollWidth;if(n>=34){h.style.fontSize=Math.floor(n)+'px';}else{h.style.whiteSpace='normal';h.style.textWrap='balance';}}}
@@ -132,7 +132,7 @@ function run(){
      var e=document.createElement('div');e.className='pv-row nn';e.style.borderBottom='0';e.style.borderTop='1px solid #e4e4e3';e.innerHTML='<span class="pv-t">'+city+'<span class="pv-s">'+r.n+' · '+inst+' · '+parts[1]+'</span></span><span class="pv-i">'+arr+'</span>';d.appendChild(e);});
     return d;}
    var ins=rows.filter(function(r){return /→.*(Wien|Vienna)/.test(r.s);}),outs=rows.filter(function(r){return !/→.*(Wien|Vienna)/.test(r.s);});
-   var g1=grp('green','Come to Vienna','3 in',ins,'→'),g2=grp('','Go from Vienna','3 out',outs,'↗︎');g2.style.borderBottom='1px solid #181715';
+   var g1=grp('green','Come to Vienna','3 in',ins,'<svg class="pv-ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>'),g2=grp('','Go from Vienna','3 out',outs,'<svg class="pv-ar ur" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>');g2.style.borderBottom='1px solid #181715';
    nb.appendChild(g1);nb.appendChild(g2);box.replaceWith(nb);
    [g1,g2].forEach(function(g){bleed(g,[].slice.call(g.children));});}
  }
@@ -141,7 +141,7 @@ function run(){
  if(nws){var n=nws.querySelector('.n');if(n)n.remove();
   var date=(nws.querySelector('.pv-date')||{}).textContent||'';var links=[].map.call(nws.querySelectorAll('.nk a'),function(a){return {h:a.getAttribute('href'),t:a.textContent.trim()};});var all=(nws.querySelector('.np')||{}).getAttribute?nws.querySelector('.np').getAttribute('href'):'';
   var box=document.createElement('div');box.className='pv-nopen';box.hidden=true;
-  box.innerHTML='<div class="nh" role="button" tabindex="0" aria-expanded="true"><span class="pv-news"><span class="pv-btn">News</span><span class="pv-date">'+date+'</span></span><span class="pv-plus">–</span></div>'+links.map(function(k){return '<a class="hl" href="'+k.h+'" target="_blank" rel="noopener"><span class="t">'+k.t+'<span class="s">Science for ME · News in Brief</span></span><span class="i">↗︎</span></a>';}).join('')+'<a class="all" href="'+all+'" target="_blank" rel="noopener">All news <span>→</span></a>';
+  box.innerHTML='<div class="nh" role="button" tabindex="0" aria-expanded="true"><span class="pv-news"><span class="pv-btn">News</span><span class="pv-date">'+date+'</span></span><span class="pv-plus">–</span></div>'+links.map(function(k){return '<a class="hl" href="'+k.h+'" target="_blank" rel="noopener"><span class="t">'+k.t+'<span class="s">Science for ME · News in Brief</span></span><span class="i">'+'<svg class="pv-ar ur" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>'+'</span></a>';}).join('')+'<a class="all" href="'+all+'" target="_blank" rel="noopener">All news '+'<svg class="pv-ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>'+'</a>';
   nws.parentNode.insertBefore(box,nws.nextSibling);var sib=box.nextElementSibling;box.style.paddingLeft=sib?getComputedStyle(sib).paddingLeft:'22px';box.style.paddingRight=sib?getComputedStyle(sib).paddingRight:'22px';
   nws.setAttribute('role','button');nws.tabIndex=0;nws.setAttribute('aria-expanded','false');nws.style.cursor='pointer';
   function tog(open){nws.hidden=open;box.hidden=!open;(open?box.querySelector('.nh'):nws).focus({preventScroll:true});}
@@ -150,4 +150,6 @@ function run(){
  }
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,60);});else setTimeout(run,60);
+function bk(){document.querySelectorAll('a.bk').forEach(function(a){if(a.dataset.pv)return;a.dataset.pv='1';a.innerHTML=a.innerHTML.replace(/^\s*→\s*/,'<svg class="pv-ar sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg> ');});}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bk);else bk();
 })();

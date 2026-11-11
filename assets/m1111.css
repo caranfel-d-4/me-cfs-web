@@ -43,7 +43,7 @@ h1.big,.head .big,main>.big,body>.sub-hd~main>.big:first-child{font-weight:600!i
 svg[data-fit]{--ts:15px!important;--tl:18px!important}
 /* Links im Fließtext: keine Umrandung, kleiner Pfeil */
 a.op{border:0!important;box-shadow:none!important;padding:0!important;background:none!important;border-radius:0!important;text-decoration:underline!important;text-decoration-thickness:1px!important;text-underline-offset:.18em!important;color:inherit!important}
-a.op::after{content:"\2197\FE0E";display:inline-block;font-size:.72em;margin-left:.12em;text-decoration:none}
+a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.15em;vertical-align:-.05em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(-45deg)}
 /* eine Tabellenzeile überall: Nummer 24 hell mittig, Titel 24 Versalien, Unterzeile 14 Versalien grau */
 .pv-row{display:grid;grid-template-columns:40px minmax(0,1fr) 24px;column-gap:8px;align-items:center;min-height:72px;box-sizing:border-box;border-bottom:1px solid #181715;text-decoration:none;color:#181715}
 .pv-row.nn{grid-template-columns:minmax(0,1fr) 24px}
@@ -106,3 +106,6 @@ a.op::after{content:"\2197\FE0E";display:inline-block;font-size:.72em;margin-lef
 .pv-nopen a.all{display:flex;align-items:center;gap:10px;padding:10px 0 20px;font-size:24px;text-transform:uppercase;color:#181715;text-decoration:none}
 }
 @media (max-width:899px){.ri.nws[hidden]{display:none!important}}
+
+/* Pfeile überall in der Form der Kopfzeile: langer feiner Pfeil, Strich 1,6; schräg = um 45° gedreht; im Fließtext kleiner */
+@media (max-width:899px){.pv-ar{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:middle;flex:none}.pv-ar.ur{transform:rotate(-45deg)}.pv-ar.sm{width:.85em;height:.85em;vertical-align:-.08em}.pv-i{display:flex;justify-content:flex-end}}
