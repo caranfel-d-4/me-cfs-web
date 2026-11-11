@@ -131,3 +131,15 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 @media (max-width:899px){body:has(.sub-hd) main:not(:has(>.sib))::before{content:"";display:block;height:21px}}
 /* patients/: What patients added über die ganze Breite (11.11.) */
 @media (max-width:899px){.pv-dots{grid-template-columns:repeat(14,minmax(0,1fr))!important;justify-items:center;row-gap:12px!important;column-gap:0!important;margin-left:calc(-1*var(--pad))!important;margin-right:calc(-1*var(--pad))!important}}
+/* News: Kreis wächst aus dem Knopf (11.11.) */
+@media (max-width:899px){
+.ri.nws.pv-nw{display:block!important;position:relative;padding-top:0!important;padding-bottom:0!important;min-height:0!important;overflow:hidden}
+.pv-bg{position:absolute;inset:0;background:#bad150;clip-path:circle(0px at 0 0);pointer-events:none}
+.pv-nhd,.pv-nb{position:relative}
+.pv-nhd{display:flex;justify-content:space-between;align-items:center;min-height:72px;cursor:pointer}
+.pv-nhd:focus-visible{outline:2px solid #005b94;outline-offset:2px}
+.pv-nb a.hl{display:grid;grid-template-columns:minmax(0,1fr) 24px;column-gap:8px;align-items:start;padding:8px 0;color:#181715;text-decoration:none}
+.pv-nb a.hl .t{font-size:24px;line-height:1.05;text-transform:uppercase;letter-spacing:-.008em}
+.pv-nb a.hl .s{display:block;margin-top:4px;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;opacity:.65}
+.pv-nb a.all{display:flex;align-items:center;gap:10px;padding:10px 0 20px;font-size:24px;text-transform:uppercase;color:#181715;text-decoration:none}
+}
