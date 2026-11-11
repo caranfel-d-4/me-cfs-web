@@ -54,7 +54,7 @@ if(innerWidth>899)return;
 var PLUS='+',ARR='<svg class="pv-ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>';
 function row(n,t,s,icon,href){var a=document.createElement(href?'a':'div');if(href)a.href=href;a.className='pv-row'+(n===null?' nn':'');a.innerHTML=(n!==null?'<span class="pv-n">'+n+'</span>':'')+'<span class="pv-t">'+t+(s?'<span class="pv-s">'+s+'</span>':'')+'</span><span class="pv-i">'+(icon||'')+'</span>';return a;}
 function det(n,t,body){var d=document.createElement('details');var s=document.createElement('summary');s.appendChild(row(n,t,'',PLUS));d.appendChild(s);var b=document.createElement('div');b.className='pv-d';b.innerHTML=body;d.appendChild(b);d.addEventListener('toggle',function(){s.querySelector('.pv-i').textContent=d.open?'–':'+';});return d;}
-function fitH(h){h.innerHTML=h.innerHTML.replace(/<wbr\s*\/?>/g,'').replace(/<br\s*\/?>/g,' ').replace(/\s+/g,' ').trim();h.style.whiteSpace='nowrap';var cs=parseFloat(getComputedStyle(h).fontSize);var w=h.parentNode.clientWidth;if(h.scrollWidth>w){var n=cs*w/h.scrollWidth;if(n>=34){h.style.fontSize=Math.floor(n)+'px';}else{h.style.whiteSpace='normal';h.style.textWrap='balance';}}}
+function fitH(h){h.innerHTML=h.innerHTML.replace(/<wbr\s*\/?>/g,'').replace(/<br\s*\/?>/g,' ').replace(/\s+/g,' ').trim();h.style.fontSize='';h.style.whiteSpace='normal';h.style.textWrap='balance';}
 function run(){
  var path=location.pathname;
  // Unter-Unterseiten: Überschrift ohne komische Umbrüche
