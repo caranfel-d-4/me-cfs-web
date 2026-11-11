@@ -188,3 +188,5 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 /* Fellow-Seiten: Absätze mit Abstand, Textlink schlicht unterstrichen (11.11.) */
 .cols.proj .body .lead+.lead{margin-top:14px}
 .lead a.il{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}.lead a.il:hover,.lead a.il:focus-visible{color:#005b94}
+/* Kopfzeile: Resources-Knopf 24 px wie Resources/News-Knopf, Buchstaben so hoch wie im WWTF-Zeichen (11.11.) */
+@media (max-width:899px){.sub-hd .sb-res{font-size:24px!important;height:36px!important;padding:0 .55em!important;letter-spacing:.03em!important}}
