@@ -118,3 +118,6 @@ main>.grp .gh{color:var(--ink)}
   .nws .np{align-self:flex-start}
   .nws .nk{flex:none;width:100%}
 }
+
+/* Fußzeile wie auf der Startseite: feiner Strich über die ganze Breite (11.11.2026) */
+main+.ff{border-top:1px solid var(--wire-soft,#e4e4e3)}
