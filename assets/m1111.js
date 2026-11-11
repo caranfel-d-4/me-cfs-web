@@ -167,3 +167,28 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 function bk(){document.querySelectorAll('a.bk').forEach(function(a){if(a.dataset.pv)return;a.dataset.pv='1';a.innerHTML=a.innerHTML.replace(/^\s*→\s*/,'<svg class="pv-ar sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg> ');});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bk);else bk();
 })();
+/* Startseite Handy: gleiche sichtbare Abstände WWTF-Zeichen → Satz → Tabelle → Impact → Resources (11.11.).
+   Gemessen an der Schrift selbst (Versalhöhe, Grundlinie; Source Sans 3: Oberlänge 1,024, Unterlänge 0,4, Versalhöhe 0,66 em). */
+(function(){
+ if(innerWidth>899||!document.querySelector('.stage .sent.b1'))return;
+ var G=26;
+ var cv=document.createElement('canvas').getContext('2d');
+ function box(el){var cs=getComputedStyle(el);var fs=parseFloat(cs.fontSize);cv.font=cs.fontWeight+' '+fs+'px '+cs.fontFamily;var m=cv.measureText('EH');var asc=m.fontBoundingBoxAscent,cap=m.actualBoundingBoxAscent;
+  var r=document.createRange();r.selectNodeContents(el);var rs=[].slice.call(r.getClientRects()).filter(function(x){return x.height>fs*.5;});
+  var top=Math.min.apply(null,rs.map(function(x){return x.top;})),bot=Math.max.apply(null,rs.map(function(x){return x.bottom;}));var desc=m.fontBoundingBoxDescent;
+  return {cap:top+(asc-cap),base:bot-desc};}
+ function eq(){
+  var logo=document.querySelector('.wwtf-mark'),s=document.querySelector('.stage .sent.b1'),lh=document.querySelector('.stage .lh'),b3s=document.querySelector('.stage .b3 .sent'),rb=document.querySelector('.stage .rb');
+  if(!logo||!s||!lh||!b3s||!rb)return;
+  [s,lh,b3s,rb].forEach(function(e){e.style.marginTop='0px';});
+  var list=document.querySelector('.stage .list');
+  var a=G-(box(s).cap-logo.getBoundingClientRect().bottom);s.style.marginTop=a+'px';
+  var b=G-(box(lh).cap-box(s).base);lh.style.marginTop=b+'px';
+  var c=G-(box(b3s).cap-list.getBoundingClientRect().bottom);b3s.style.marginTop=c+'px';
+  var d=G-(rb.getBoundingClientRect().top-box(b3s).base);rb.style.marginTop=d+'px';
+ }
+ function later(){requestAnimationFrame(function(){requestAnimationFrame(eq);});}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',later);else later();
+ if(document.fonts)document.fonts.ready.then(later);
+ addEventListener('load',later);addEventListener('resize',later);
+})();
