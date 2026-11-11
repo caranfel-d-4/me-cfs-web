@@ -131,3 +131,16 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
   .cols>.head,.cols>.body,.cols>.head+.body{grid-column:1/-1}
   .cols>.side,.cols:has(>.pic,>.vmap)>.side{grid-column:1/-1;grid-row:auto;padding-top:0;margin-top:40px}
 }
+/* 11.11.: Geschwisterleiste auf Unterunterseiten (Buch-Navigation) */
+.sib{display:flex;flex-wrap:nowrap;gap:0 14px;margin:0 var(--pad) 22px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em}
+.sib::-webkit-scrollbar{display:none}
+.sib a{color:#9d9d9c;text-decoration:none;transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.sib a.sib-up{color:#4c4c4b}
+.sib a.sib-up::after{content:" /";color:#9d9d9c}
+.sib a[aria-current]{color:#181715;text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:1px}
+.sib a:hover,.sib a:focus-visible{color:#005b94;outline:none}
+@media (min-width:900px){.sib{font-size:15px}}
+@media (prefers-reduced-motion:reduce){.sib a{transition:none}}
+.sib{padding-top:calc(8px + 36px + 30px)}
+.sib+.cols>.head{padding-top:0}
+@media (min-width:900px){.sib{padding-top:calc(12*var(--u) + 36px + 30px)}}
