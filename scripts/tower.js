@@ -61,7 +61,7 @@ function tower(desk, mode, hP, hC, pid) {
   }
   P.forEach((p, i) => { h += slab(`${hP}${p.nr}/`, `Project ME-CFS24-${p.nr}, ${p.ac}, ${eur(p.eur)}`, `ME-CFS24-${p.nr} ${p.ac} · ${eur(p.eur)}`, ys[i], call, `${p.nr}  ${p.ac}`, eur(p.eur), 'p' + p.nr); });
   if (!call) C.forEach((c, i) => { h += `<g class="blk">${box(x, yc[i][0], w, yc[i][1], true)}</g>`; });
-  else C.forEach((c, i) => { h += slab(`${hC}${c.nr}/`, `Consortium ME-CFS-CC26-${c.nr}, ${c.ac}, ${c.t}, ${eur(c.eur)}`, `ME-CFS-CC26-${c.nr} ${c.ac} · ${eur(c.eur)}`, yc[i], false, `CC26-${c.nr}  ${c.ac}`, eur(c.eur), 'c' + c.nr); });
+  else C.forEach((c, i) => { h += slab(`${hC}${c.nr}/`, `Consortium ME-CFS-CC26-${c.nr}, ${c.ac}, ${c.t}, ${eur(c.eur)}`, `ME-CFS-CC26-${c.nr} ${c.ac} · ${eur(c.eur)}`, yc[i], false, `${c.nr}  ${c.ac}`, eur(c.eur), 'c' + c.nr); });
   // Feine Linien rechts außen: jedes Konsortium zu dem Projekt, auf dem es aufbaut
   const cols = desk ? [W - 22, W - 8] : [W - 9, W - 3];
   if (call) C.forEach((c, i) => {
@@ -105,10 +105,10 @@ function tower(desk, mode, hP, hC, pid) {
     + ld + h + lab + '</svg>';
 }
 
-const list = (hP, hC, call) => [...(call ? C : []).map(c => `          <li><a class="bk" href="${hC}${c.nr}/"><span class="n">CC26-${c.nr}</span><span class="t">${c.ac}</span><span class="a">${eur(c.eur)}</span></a></li>`),
+const list = (hP, hC, call) => [...(call ? C : []).map(c => `          <li><a class="bk" href="${hC}${c.nr}/"><span class="n">${c.nr}</span><span class="t">${c.ac}</span><span class="a">${eur(c.eur)}</span></a></li>`),
   ...P.map(p => `          <li><a class="bk" href="${hP}${p.nr}/"><span class="n">${p.nr}</span><span class="t">${p.ac}</span><span class="a">${eur(p.eur)}</span></a></li>`)].join('\n');
 const AL = {
-  call: 'A tower: on top, two large slabs for the Consolidation Call, €1,999,099 for two consortia awarded in October 2026: CC26-004 Haider, building on project 018, and CC26-003 Wielscher, building on project 002. Below, seven thin hatched slabs, the exploratory projects they build on. Each slab links to its page.',
+  call: 'A tower: on top, two large slabs for the Consolidation Call, €1,999,099 for two consortia awarded in October 2026: 004 Haider, building on project 018, and 003 Wielscher, building on project 002. Below, seven thin hatched slabs, the exploratory projects they build on. Each slab links to its page.',
   proj: 'A tower: seven thin slabs, one per exploratory project, about €100,000 each, €695,445 in total. On top, two large hatched slabs for the two consortia of the Consolidation Call, €1,999,099. Each project slab links to its page.'
 };
 for (const [file, mode, hP, hC, pid] of [['call/index.html', 'call', '../projects/', '', 'hc'], ['projects/index.html', 'proj', '', '../call/', 'hp']]) {
