@@ -32,7 +32,7 @@ function run(){
  }
  // Resources: News-Zeile
  var nws=document.querySelector('.ri.nws');
- if(nws){var t=(nws.querySelector('.np')||{}).textContent||'';var m=t.match(/·\s*([^↗]+)/);
+ if(nws){var t=(nws.querySelector('.np')||{}).textContent||'';var m=t.match(/·\s*([^↗︎]+)/);
   var s=document.createElement('span');s.className='pv-news';s.innerHTML='<span class="pv-btn">News</span><span class="pv-date">'+(m?m[1].trim():'')+'</span>';
   var pl=document.createElement('span');pl.className='pv-plus';pl.textContent='+';nws.appendChild(s);nws.appendChild(pl);}
  // Striche von Rand zu Rand
@@ -132,7 +132,7 @@ function run(){
      var e=document.createElement('div');e.className='pv-row nn';e.style.borderBottom='0';e.style.borderTop='1px solid #e4e4e3';e.innerHTML='<span class="pv-t">'+city+'<span class="pv-s">'+r.n+' · '+inst+' · '+parts[1]+'</span></span><span class="pv-i">'+arr+'</span>';d.appendChild(e);});
     return d;}
    var ins=rows.filter(function(r){return /→.*(Wien|Vienna)/.test(r.s);}),outs=rows.filter(function(r){return !/→.*(Wien|Vienna)/.test(r.s);});
-   var g1=grp('green','Come to Vienna','3 in',ins,'→'),g2=grp('','Go from Vienna','3 out',outs,'↗');g2.style.borderBottom='1px solid #181715';
+   var g1=grp('green','Come to Vienna','3 in',ins,'→'),g2=grp('','Go from Vienna','3 out',outs,'↗︎');g2.style.borderBottom='1px solid #181715';
    nb.appendChild(g1);nb.appendChild(g2);box.replaceWith(nb);
    [g1,g2].forEach(function(g){bleed(g,[].slice.call(g.children));});}
  }
@@ -141,7 +141,7 @@ function run(){
  if(nws){var n=nws.querySelector('.n');if(n)n.remove();
   var date=(nws.querySelector('.pv-date')||{}).textContent||'';var links=[].map.call(nws.querySelectorAll('.nk a'),function(a){return {h:a.getAttribute('href'),t:a.textContent.trim()};});var all=(nws.querySelector('.np')||{}).getAttribute?nws.querySelector('.np').getAttribute('href'):'';
   var box=document.createElement('div');box.className='pv-nopen';box.hidden=true;
-  box.innerHTML='<div class="nh" role="button" tabindex="0" aria-expanded="true"><span class="pv-news"><span class="pv-btn">News</span><span class="pv-date">'+date+'</span></span><span class="pv-plus">–</span></div>'+links.map(function(k){return '<a class="hl" href="'+k.h+'" target="_blank" rel="noopener"><span class="t">'+k.t+'<span class="s">Science for ME · News in Brief</span></span><span class="i">↗</span></a>';}).join('')+'<a class="all" href="'+all+'" target="_blank" rel="noopener">All news <span>→</span></a>';
+  box.innerHTML='<div class="nh" role="button" tabindex="0" aria-expanded="true"><span class="pv-news"><span class="pv-btn">News</span><span class="pv-date">'+date+'</span></span><span class="pv-plus">–</span></div>'+links.map(function(k){return '<a class="hl" href="'+k.h+'" target="_blank" rel="noopener"><span class="t">'+k.t+'<span class="s">Science for ME · News in Brief</span></span><span class="i">↗︎</span></a>';}).join('')+'<a class="all" href="'+all+'" target="_blank" rel="noopener">All news <span>→</span></a>';
   nws.parentNode.insertBefore(box,nws.nextSibling);var sib=box.nextElementSibling;box.style.paddingLeft=sib?getComputedStyle(sib).paddingLeft:'22px';box.style.paddingRight=sib?getComputedStyle(sib).paddingRight:'22px';
   nws.setAttribute('role','button');nws.tabIndex=0;nws.setAttribute('aria-expanded','false');nws.style.cursor='pointer';
   function tog(open){nws.hidden=open;box.hidden=!open;(open?box.querySelector('.nh'):nws).focus({preventScroll:true});}
