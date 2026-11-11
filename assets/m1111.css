@@ -177,3 +177,5 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 @media (max-width:899px){.stage .sent br.m{display:none!important}.stage .sent br.m2{display:inline!important}}
 /* Startseite Handy: Abstände setzt m1111.js gleich groß (11.11.) */
 @media (max-width:899px){.stage .sent.b1{padding-bottom:0!important}.stage .b3{padding-top:0!important;gap:0!important}.stage .lh{padding-top:0!important}}
+/* Resources: News-Zeile genau so breit wie die anderen Zeilen (11.11.) */
+@media (max-width:899px){.ri.nws.pv-nw{margin-left:0!important;margin-right:0!important;padding-left:var(--pad,22px)!important;padding-right:var(--pad,22px)!important}}
