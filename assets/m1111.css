@@ -111,3 +111,5 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 @media (max-width:899px){.pv-ar{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:middle;flex:none}.pv-ar.ur{transform:rotate(-45deg)}.pv-ar.sm{width:.85em;height:.85em;vertical-align:-.08em}.pv-i{display:flex;justify-content:flex-end}}
 /* patients/: Grafik in Dunkelblau und Koralle (11.11.) */
 @media (max-width:899px){.lens h3::before{width:12px!important;height:12px!important;border:0!important;border-radius:99px;background:#005b94!important}.lens .ex h3::before{background:#ec6a61!important}}
+/* Kopfzeile: Resources-Knopf in Koralle wie auf der Startseite (11.11.) */
+@media (max-width:899px){.sub-hd .sb-res{background:#ec6a61;border-color:#ec6a61;color:#181715}.sub-hd .sb-res:hover,.sub-hd .sb-res:focus-visible{background:#005b94;border-color:#005b94;color:#fff}}
