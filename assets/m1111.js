@@ -232,3 +232,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,120);});else setTimeout(run,120);
 })();
+/* 11.11. abends (Handy): fellowships/ ohne doppelte Überschrift „Three out, three in“ (3 in / 3 out sagen es schon) */
+(function(){
+ if(innerWidth>899||!/\/fellowships\/(index\.html)?$/.test(location.pathname))return;
+ function run(){document.querySelectorAll('h2.sh').forEach(function(h){if(/three out, three in/i.test(h.textContent))h.remove();});}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,200);});else setTimeout(run,200);
+})();
