@@ -127,3 +127,7 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 @media (max-width:899px){.stage .b3{gap:18px!important}}
 /* Handy: Startseite darf scrollen, statt oben und unten abgeschnitten zu werden (feste Größen seit 11.11.) */
 @media (max-width:899px){.stage{height:auto!important;min-height:100vh;min-height:100svh;overflow:visible!important;padding-bottom:40px!important}}
+/* Abstand Kopfzeile → Überschrift: Unterseiten wie Unter-Unterseiten (dort steht die unsichtbare Geschwisterleiste), +21 px (11.11.) */
+@media (max-width:899px){body:has(.sub-hd) main:not(:has(>.sib))::before{content:"";display:block;height:21px}}
+/* patients/: What patients added über die ganze Breite (11.11.) */
+@media (max-width:899px){.pv-dots{grid-template-columns:repeat(14,minmax(0,1fr))!important;justify-items:center;row-gap:12px!important;column-gap:0!important;margin-left:calc(-1*var(--pad))!important;margin-right:calc(-1*var(--pad))!important}}
