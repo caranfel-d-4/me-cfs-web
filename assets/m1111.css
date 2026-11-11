@@ -167,3 +167,8 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 .stage .sent.b1{padding-bottom:26px!important}
 .stage .b3{padding-top:26px!important;gap:12px!important}
 }
+/* Startseite: Hover-Striche fein und näher an der Schrift, unabhängig von der eingepassten Schriftgröße (11.11.) */
+@media (max-width:899px){
+.stage .it .kw,.stage .lh .kw{--ul:1.5px!important;--ug:1px!important}
+.stage .sent .kw,.stage .sent .kw .u{--ul:2px!important;--ug:2px!important}
+}
