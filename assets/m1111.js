@@ -192,3 +192,43 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  if(document.fonts)document.fonts.ready.then(later);
  addEventListener('load',later);addEventListener('resize',later);
 })();
+/* Audit 11.11. abends (Handy): alte Tabellenstile ins Tabellenformat (Nummer hell · Titel 22 Versalien · Unterzeile 13 · + klappt Text auf).
+   biobank/ Collect–Store–Share, fellowships/ Eckdaten, beginning/ What continues + Since 2024 + Impact-Kästen, patients/ Scientists/Patients + Expertenzeile; Nummern zweistellig. */
+(function(){
+ if(innerWidth>899)return;
+ var PLUS='+';
+ function row(n,t,s,href){var a=document.createElement(href?'a':'div');if(href)a.href=href;a.className='pv-row'+(n===null?' nn':'');a.innerHTML=(n!==null?'<span class="pv-n">'+n+'</span>':'')+'<span class="pv-t">'+t+(s?'<span class="pv-s">'+s+'</span>':'')+'</span><span class="pv-i"></span>';return a;}
+ function det(n,t,body){var d=document.createElement('details');var s=document.createElement('summary');var r=row(n,t,'');r.querySelector('.pv-i').textContent=PLUS;s.appendChild(r);d.appendChild(s);var b=document.createElement('div');b.className='pv-d';b.innerHTML=body;d.appendChild(b);d.addEventListener('toggle',function(){r.querySelector('.pv-i').textContent=d.open?'–':'+';});return d;}
+ function tab(cls){var t=document.createElement('div');t.className='pv-tab'+(cls?' '+cls:'');return t;}
+ function bleed(el){var r=el.getBoundingClientRect();var L=r.left,R=innerWidth-r.right;if(L<1)return;el.style.marginLeft=(-L)+'px';el.style.marginRight=(-R)+'px';
+  [].slice.call(el.children).forEach(function(c){var tgt=c.tagName==='DETAILS'?c.querySelector('.pv-row'):c;tgt.style.paddingLeft=L+'px';tgt.style.paddingRight=R+'px';if(c.tagName==='DETAILS'){var d=c.querySelector('.pv-d');d.style.paddingLeft=(L+(c.querySelector('.pv-n')?48:0))+'px';d.style.paddingRight=R+'px';}});}
+ function two(i){return (i<10?'0':'')+i;}
+ function run(){
+  var made=[];
+  // biobank/: Collect · Store · Share als Ausklapptabelle 01–03
+  var how=document.querySelector('ul.how');
+  if(how){var t=tab();var i=0;how.querySelectorAll('li').forEach(function(li){i++;var n=li.querySelector('.n');var txt=n.nextElementSibling;t.appendChild(det(two(i),n.textContent,'<p>'+txt.innerHTML+'</p>'));});how.replaceWith(t);made.push(t);}
+  // fellowships/: Eckdaten als Zeilen (Wert = Titel, Bezeichnung = Unterzeile)
+  var meta=document.querySelector('dl.meta:not(.one)');
+  if(meta&&/\/fellowships\//.test(location.pathname)){var t2=tab();meta.querySelectorAll('div').forEach(function(d){t2.appendChild(row(null,d.querySelector('dd').innerHTML,d.querySelector('dt').textContent));});meta.replaceWith(t2);t2.style.marginTop='48px';made.push(t2);}
+  // patients/: Expertenzeile als Tabellenzeile
+  var one=document.querySelector('dl.meta.one');
+  if(one){var t3=tab();one.querySelectorAll('div').forEach(function(d){var p=d.querySelector('dd').textContent.split(' · ');t3.appendChild(row(null,p.shift(),d.querySelector('dt').textContent+' · '+p.join(' · ')));});one.replaceWith(t3);made.push(t3);}
+  // patients/: Scientists / Patients als zwei Tabellen mit Überschrift
+  var lens=document.querySelector('.lens');
+  if(lens){var box=document.createElement('div');lens.querySelectorAll(':scope>div').forEach(function(g){var h=document.createElement('p');h.className='pv-th pv-lh'+(g.classList.contains('ex')?' ex':'');h.textContent=g.querySelector('h3').textContent;box.appendChild(h);var t4=tab();g.querySelectorAll('li').forEach(function(li){t4.appendChild(row(null,li.innerHTML,''));});box.appendChild(t4);made.push(t4);});lens.replaceWith(box);}
+  // beginning/: What continues als Ausklapptabelle
+  var cont=document.querySelector('ul.cont');
+  if(cont){var t5=tab();cont.querySelectorAll('li').forEach(function(li){var d=li.querySelector('.d');var b=d.nextElementSibling;t5.appendChild(det(null,d.textContent,'<p>'+b.innerHTML+'</p>'));});cont.replaceWith(t5);made.push(t5);}
+  // beginning/: Since 2024 als Tabelle wie die Startseite (Zahl hell links, Bezeichnung als Titel)
+  var g6=document.querySelector('.grid.g6');
+  if(g6){var t6=tab('pv-fig');g6.querySelectorAll('.z').forEach(function(z){t6.appendChild(row(z.querySelector('.n').textContent,z.querySelector('.l').textContent,''));});g6.replaceWith(t6);made.push(t6);}
+  // beginning/: Impact-Kästen (Platzhalter) als Zeilen
+  var mo=document.querySelector('.pv-mo');
+  if(mo){var t7=tab();mo.querySelectorAll(':scope>div').forEach(function(d){t7.appendChild(row(null,d.querySelector('b').innerHTML,d.querySelector('span').innerHTML));});mo.replaceWith(t7);made.push(t7);}
+  // Nummern zweistellig (vienna/ Wunschliste)
+  document.querySelectorAll('.pv-tab:not(.pv-fig) .pv-n').forEach(function(n){var v=n.textContent.trim();if(/^[1-9]$/.test(v))n.textContent='0'+v;});
+  made.forEach(bleed);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,120);});else setTimeout(run,120);
+})();

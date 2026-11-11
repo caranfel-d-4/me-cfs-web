@@ -199,3 +199,35 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 .sub-hd .sb-res{height:34px!important}
 }
 @media (max-width:899px){.pv-mo b{font-size:22px!important}}
+/* Audit 11.11. abends (Handy): vier Größen – Überschrift 44 · Tabelle/Zwischenüberschrift 22 (Überschrift halbfett) · Text 18 · Kleinschrift 13 (wie Unterzeile der Startseiten-Tabelle) */
+@media (max-width:899px){
+/* Kleinschrift 13 px überall */
+svg[data-fit]{--ts:13px!important}
+.foot .fb,.ff .fb{font-size:13px!important}
+.vmap figcaption,.vmap figcaption span,.body .src,.quote .src,.seat-cap,.nt span,.nt div,p.credit,.pv-date{font-size:13px!important;line-height:1.3!important}
+.vmap figcaption,.seat-cap,.body .src,.quote .src{letter-spacing:.03em!important}
+.pv-plus{font-size:22px!important}
+/* biobank/: Summe unter der Grafik als Kleinschrift, mit Abstand */
+.total{display:flex!important;flex-direction:column;gap:2px}
+.total .sum,.total .d{font-size:13px!important;line-height:1.3!important;text-transform:uppercase;letter-spacing:.03em}
+/* Zitat und Schlusssatz in Tabellengröße */
+.quote>p,main>p.last{font-size:22px!important;line-height:1.15!important}
+/* neue Tabellen: Unterzeile 13, Text beim Aufklappen 18 */
+.pv-tab .pv-d p{margin:0 0 12px;font-size:18px;line-height:1.45}
+.pv-tab .pv-d a.bk{display:inline-block;margin-top:4px}
+.pv-tab.pv-fig .pv-row{grid-template-columns:76px minmax(0,1fr) 0}
+/* patients/: Überschriften Scientists/Patients mit Punkt */
+.pv-lh{display:flex;align-items:center;gap:10px;margin:28px 0 0}
+.pv-lh::before{content:"";width:12px;height:12px;border-radius:99px;background:#005b94;flex:none}
+.pv-lh.ex::before{background:#ec6a61}
+/* Kopfzeilen-Punkte: Aussehen wie bisher, aber unsichtbare Tippfläche 40 px hoch und bis zum Nachbarpunkt breit */
+.pv-nav a{position:relative}
+.pv-nav a::after{content:"";position:absolute;inset:-16px -3px}
+.pv-nav a[aria-current]::after{inset:-14px -3px}
+.pv-nav a:focus-visible{outline:2px solid #005b94;outline-offset:-2px}
+}
+@media (max-width:899px){
+/* nichts darf seitlich überstehen (resources/: Linkflächen der Zeilen waren 413 px breit) */
+html,body{overflow-x:clip}
+.pv-i,.pv-tab summary .pv-i{font-size:22px!important}
+}
