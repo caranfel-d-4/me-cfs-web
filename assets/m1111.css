@@ -113,3 +113,15 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 @media (max-width:899px){.lens h3::before{width:12px!important;height:12px!important;border:0!important;border-radius:99px;background:#005b94!important}.lens .ex h3::before{background:#ec6a61!important}}
 /* Kopfzeile: Resources-Knopf in Koralle wie auf der Startseite (11.11.) */
 @media (max-width:899px){.sub-hd .sb-res{background:#ec6a61;border-color:#ec6a61;color:#181715}.sub-hd .sb-res:hover,.sub-hd .sb-res:focus-visible{background:#005b94;border-color:#005b94;color:#fff}}
+/* Startseite und Resources: eine Tabellenzeile (11.11.): Titel 24 px Versalien, Unterzeile 14 px, Nummer 24 px hell in 40-px-Spalte, mind. 72 px hoch, 8 px oben und unten */
+@media (max-width:899px){
+.stage .it{grid-template-columns:40px minmax(0,1fr)!important;column-gap:8px!important;row-gap:4px;min-height:72px;box-sizing:border-box;padding-top:8px!important;padding-bottom:8px!important;align-content:center}
+.stage .it .n,.stage .it .t{font-size:24px!important;line-height:1.05!important;letter-spacing:-.008em!important}
+.stage .it .a{padding-top:0!important;font-size:14px!important;line-height:1.2!important;letter-spacing:.03em!important}
+.ri{padding-top:8px!important;padding-bottom:8px!important;row-gap:4px!important;min-height:72px;box-sizing:border-box}
+.ri .t,.ri .n{line-height:1.05!important;letter-spacing:-.008em!important}
+.ri .m{line-height:1.2!important}
+}
+@media (max-width:899px){.stage .lh{font-size:24px!important;line-height:1.1!important;letter-spacing:-.01em!important;padding-bottom:10px!important}}
+@media (max-width:899px){.stage .sent.b1{padding-bottom:34px!important}.stage .b3{padding-top:34px!important}}
+@media (max-width:899px){.stage .b3{gap:18px!important}}
