@@ -192,3 +192,10 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 @media (max-width:899px){.sub-hd .sb-res{font-size:24px!important;height:36px!important;padding:0 .55em!important;letter-spacing:.03em!important}}
 /* Pfeil im Text (Fellow-Seiten „From – to“), Form wie Kopfzeile (11.11.) */
 .ar-t{display:inline-block;width:.9em;height:.9em;vertical-align:-.1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* Zwischenüberschriften und Knöpfe: 22 px halbfett, wie die Tabellenüberschriften (11.11.) */
+@media (max-width:899px){
+.sh,h2.sh,.pv-th{font-size:22px!important;font-weight:600!important}
+.stage .rb,.pv-btn,.sub-hd .sb-res{font-size:22px!important;font-weight:600!important;letter-spacing:.02em!important}
+.sub-hd .sb-res{height:34px!important}
+}
+@media (max-width:899px){.pv-mo b{font-size:22px!important}}
