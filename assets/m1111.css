@@ -1,0 +1,108 @@
+/* Handy-Feinschliff 11.11.2026 (Moodboard 11.11, feinschliff.docx; Vergleich jetzt/neu im Artifact „WMEW Handy-Vergleich“). Nur bis 899 px, der Computer bleibt unverändert und bekommt später einen eigenen Durchgang. */
+
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-600.woff2) format("woff2");font-weight:600;font-display:swap}
+@media (max-width:899px){
+/* Überschriften halbfett 600, enger */
+h1.big,.head .big,main>.big,body>.sub-hd~main>.big:first-child{font-weight:600!important;letter-spacing:-.02em!important}
+/* Startseite LI-2: Satz, Untertitel, Impact halbfett; Tabelle regular, Zahl hellgrau mittig, Striche Rand zu Rand */
+.stage .sent.b1,.stage .lh,.stage .b3 .sent{font-weight:600;letter-spacing:-.02em}
+.stage .sent.b1,.stage .b3 .sent{font-size:39px!important}
+.stage .list{padding-left:0;padding-right:0}
+.stage .it{padding-left:var(--pad);padding-right:var(--pad)}
+.stage .it .n{color:#9d9d9c;grid-row:1/span 2;align-self:center}
+/* Kopfzeile: Punkte + Koralle-Knopf K-2 statt Geschwisterleiste */
+.pv-nav{position:absolute;left:50%;top:26px;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px}
+.pv-nav a{display:block;width:8px;height:8px;border-radius:99px;background:#cfcfce}
+.pv-nav a[aria-current]{width:26px;height:12px;background:#ec6a61}
+.sib{visibility:hidden!important}
+/* Ausklapptabellen: gleich hohe Zeilen */
+.acc summary{min-height:72px;box-sizing:border-box;align-items:center!important;padding-top:0!important;padding-bottom:0!important}
+/* Projektseite PQ-A: Nummer hellgrau auf eigener Zeile */
+.pv-num{color:#9d9d9c}
+/* Personen PE-A */
+.cols.person>.head{order:0}.cols.person>.pic{order:1}.cols.person>.acc{order:2}
+.cols.person .hsub,.cols.person figcaption{display:none!important}
+/* Resources: Nummern hell, News als grüner Knopf in der S4ME-Tabelle */
+.ri .n{color:#9d9d9c}
+.ri{min-height:72px;box-sizing:border-box;align-content:center}
+.ri.nws{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;text-align:left!important}
+.ri.nws .nk,.ri.nws .np{display:none!important}
+.pv-news{display:flex;align-items:center;gap:10px}
+.pv-btn{display:inline-flex;align-items:center;background:#bad150;color:#181715;border-radius:99px;padding:.26em .55em .22em;font-size:24px;line-height:1;text-transform:uppercase;letter-spacing:.03em}
+.pv-date{font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+.pv-plus{font-size:24px;line-height:1}
+}
+
+@media (max-width:899px){
+/* Zwischenüberschriften und Tabellenüberschriften: 24 px halbfett Versalien */
+.sh,h2.cap,.gh,.lens h3,.pv-th{font-size:24px!important;font-weight:600!important;text-transform:uppercase!important;letter-spacing:-.01em!important;line-height:1.1!important;color:#181715!important}
+.gh{padding-top:40px!important;padding-bottom:10px!important}
+/* keine Untertitel unter Titeln */
+.head .hsub{display:none!important}
+/* Grafiktexte: Etikett 15 px, Text 18 px */
+svg[data-fit]{--ts:15px!important;--tl:18px!important}
+/* Links im Fließtext: keine Umrandung, kleiner Pfeil */
+a.op{border:0!important;box-shadow:none!important;padding:0!important;background:none!important;border-radius:0!important;text-decoration:underline!important;text-decoration-thickness:1px!important;text-underline-offset:.18em!important;color:inherit!important}
+a.op::after{content:"↗";display:inline-block;font-size:.72em;margin-left:.12em;text-decoration:none}
+/* eine Tabellenzeile überall: Nummer 24 hell mittig, Titel 24 Versalien, Unterzeile 14 Versalien grau */
+.pv-row{display:grid;grid-template-columns:40px minmax(0,1fr) 24px;column-gap:8px;align-items:center;min-height:72px;box-sizing:border-box;border-bottom:1px solid #181715;text-decoration:none;color:#181715}
+.pv-row.nn{grid-template-columns:minmax(0,1fr) 24px}
+.pv-n{font-size:24px;line-height:1;color:#9d9d9c}
+.pv-t{font-size:24px;line-height:1.05;text-transform:uppercase;letter-spacing:-.008em}
+.pv-s{display:block;margin-top:4px;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;color:#4c4c4b}
+.pv-i{font-size:24px;line-height:1;text-align:right}
+.pv-tab{border-top:1px solid #181715;margin-top:12px}
+.pv-tab details>summary{list-style:none;cursor:pointer}
+.pv-tab details>summary::-webkit-details-marker{display:none}
+.pv-tab .pv-d{padding:0 0 16px 48px;font-size:18px;line-height:1.45}
+/* Resources-Zeilen wie die Startseite */
+.ri{grid-template-columns:40px minmax(0,1fr)!important;column-gap:8px!important;align-items:center!important}
+.ri .n{font-size:24px!important;line-height:1!important;grid-row:1/span 3;align-self:center}
+.ri .t{font-size:24px!important;line-height:1.05!important;text-transform:uppercase!important}
+.ri .m{font-size:14px!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#4c4c4b!important}
+.ri .d{font-size:14px!important}
+/* biobank-Tabelle */
+.how .n{font-size:24px!important;text-transform:uppercase}
+/* Jury-Punktmatrix */
+.pv-mx{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,48px);align-items:center;border-top:1px solid #181715;margin-top:12px}
+.pv-mx>*{border-bottom:1px solid #181715;min-height:56px;display:flex;align-items:center}
+.pv-mx .c{justify-content:center}
+.pv-mx .h{min-height:52px;font-size:14px;line-height:1.15;text-transform:uppercase;letter-spacing:.03em;color:#4c4c4b;flex-direction:column;justify-content:center;text-align:center}
+.pv-mx .nm{font-size:24px;line-height:1.05;text-transform:uppercase}
+.pv-mx .dt{width:16px;height:16px;border-radius:99px;background:#181715}
+.pv-mx .ex .dt{background:#ec6a61}
+.pv-mx .no{width:6px;height:1px;background:#9d9d9c}
+/* Impact-Mosaik (Platzhalter) */
+.pv-mo{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #181715;border-left:1px solid #181715;margin-top:12px}
+.pv-mo>div{border-right:1px solid #181715;border-bottom:1px solid #181715;padding:12px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between}
+.pv-mo .w{grid-column:1/-1;min-height:150px}
+.pv-mo b{font-weight:600;font-size:24px;line-height:1.05;text-transform:uppercase}
+.pv-mo span{font-size:14px;text-transform:uppercase;letter-spacing:.03em;color:#4c4c4b}
+}
+@media (max-width:899px){
+.pv-dir{border-top:1px solid #181715;margin-top:18px}
+.pv-dir+.pv-dir{margin-top:0}
+.pv-dir .hdr{display:flex;align-items:center;justify-content:space-between;min-height:80px;box-sizing:border-box}
+.pv-dir .hdr .lb{font-size:24px;font-weight:600;text-transform:uppercase;letter-spacing:-.01em}
+.pv-dir .hdr .num{font-size:44px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.pv-dir.green .hdr .num{background:#bad150;border-radius:99px;padding:2px 16px 4px}
+.pv-mx{grid-template-columns:minmax(0,1fr) repeat(3,58px)!important}
+.pv-mx .h{font-size:13px!important;letter-spacing:0!important}
+.pv-dots{display:grid;grid-template-columns:repeat(9,16px);gap:10px;margin:14px 0 10px}
+.pv-dots i{width:16px;height:16px;border-radius:99px;background:#181715;display:block}
+.pv-dots i.ex{background:#ec6a61}
+}
+@media (max-width:899px){
+.ri.nws{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;text-align:left!important;min-height:72px;background:none!important}
+.ri.nws::before,.ri.nws::after{display:none!important}
+.ri.nws{border-bottom:1px solid #181715!important}
+.ri.nws .pv-news{gap:12px}
+.pv-nopen{background:#bad150;border-bottom:1px solid #181715}
+.pv-nopen .nh{display:flex;justify-content:space-between;align-items:center;min-height:72px}
+.pv-nopen a.hl{display:grid;grid-template-columns:minmax(0,1fr) 24px;column-gap:8px;align-items:start;padding:8px 0;color:#181715;text-decoration:none}
+.pv-nopen a.hl .t{font-size:24px;line-height:1.05;text-transform:uppercase;letter-spacing:-.008em}
+.pv-nopen a.hl .s{display:block;margin-top:4px;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em;opacity:.65}
+.pv-nopen a.hl .i{font-size:22px;text-align:right}
+.pv-nopen a.all{display:flex;align-items:center;gap:10px;padding:10px 0 20px;font-size:24px;text-transform:uppercase;color:#181715;text-decoration:none}
+}
+@media (max-width:899px){.ri.nws[hidden]{display:none!important}}
