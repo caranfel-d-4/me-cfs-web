@@ -125,3 +125,5 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 @media (max-width:899px){.stage .lh{font-size:24px!important;line-height:1.1!important;letter-spacing:-.01em!important;padding-bottom:10px!important}}
 @media (max-width:899px){.stage .sent.b1{padding-bottom:34px!important}.stage .b3{padding-top:34px!important}}
 @media (max-width:899px){.stage .b3{gap:18px!important}}
+/* Handy: Startseite darf scrollen, statt oben und unten abgeschnitten zu werden (feste Größen seit 11.11.) */
+@media (max-width:899px){.stage{height:auto!important;min-height:100vh;min-height:100svh;overflow:visible!important;padding-bottom:40px!important}}
