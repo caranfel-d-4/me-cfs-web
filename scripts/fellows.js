@@ -6,12 +6,12 @@ const fs = require('fs'), path = require('path');
 const f = path.join(__dirname, '..', 'fellowships', 'index.html');
 const f1 = v => Math.round(v * 10) / 10;
 const FEL = [ // p = Lage [Computer, Handy] (Anteil von Breite/Höhe), to = Land, k = o raus / i rein
-  {n:'García de Otazo', to:'kr', k:'o', p:[[.68,.27],[.68,.27]], a:['',     'end'], dy:[0,0]},
-  {n:'Vincenzi',        to:'uk', k:'o', p:[[.38,.27],[.32,.33]], a:['',     ''],    dy:[0,22]},
-  {n:'McGing',          to:'uk', k:'i', p:[[.24,.36],[.2,.3]],   a:['end',  'end'], dy:[0,0]},
-  {n:'Eitenberger',     to:'ie', k:'o', p:[[.28,.56],[.27,.56]], a:['',     ''],    dy:[24,22]},
-  {n:'Giménez Orenga',  to:'es', k:'i', p:[[.36,.73],[.36,.72]], a:['',     ''],    dy:[0,0]},
-  {n:'Ljungström',      to:'es', k:'i', p:[[.5,.82],[.5,.82]],   a:['',     ''],    dy:[0,0]}
+  {n:'García de Otazo', h:'003/', to:'kr', k:'o', p:[[.68,.27],[.68,.27]], a:['',     'end'], dy:[0,0]},
+  {n:'Vincenzi', h:'002/',        to:'uk', k:'o', p:[[.38,.27],[.32,.33]], a:['',     ''],    dy:[0,22]},
+  {n:'McGing', h:'005/',          to:'uk', k:'i', p:[[.24,.36],[.2,.3]],   a:['end',  'end'], dy:[0,0]},
+  {n:'Eitenberger', h:'006/',     to:'ie', k:'o', p:[[.28,.56],[.27,.56]], a:['',     ''],    dy:[24,22]},
+  {n:'Giménez Orenga', h:'001/',  to:'es', k:'i', p:[[.36,.73],[.36,.72]], a:['',     ''],    dy:[0,0]},
+  {n:'Ljungström', h:'004/',      to:'es', k:'i', p:[[.5,.82],[.5,.82]],   a:['',     ''],    dy:[0,0]}
 ];
 const LAND = {kr:['South Korea',[.88,.1],[.86,.08]], uk:['UK',[.1,.14],[.14,.1]], ie:['Ireland',[.07,.53],[.11,.5]], es:['Spain',[.18,.9],[.2,.9]]};
 function net(desk) {
@@ -25,7 +25,7 @@ function net(desk) {
   Object.values(LAND).forEach(l => { const [x, y] = l[j + 1], r = desk ? 11 : 10;
     b += `<circle class="fl" cx="${f1(X(x))}" cy="${f1(Y(y))}" r="${r}"/><text class="tx-s fc" x="${f1(X(x))}" y="${f1(Y(y) + r + 18)}" text-anchor="middle">${l[0]}</text>`; });
   FEL.forEach(e => { const [x, y] = e.p[j], a = e.a[j], dy = e.dy[j];
-    b += `<circle class="ff" cx="${f1(X(x))}" cy="${f1(Y(y))}" r="${desk ? 7 : 6}"/><text class="tx-s fm" x="${f1(a === 'end' ? X(x) - o : X(x) + o)}" y="${f1(dy ? Y(y) + dy : Y(y) - (desk ? 10 : 8))}"${a ? ' text-anchor="end"' : ''}>${e.n}</text>`; });
+    b += `<a class="fa" href="${e.h}"><circle class="ff" cx="${f1(X(x))}" cy="${f1(Y(y))}" r="${desk ? 7 : 6}"/><text class="tx-s fm" x="${f1(a === 'end' ? X(x) - o : X(x) + o)}" y="${f1(dy ? Y(y) + dy : Y(y) - (desk ? 10 : 8))}"${a ? ' text-anchor="end"' : ''}>${e.n}</text></a>`; });
   return `<svg data-fit class="fn ${desk ? 'dk' : 'ph'}" viewBox="0 0 ${W} ${H}" aria-hidden="true">${b}</svg>`;
 }
 const LIST = [['Karen Giménez Orenga','Valencia → MedUni Wien','5 months'],['Leonardo Vincenzi','MedUni Wien → Cambridge','5 months'],

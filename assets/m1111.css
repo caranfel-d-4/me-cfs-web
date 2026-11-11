@@ -183,3 +183,8 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 @media (max-width:899px){.intro .hint{font-size:22px!important;line-height:1.1!important;letter-spacing:-.008em!important}.intro .ld span{font-size:22px!important;line-height:1.1!important;letter-spacing:-.008em!important;color:#005b94!important}}
 /* patients/: What patients added wieder in den normalen Rändern (11.11.) */
 @media (max-width:899px){.pv-dots{margin-left:0!important;margin-right:0!important;grid-template-columns:repeat(14,minmax(0,1fr))!important;justify-items:start!important}}
+/* Fellow-Seiten verlinkt (11.11.) */
+.fls .fl-a,.fnet .fa{color:inherit;text-decoration:none;cursor:pointer}.fls .fl-a:hover b,.fls .fl-a:focus-visible b{color:#005b94}.fnet .fa:hover .fm,.fnet .fa:focus-visible .fm{fill:#005b94}.fnet .fa:hover .ff{fill:#005b94}
+/* Fellow-Seiten: Absätze mit Abstand, Textlink schlicht unterstrichen (11.11.) */
+.cols.proj .body .lead+.lead{margin-top:14px}
+.lead a.il{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}.lead a.il:hover,.lead a.il:focus-visible{color:#005b94}
