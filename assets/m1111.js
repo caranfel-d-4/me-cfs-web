@@ -83,10 +83,11 @@ function run(){
  // patients/: Jury als Punktmatrix
  var seats=document.querySelector('.seats');
  if(seats){var cols=[].map.call(seats.querySelectorAll('.col'),function(c){return {d:c.querySelector('.jh b').textContent,c:c.querySelector('.jh span').textContent,m:[].map.call(c.querySelectorAll('li>span'),function(s){return s.firstChild.textContent.replace(', chair','').trim();})};});
+  var hrefs={};seats.querySelectorAll('li a.pl').forEach(function(a){hrefs[a.textContent.trim()]=a.getAttribute('href');});
   var names=[];cols.forEach(function(c){c.m.forEach(function(n){if(names.indexOf(n)<0)names.push(n);});});
   var ex='Keith Geraghty';names=names.filter(function(n){return n!==ex;}).concat([ex]);
   var mx=document.createElement('div');mx.className='pv-mx';mx.innerHTML='<span class="h"></span>'+cols.map(function(c){return '<span class="h">'+c.d+'<br>'+c.c.replace('Consolidation Call','Consol.')+'</span>';}).join('');
-  names.forEach(function(n){mx.innerHTML+='<span class="nm'+(n===ex?' ex':'')+'">'+n+'</span>'+cols.map(function(c){return '<span class="c'+(n===ex?' ex':'')+'">'+(c.m.indexOf(n)>=0?'<i class="dt"></i>':'<i class="no"></i>')+'</span>';}).join('');});
+  names.forEach(function(n){mx.innerHTML+='<span class="nm'+(n===ex?' ex':'')+'">'+(hrefs[n]?'<a class="pl" href="'+hrefs[n]+'" target="_blank" rel="noopener">'+n+'</a>':n)+'</span>'+cols.map(function(c){return '<span class="c'+(n===ex?' ex':'')+'">'+(c.m.indexOf(n)>=0?'<i class="dt"></i>':'<i class="no"></i>')+'</span>';}).join('');});
   seats.replaceWith(mx);var cap=document.querySelector('.seat-cap');if(cap)cap.innerHTML='<span style="color:#005b94">●</span> sat in this jury meeting · <span style="color:#ec6a61">●</span> expert by experience · international jury of WWTF';}
  // fellowships/: B, Schrift statt Netz
  var fnet=document.querySelector('figure.fnet');

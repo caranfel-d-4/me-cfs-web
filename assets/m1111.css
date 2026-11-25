@@ -69,6 +69,7 @@ a.op::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.
 .pv-mx .c{justify-content:center}
 .pv-mx .h{min-height:52px;font-size:14px;line-height:1.15;text-transform:uppercase;letter-spacing:.03em;color:#4c4c4b;flex-direction:column;justify-content:center;text-align:center}
 .pv-mx .nm{font-size:24px;line-height:1.05;text-transform:uppercase}
+.pv-mx .nm a.pl{white-space:normal}
 .pv-mx .dt{width:16px;height:16px;border-radius:99px;background:#005b94}
 .pv-mx .ex .dt{background:#ec6a61}
 .pv-mx .no{width:6px;height:1px;background:#9d9d9c}
@@ -232,12 +233,6 @@ html,body{overflow-x:clip}
 .pv-i,.pv-tab summary .pv-i{font-size:22px!important}
 }
 
-/* Impressum rechts in der Fußzeile (25.11.2026, Audit-Notiz): Handy und Computer */
-.foot .links{align-items:center;flex:1 1 auto}
-.foot .imp{margin-left:auto;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;white-space:nowrap;transition:color 160ms cubic-bezier(.4,0,.2,1)}
-.foot .imp::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.15em;vertical-align:-.05em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(-45deg)}
-.foot .imp:hover,.foot .imp:focus-visible{color:#005b94;outline:none}
-@media (prefers-reduced-motion:reduce){.foot .imp{transition:none}}
 
 /* Startseite Handy (25.11.2026, Audit-Notiz): Zahl gehört zum Text – gleiche Größe und Farbe, normal linksbündig, keine eigene Spalte */
 @media (max-width:899px){
