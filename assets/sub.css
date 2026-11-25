@@ -144,3 +144,11 @@ svg[data-fit] .tx-s{font-size:calc(var(--ts)*var(--k,1))}
 .sib{padding-top:calc(8px + 36px + 30px)}
 .sib+.cols>.head{padding-top:0}
 @media (min-width:900px){.sib{padding-top:calc(12*var(--u) + 36px + 30px)}}
+/* Forschende verlinkt (25.11.2026): Name unterstrichen, dahinter der schräge Pfeil (extern ↗) in der Form der Kopfzeilen-Pfeile.
+   Pfeil als SVG-Maske, nie als Schriftzeichen, damit er am Handy kein Emoji wird. Hover Dunkelblau. In der großen Überschrift ohne Unterstrich, Pfeil kleiner. */
+a.pl{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;white-space:nowrap;transition:color 160ms cubic-bezier(.4,0,.2,1)}
+a.pl::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.15em;vertical-align:-.05em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(-45deg)}
+a.pl:hover,a.pl:focus-visible{color:#005b94;outline:none}
+h1 a.pl{text-decoration:none;white-space:normal}
+h1 a.pl::after{width:.42em;height:.42em;margin-left:.12em;vertical-align:.12em}
+@media (prefers-reduced-motion:reduce){a.pl{transition:none}}
