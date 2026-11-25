@@ -34,7 +34,7 @@
 })();
 
 /* Nach-oben-Knopf (25.11.2026, Canvas „Nach oben mit Farbrahmen“, Variante C Dunkelblau):
-   gefüllter Kreis, weißer Kopfzeilen-Pfeil nach oben. Erscheint, sobald man scrollt; sitzt rechts unten über der Satzleiste. */
+   gefüllter Kreis, weißer Kopfzeilen-Pfeil nach oben. Erscheint, sobald man scrollt; sitzt rechts unten über der Satzleiste – auch am Seitenende, wenn die Satzleiste über der Fußzeile steht (--bb = Abstand Unterkante Fenster bis Oberkante Satzleiste). */
 (function(){
   if(!document.querySelector('.sub-hd'))return;
   var a=document.createElement('button');a.type='button';a.className='btt';a.setAttribute('aria-label','Back to top');
@@ -42,7 +42,7 @@
   document.body.appendChild(a);
   var bar=document.querySelector('.sbar'),rm=matchMedia('(prefers-reduced-motion: reduce)'),q=false;
   function upd(){q=false;
-    a.style.setProperty('--bb',(bar?bar.offsetHeight:0)+'px');
+    a.style.setProperty('--bb',(bar?Math.max(0,Math.round(document.documentElement.clientHeight-bar.getBoundingClientRect().top)):0)+'px');
     a.classList.toggle('on',scrollY>40);}
   function req(){if(!q){q=true;requestAnimationFrame(upd);}}
   addEventListener('scroll',req,{passive:true});addEventListener('resize',req);upd();
