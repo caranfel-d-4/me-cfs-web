@@ -7,7 +7,7 @@ const ROOT = path.join(__dirname, '..');
 
 const P = [ // Call 2024, von unten nach oben
   {nr:'001', ac:'SevereME/CFS', eur:99752}, {nr:'002', ac:'CSF genetics', eur:99797}, {nr:'003', ac:'ME/CFSabs', eur:99426},
-  {nr:'004', ac:'degranulateME', eur:99992}, {nr:'007', ac:'Acronym tbc', eur:99982}, {nr:'016', ac:'GlycoExplore', eur:99946},
+  {nr:'004', ac:'degranulateME', eur:99992}, {nr:'007', ac:'MetaRole', eur:99982}, {nr:'016', ac:'GlycoExplore', eur:99946},
   {nr:'018', ac:'OxMRI', eur:96550}
 ];
 const C = [ // Consolidation Call 2026, von unten nach oben; from = Projekt aus dem Call 2024, auf dem es aufbaut
@@ -18,7 +18,7 @@ const eur = n => '€' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const TOT = P.reduce((a, p) => a + p.eur, 0), CTOT = C.reduce((a, p) => a + p.eur, 0);
 const f1 = v => +v.toFixed(1);
 const TXT = [
-  {t:'ME/CFS 2024 – Understanding ME/CFS', l:['Call 2024 · since 01/2025 · €695,445.','Each slab is one project, up to','€100,000 for 12 to 15 months.']},
+  {t:'ME/CFS 2024 – Understanding ME/CFS', l:['Call 2024 · since 01/2025 · € 695,445.','Each slab is one project, up to','€ 100,000 for 12 to 15 months.']},
   {t:'ME/CFS Consolidation Call 2026', l:[`${eur(CTOT)} · two consortia.`,'Awarded 10/2026, start 2027.','Each builds on a project below.']}
 ];
 
@@ -97,7 +97,7 @@ function tower(desk, mode, hP, hC, pid) {
       lines.forEach((z, i) => { lab += `<text class="tx tx-s" x="${f1(nx)}" y="${f1(by + i * ls)}">${z}</text>`; });
     }
   }
-  brk(top - sv, conBottom, '€2 million', '2 projects', 'ME/CFS Consolidation Call 2026');
+  brk(top - sv, conBottom, '€ 2 m.', '2 projects', 'ME/CFS Consolidation Call 2026');
   brk(ys[6][0] - sv, bottom, eur(TOT), '7 projects', 'ME/CFS 2024');
   const H = bottom + (desk ? 30 : 20);
   return `<svg data-fit class="tw ${desk ? 'dk' : 'ph'}${call ? ' call' : ''}" viewBox="0 0 ${W} ${f1(H)}" aria-hidden="true">`
@@ -108,8 +108,8 @@ function tower(desk, mode, hP, hC, pid) {
 const list = (hP, hC, call) => [...(call ? C : []).map(c => `          <li><a class="bk" href="${hC}${c.nr}/"><span class="n">${c.nr}</span><span class="t">${c.ac}</span><span class="a">${eur(c.eur)}</span></a></li>`),
   ...P.map(p => `          <li><a class="bk" href="${hP}${p.nr}/"><span class="n">${p.nr}</span><span class="t">${p.ac}</span><span class="a">${eur(p.eur)}</span></a></li>`)].join('\n');
 const AL = {
-  call: 'A tower: on top, two large slabs for the Consolidation Call, €1,999,099 for two consortia awarded in October 2026: 004 Haider, building on project 018, and 003 Wielscher, building on project 002. Below, seven thin hatched slabs, the exploratory projects they build on. Each slab links to its page.',
-  proj: 'A tower: seven thin slabs, one per exploratory project, about €100,000 each, €695,445 in total. On top, two large hatched slabs for the two consortia of the Consolidation Call, €1,999,099. Each project slab links to its page.'
+  call: 'A tower: on top, two large slabs for the Consolidation Call, € 1,999,099 for two consortia awarded in October 2026: 004 Haider, building on project 018, and 003 Wielscher, building on project 002. Below, seven thin hatched slabs, the exploratory projects they build on. Each slab links to its page.',
+  proj: 'A tower: seven thin slabs, one per exploratory project, about € 100,000 each, € 695,445 in total. On top, two large hatched slabs for the two consortia of the Consolidation Call, € 1,999,099. Each project slab links to its page.'
 };
 for (const [file, mode, hP, hC, pid] of [['call/index.html', 'call', '../projects/', '', 'hc'], ['projects/index.html', 'proj', '', '../call/', 'hp']]) {
   const f = path.join(ROOT, file);

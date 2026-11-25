@@ -6,7 +6,7 @@
 h1.big,.head .big,main>.big,body>.sub-hd~main>.big:first-child{font-weight:600!important;letter-spacing:-.02em!important}
 /* Startseite LI-2: Satz, Untertitel, Impact halbfett; Tabelle regular, Zahl hellgrau mittig, Striche Rand zu Rand */
 .stage .sent.b1,.stage .lh,.stage .b3 .sent{font-weight:600;letter-spacing:-.02em}
-.stage .sent.b1,.stage .b3 .sent{font-size:39px!important}
+.stage .sent.b1,.stage .b3 .sent{font-size:44px!important}
 .stage .list{padding-left:0;padding-right:0}
 .stage .it{padding-left:var(--pad);padding-right:var(--pad)}
 .stage .it .n{color:#9d9d9c;grid-row:1/span 2;align-self:center}
@@ -231,3 +231,31 @@ svg[data-fit]{--ts:13px!important}
 html,body{overflow-x:clip}
 .pv-i,.pv-tab summary .pv-i{font-size:22px!important}
 }
+
+/* Impressum rechts in der Fußzeile (25.11.2026, Audit-Notiz): Handy und Computer */
+.foot .links{align-items:center;flex:1 1 auto}
+.foot .imp{margin-left:auto;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;white-space:nowrap;transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.foot .imp::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.15em;vertical-align:-.05em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(-45deg)}
+.foot .imp:hover,.foot .imp:focus-visible{color:#005b94;outline:none}
+@media (prefers-reduced-motion:reduce){.foot .imp{transition:none}}
+
+/* Startseite Handy (25.11.2026, Audit-Notiz): Zahl gehört zum Text – gleiche Größe und Farbe, normal linksbündig, keine eigene Spalte */
+@media (max-width:899px){
+.stage .it{display:block!important;font-size:22px!important;line-height:1.05!important}
+.stage .it .n{display:inline!important;color:inherit!important}
+.stage .it .n::after{content:" "}
+.stage .it .t{display:inline!important}
+.stage .it .a{display:block!important;margin-top:3px}
+}
+
+/* vienna/ Handy (25.11.2026, Audit-Notiz): in der Karte nur die Namen, Projekte/Rolle in der nummerierten Legende darunter */
+.vleg{display:none}
+@media (max-width:899px){
+.vleg{display:block;list-style:none;margin:14px 0 6px;padding:0;border-top:1px solid #181715}
+.vleg li{display:flex;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px solid #e4e4e3;font-size:13px;line-height:1.3;text-transform:uppercase;letter-spacing:.03em}
+.vleg .vn{flex:0 0 18px;height:18px;border-radius:50%;background:#181715;color:#fff;font-size:11px;line-height:18px;text-align:center;letter-spacing:0;transform:translateY(-1px)}
+}
+
+/* biobank/ Discover-Me-Vergleich als Kreise wie die Jury-Punkte (25.11.2026): Fläche = Betrag */
+.fl .dm-f{fill:#005b94}
+.fl .dm-o{fill:none;stroke:#005b94;stroke-width:1.5}
