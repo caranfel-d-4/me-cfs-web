@@ -152,16 +152,12 @@ a.pl:hover,a.pl:focus-visible{color:#005b94;outline:none}
 h1 a.pl{text-decoration:none;white-space:normal}
 h1 a.pl::after{width:.42em;height:.42em;margin-left:.12em;vertical-align:.12em}
 @media (prefers-reduced-motion:reduce){a.pl{transition:none}}
-/* Nach-oben-Knopf (25.11.2026, Variante C Dunkelblau nach research.wwtf.at): erscheint beim Scrollen, Ring läuft beim Erscheinen einmal nach außen */
-@keyframes btt-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@keyframes btt-ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.1);opacity:0}}
+/* Nach-oben-Knopf (25.11.2026, Variante C Dunkelblau nach research.wwtf.at): erscheint beim Scrollen (ohne Ring-Welle, 25.11. ihr Wunsch) */
 .btt{position:fixed;right:16px;bottom:calc(var(--bb,0px) + 16px);z-index:15;display:none;place-items:center;box-sizing:border-box;width:48px;height:48px;padding:0;border:0;border-radius:50%;background:#005b94;color:#fff;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.14);transition:transform 180ms cubic-bezier(.22,1,.36,1)}
-.btt.on{display:grid;animation:btt-in 220ms cubic-bezier(.22,1,.36,1) both}
-.btt::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #005b94;opacity:0;pointer-events:none}
-.btt.on::after{animation:btt-ring 1.4s cubic-bezier(.22,1,.36,1) forwards}
+.btt.on{display:grid}
 .btt:hover,.btt:focus-visible{transform:translateY(-2px);outline:none}
 .btt:focus-visible{box-shadow:0 0 0 3px #fff,0 0 0 5px #005b94}
 .btt .chev{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 @media (min-width:900px){.btt{right:24px;bottom:calc(var(--bb,0px) + 24px)}}
-@media (prefers-reduced-motion:reduce){.btt,.btt.on,.btt.on::after{animation:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.btt{transition:none}}
 @media print{.btt{display:none!important}}
