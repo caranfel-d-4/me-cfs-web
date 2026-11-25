@@ -92,7 +92,7 @@ function keywords(body) {
 const fmt = (d) => {
   const p = Object.fromEntries(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", day: "numeric", month: "numeric", year: "numeric" })
     .formatToParts(d).map((x) => [x.type, x.value]));
-  return `${+p.day} ${MONTHS[+p.month - 1]} ${p.year}`;
+  return `${String(p.month).padStart(2, "0")}/${p.year}`;
 };
 
 const ts = await threads();
