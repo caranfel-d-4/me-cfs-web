@@ -32,3 +32,21 @@
   function req(){if(!q){q=true;requestAnimationFrame(upd);}}
   addEventListener('scroll',req,{passive:true});addEventListener('resize',req);upd();
 })();
+
+/* Nach-oben-Knopf (25.11.2026, Canvas „Nach oben mit Farbrahmen“, Variante C Dunkelblau):
+   gefüllter Kreis, weißer Kopfzeilen-Pfeil nach oben. Erscheint, sobald man scrollt; sitzt rechts unten über der Satzleiste. */
+(function(){
+  if(!document.querySelector('.sub-hd'))return;
+  var a=document.createElement('button');a.type='button';a.className='btt';a.setAttribute('aria-label','Back to top');
+  a.innerHTML='<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4M6 10l6-6 6 6"/></svg>';
+  document.body.appendChild(a);
+  var bar=document.querySelector('.sbar'),rm=matchMedia('(prefers-reduced-motion: reduce)'),q=false;
+  function upd(){q=false;
+    a.style.setProperty('--bb',(bar?bar.offsetHeight:0)+'px');
+    a.classList.toggle('on',scrollY>40);}
+  function req(){if(!q){q=true;requestAnimationFrame(upd);}}
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);upd();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(upd);
+  a.addEventListener('click',function(){scrollTo({top:0,behavior:rm.matches?'auto':'smooth'});
+    var h=document.querySelector('.sub-hd .home-btn');if(h)h.focus({preventScroll:true});});
+})();
